@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Set;
+
 /**
  * Created by lenovo_3 on 17/01/2018.
  */
@@ -10,5 +12,12 @@ public class RegisterTest {
         Candidate candidate = new Candidate("p@gmail.com", "alex");
         Register register = new Register();
         Assert.assertTrue(register.add(candidate));
+    }
+
+    @Test
+    public void emptyCollection() {
+        Register register = new Register();
+        Set<Candidate> truc = register.get();
+        Assert.assertTrue(truc.isEmpty());
     }
 }
