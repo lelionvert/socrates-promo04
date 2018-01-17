@@ -35,4 +35,13 @@ public class CandidateRegisterTest {
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
         Assertions.assertThat(retrievedCandidateList).containsExactly(candidate, candidate2);
     }
+
+    @Test
+    public void addOneCandidateToEmptyList(){
+        Candidate candidate = new Candidate("candidat", "candidat@gmail.com");
+        CandidateRegister candidateRegister = new CandidateRegister();
+        candidateRegister.addCandidate(candidate);
+        List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
+        Assertions.assertThat(retrievedCandidateList).containsExactly(candidate);
+    }
 }

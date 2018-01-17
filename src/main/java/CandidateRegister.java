@@ -16,4 +16,8 @@ class CandidateRegister {
     public List<Candidate> retrieveAll() {
         return candidateList;
     }
+
+    public void addCandidate(Candidate candidate) {
+        candidateList.add(candidate);
+    }
 }
