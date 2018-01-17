@@ -39,5 +39,21 @@ namespace SocratesFrTest
             Check.That(listCandidates[0].Mail).IsEqualTo(candidateOne.Mail);
             Check.That(listCandidates.Count).IsEqualTo(1);
         }
+
+        [Test]
+        public void ListOfCandidateShouldReturnSortedList()
+        {
+            Register register = new Register();
+            Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
+            Candidate candidateTwo = new Candidate("Titi", "titi@gmail.com");
+            Candidate candidateThree = new Candidate("Tati", "tati@gmail.com");
+            register.AddCandidate(candidateOne);
+            register.AddCandidate(candidateTwo);
+            register.AddCandidate(candidateThree);
+            List<Candidate> listCandidates = register.GetListOfCandidates();
+            Check.That(listCandidates[0].Name).IsEqualTo(candidateThree.Name);
+            Check.That(listCandidates[1].Name).IsEqualTo(candidateTwo.Name);
+            Check.That(listCandidates[2].Name).IsEqualTo(candidateOne.Name);            
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace SocratesFrTest
        
         public List<Candidate> GetListOfCandidates()
         {
-            return listCandidates;
+            return listCandidates.OrderBy(item => item.Name).ToList();
         }
 
         public void AddCandidate(Candidate candidate)
