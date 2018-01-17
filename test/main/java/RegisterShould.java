@@ -12,7 +12,7 @@ public class RegisterShould {
     public void addCandidate() {
         Candidate candidate = new Candidate("p@gmail.com", "alex");
         Register register = new Register();
-        assertThat(register.add(candidate)).isTrue();
+        assertThat(register.addCandidate(candidate)).isTrue();
     }
 
     @Test
@@ -26,7 +26,7 @@ public class RegisterShould {
     public void haveTheAddedCandidate() {
         Candidate candidate = new Candidate("p@gmail.com", "alex");
         Register register = new Register();
-        register.add(candidate);
+        register.addCandidate(candidate);
         Set<Candidate> candidateCollection = register.getCandidateCollection();
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }

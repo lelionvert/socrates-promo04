@@ -8,7 +8,7 @@ public class Register {
 
     private final Set<Candidate> candidateCollection = new HashSet<Candidate>();
 
-    public boolean add(Candidate candidate) {
+    public boolean addCandidate(Candidate candidate) {
         return candidateCollection.add(candidate);
     }
 
