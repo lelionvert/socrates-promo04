@@ -3,7 +3,17 @@ import java.util.List;
 
 class CandidateRegister {
 
+    private List<Candidate> candidateList;
+
+    public CandidateRegister() {
+        candidateList = new ArrayList<Candidate>();
+    }
+
+    public CandidateRegister(List<Candidate> candidateList) {
+        this.candidateList = candidateList;
+    }
+
     public List<Candidate> retrieve() {
-        return new ArrayList<Candidate>();
+        return candidateList;
     }
 }

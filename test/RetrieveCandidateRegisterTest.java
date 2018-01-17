@@ -1,6 +1,8 @@
+import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RetrieveCandidateRegisterTest {
@@ -10,5 +12,15 @@ public class RetrieveCandidateRegisterTest {
         CandidateRegister candidateRegister = new CandidateRegister();
         List<Candidate> candidateList = candidateRegister.retrieve();
         Assert.assertTrue(candidateList.isEmpty());
+    }
+
+    @Test
+    public void oneCandidateInList(){
+        Candidate candidate = new Candidate("candidat");
+        List<Candidate> candidateList = new ArrayList<Candidate>();
+        candidateList.add(candidate);
+        CandidateRegister candidateRegister = new CandidateRegister(candidateList);
+        List<Candidate> retrievedCandidateList = candidateRegister.retrieve();
+        Assertions.assertThat(retrievedCandidateList).containsExactly(candidate);
     }
 }
