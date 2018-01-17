@@ -10,7 +10,7 @@ public class Register {
         return true;
     }
 
-    public Set<Candidate> get() {
+    public Set<Candidate> getCandidateCollection() {
         return new HashSet<Candidate>();
     }
 }
