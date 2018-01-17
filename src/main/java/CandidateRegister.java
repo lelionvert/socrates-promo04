@@ -13,7 +13,7 @@ class CandidateRegister {
         this.candidateList = candidateList;
     }
 
-    public List<Candidate> retrieve() {
+    public List<Candidate> retrieveAll() {
         return candidateList;
     }
 }
