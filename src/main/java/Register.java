@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ public class Register {
         return candidateCollection.add(candidate);
     }
 
-    public Set<Candidate> getCandidateCollection() {
+    public Collection<Candidate> getCandidateCollection() {
         return candidateCollection;
     }
 }

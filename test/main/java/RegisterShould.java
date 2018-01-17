@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import java.util.Collection;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,7 +19,7 @@ public class RegisterShould {
     @Test
     public void emptyCollection() {
         Register register = new Register();
-        Set<Candidate> candidateCollection = register.getCandidateCollection();
+        Collection<Candidate> candidateCollection = register.getCandidateCollection();
         assertThat(candidateCollection).isEmpty();
     }
 
@@ -27,7 +28,7 @@ public class RegisterShould {
         Candidate candidate = new Candidate("p@gmail.com", "alex");
         Register register = new Register();
         register.addCandidate(candidate);
-        Set<Candidate> candidateCollection = register.getCandidateCollection();
+        Collection<Candidate> candidateCollection = register.getCandidateCollection();
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }
 
