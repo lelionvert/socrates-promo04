@@ -32,5 +32,17 @@ public class RegisterShould {
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }
 
+    @Test
+    public void notReaddCandidateAlreadyAdded() {
+        Candidate candidate = new Candidate("p@gmail.com", "alex");
+        Candidate candidate2 = new Candidate("p@gmail.com", "alex");
+        Register register = new Register();
+        register.addCandidate(candidate);
+        boolean candidateAdded = register.addCandidate(candidate2);
+        assertThat(candidateAdded).isFalse();
+        Collection<Candidate> candidateCollection = register.getCandidateCollection();
+        assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
+    }
+
 
 }
