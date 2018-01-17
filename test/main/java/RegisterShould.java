@@ -44,5 +44,18 @@ public class RegisterShould {
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }
 
+    @Test
+    public void returnOrdredCandidatesByFirstname() {
+        Candidate candidateA = new Candidate("p@gmail.com", "alex");
+        Candidate candidateZ = new Candidate("z@gmail.com", "z");
+        Candidate candidateN = new Candidate("n@gmail.com", "n");
+        Register register = new Register();
+        register.addCandidate(candidateA);
+        register.addCandidate(candidateZ);
+        register.addCandidate(candidateN);
+        Collection<Candidate> candidateCollection = register.getCandidateCollection();
+        assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
+    }
+
 
 }

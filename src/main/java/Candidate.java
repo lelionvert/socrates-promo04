@@ -1,7 +1,7 @@
 /**
  * Created by lenovo_3 on 17/01/2018.
  */
-public class Candidate {
+public class Candidate implements Comparable{
     private final String email;
     private final String firstName;
 
@@ -23,5 +23,18 @@ public class Candidate {
     @Override
     public int hashCode() {
         return email != null ? email.hashCode() : 0;
+    }
+
+
+    public int compareTo(Object o) {
+        Candidate candidate = (Candidate) o;
+        return firstName.compareTo(candidate.firstName);
+    }
+
+    @Override
+    public String toString() {
+        return "Candidate{" +
+                "firstName='" + firstName + '\'' +
+                '}';
     }
 }
