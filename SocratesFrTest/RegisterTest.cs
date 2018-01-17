@@ -25,5 +25,19 @@ namespace SocratesFrTest
             Check.That(listCandidates[0].Name).IsEqualTo(candidate.Name);
             Check.That(listCandidates[0].Mail).IsEqualTo(candidate.Mail);
         }
+
+        [Test]
+        public void AddOneCandidateTwiceShouldReturnTheFirstCandidate()
+        {
+            Register register = new Register();
+            Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
+            Candidate candidateTwo = new Candidate("Titi", "toto@gmail.com");
+            register.AddCandidate(candidateOne);
+            register.AddCandidate(candidateTwo);
+            List<Candidate> listCandidates = register.GetListOfCandidates();
+            Check.That(listCandidates[0].Name).IsEqualTo(candidateOne.Name);
+            Check.That(listCandidates[0].Mail).IsEqualTo(candidateOne.Mail);
+            Check.That(listCandidates.Count).IsEqualTo(1);
+        }
     }
 }

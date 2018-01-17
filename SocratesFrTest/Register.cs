@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SocratesFrTest
 {
@@ -14,6 +15,8 @@ namespace SocratesFrTest
 
         public void AddCandidate(Candidate candidate)
         {
+            if (listCandidates.Any(item => item.Mail.Equals(candidate.Mail)))
+                return;
             listCandidates.Add(candidate);
         }
     }
