@@ -5,9 +5,16 @@ namespace SocratesFrTest
 {
     public class Register
     {
+        private List<Candidate> listCandidates= new List<Candidate>();
+       
         public List<Candidate> GetListOfCandidates()
         {
-            return new List<Candidate>();
+            return listCandidates;
+        }
+
+        public void AddCandidate(Candidate candidate)
+        {
+            listCandidates.Add(candidate);
         }
     }
 }

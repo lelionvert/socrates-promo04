@@ -14,5 +14,16 @@ namespace SocratesFrTest
             List<Candidate> listCandidates = register.GetListOfCandidates();
             Check.That(listCandidates).IsEmpty();
         }
+
+        [Test]
+        public void AddCandidateShouldReturnTheCandidate()
+        {
+            Register register = new Register();
+            Candidate candidate = new Candidate("Toto", "toto@gmail.com");
+            register.AddCandidate(candidate);
+            List<Candidate> listCandidates = register.GetListOfCandidates();
+            Check.That(listCandidates[0].Name).IsEqualTo(candidate.Name);
+            Check.That(listCandidates[0].Mail).IsEqualTo(candidate.Mail);
+        }
     }
 }
