@@ -1,7 +1,11 @@
 class Candidate {
 
     private String name;
-    public Candidate(String name) {
+    private final String email;
+
+
+    public Candidate(String name, String email) {
         this.name = name;
+        this.email = email;
     }
 }
