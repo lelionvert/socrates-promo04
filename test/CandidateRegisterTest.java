@@ -49,4 +49,12 @@ public class CandidateRegisterTest {
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
         Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE);
     }
+
+    @Test
+    public void addCandidateToNonEmptyList(){
+        initializedCandidateRegister.addCandidate(CANDIDATE2);
+        List<Candidate> retrievedCandidateList = initializedCandidateRegister.retrieveAll();
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE, CANDIDATE2);
+    }
+
 }
