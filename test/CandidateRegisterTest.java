@@ -1,11 +1,23 @@
 import org.assertj.core.api.Assertions;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CandidateRegisterTest {
+
+    private CandidateRegister initializedCandidateRegister;
+    public static final Candidate CANDIDATE = new Candidate("carole", "carole@gmail.com");
+    public static final Candidate CANDIDATE2 = new Candidate("gabriel", "gabriel@gmail.com");
+
+    @Before
+    public void setUp() throws Exception {
+        List<Candidate> candidateList = new ArrayList<Candidate>();
+        candidateList.add(CANDIDATE);
+        initializedCandidateRegister = new CandidateRegister(candidateList);
+    }
 
     @Test
     public void retrieveEmptyList(){
@@ -16,32 +28,25 @@ public class CandidateRegisterTest {
 
     @Test
     public void retrieveCandidateInList(){
-        Candidate candidate = new Candidate("candidat", "candidat@gmail.com");
-        List<Candidate> candidateList = new ArrayList<Candidate>();
-        candidateList.add(candidate);
-        CandidateRegister candidateRegister = new CandidateRegister(candidateList);
-        List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(candidate);
+        List<Candidate> retrievedCandidateList = initializedCandidateRegister.retrieveAll();
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE);
     }
 
     @Test
-    public void retriveTwoCandidatesInList(){
-        Candidate candidate = new Candidate("candidat", "candidat@gmail.com");
-        Candidate candidate2 = new Candidate("candidat2", "candidat2@gmail.com");
+    public void retrieveTwoCandidatesInList(){
         List<Candidate> candidateList = new ArrayList<Candidate>();
-        candidateList.add(candidate);
-        candidateList.add(candidate2);
+        candidateList.add(CANDIDATE);
+        candidateList.add(CANDIDATE2);
         CandidateRegister candidateRegister = new CandidateRegister(candidateList);
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(candidate, candidate2);
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE, CANDIDATE2);
     }
 
     @Test
-    public void addOneCandidateToEmptyList(){
-        Candidate candidate = new Candidate("candidat", "candidat@gmail.com");
+    public void addCandidateToEmptyList(){
         CandidateRegister candidateRegister = new CandidateRegister();
-        candidateRegister.addCandidate(candidate);
+        candidateRegister.addCandidate(CANDIDATE);
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(candidate);
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE);
     }
 }

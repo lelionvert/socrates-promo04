@@ -18,6 +18,7 @@ class CandidateRegister {
     }
 
     public void addCandidate(Candidate candidate) {
+        candidateList = new ArrayList<>();
         candidateList.add(candidate);
     }
 }
