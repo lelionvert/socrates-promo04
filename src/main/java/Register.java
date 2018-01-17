@@ -6,11 +6,13 @@ import java.util.Set;
  */
 public class Register {
 
+    private final Set<Candidate> candidateCollection = new HashSet<Candidate>();
+
     public boolean add(Candidate candidate) {
-        return true;
+        return candidateCollection.add(candidate);
     }
 
     public Set<Candidate> getCandidateCollection() {
-        return new HashSet<Candidate>();
+        return candidateCollection;
     }
 }
