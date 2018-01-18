@@ -13,11 +13,6 @@ public class Candidate {
         this.firstname = firstname;
     }
 
-    public Candidate(String email) {
-        this.email = new Email(email);
-        this.firstname = "";
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
