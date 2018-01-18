@@ -35,4 +35,8 @@ public class Candidate {
     public String getFirstname() {
         return firstname;
     }
+
+    public String getEmail() {
+        return email;
+    }
 }
