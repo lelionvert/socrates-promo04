@@ -18,7 +18,6 @@ namespace SocratesFr.CandidateManagement
         {
             var candidate = obj as Candidate;
             return candidate != null &&
-                   Name == candidate.Name &&
                    Mail == candidate.Mail;
         }
 
