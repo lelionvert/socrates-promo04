@@ -1,15 +1,33 @@
-﻿namespace SocratesFrTest
+﻿using System.Collections.Generic;
+
+namespace SocratesFrTest
 {
     public class Candidate
     {
         
-        public Candidate(string v1, string v2)
+        public Candidate(string name, string mail)
         {
-            this.Name = v1;
-            this.Mail = v2;
+            this.Name = name;
+            this.Mail = mail;
         }
 
         public string Name { get; }
         public string Mail { get; }
+
+        public override bool Equals(object obj)
+        {
+            var candidate = obj as Candidate;
+            return candidate != null &&
+                   Name == candidate.Name &&
+                   Mail == candidate.Mail;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1938941508;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Mail);
+            return hashCode;
+        }
     }
 }

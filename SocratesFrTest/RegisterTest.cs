@@ -2,46 +2,45 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SocratesFrTest
 {
     public class RegisterTest
     {
         [Test]
-        public void CandidatesListShouldReturnIsEmpty()
+        public void Candidates_List_Should_Return_Is_Empty()
         {
             Register register = new Register();
-            List<Candidate> listCandidates = register.GetListOfCandidates();
+            List<Candidate> listCandidates = register.GetCandidates();
             Check.That(listCandidates).IsEmpty();
         }
 
         [Test]
-        public void AddCandidateShouldReturnTheCandidate()
+        public void Add_Candidate_Should_Return_The_Candidate()
         {
             Register register = new Register();
             Candidate candidate = new Candidate("Toto", "toto@gmail.com");
             register.AddCandidate(candidate);
-            List<Candidate> listCandidates = register.GetListOfCandidates();
-            Check.That(listCandidates[0].Name).IsEqualTo(candidate.Name);
-            Check.That(listCandidates[0].Mail).IsEqualTo(candidate.Mail);
+            List<Candidate> listCandidates = register.GetCandidates();
+            Check.That(listCandidates).ContainsExactly(candidate);
         }
 
         [Test]
-        public void AddOneCandidateTwiceShouldReturnTheFirstCandidate()
+        public void Add_One_Candidate_Twice_Should_Return_The_First_Candidate()
         {
             Register register = new Register();
             Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
             Candidate candidateTwo = new Candidate("Titi", "toto@gmail.com");
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
-            List<Candidate> listCandidates = register.GetListOfCandidates();
-            Check.That(listCandidates[0].Name).IsEqualTo(candidateOne.Name);
-            Check.That(listCandidates[0].Mail).IsEqualTo(candidateOne.Mail);
-            Check.That(listCandidates.Count).IsEqualTo(1);
+            List<Candidate> listCandidates = register.GetCandidates();
+            Check.That(listCandidates).ContainsExactly(candidateOne);
+            Check.That(listCandidates).HasSize(1);
         }
 
         [Test]
-        public void ListOfCandidateShouldReturnSortedList()
+        public void List_Of_Candidate_Should_Return_Sorted_List()
         {
             Register register = new Register();
             Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
@@ -50,10 +49,8 @@ namespace SocratesFrTest
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
             register.AddCandidate(candidateThree);
-            List<Candidate> listCandidates = register.GetListOfCandidates();
-            Check.That(listCandidates[0].Name).IsEqualTo(candidateThree.Name);
-            Check.That(listCandidates[1].Name).IsEqualTo(candidateTwo.Name);
-            Check.That(listCandidates[2].Name).IsEqualTo(candidateOne.Name);            
+            List<Candidate> listCandidates = register.GetCandidates();
+            Check.That(listCandidates).ContainsExactly(candidateThree, candidateTwo, candidateOne);        
         }
     }
 }
