@@ -8,11 +8,6 @@ public class Candidate {
     private final Email email;
     private final String firstname;
 
-    public Candidate(String email, String firstname) {
-        this.email = new Email(email);
-        this.firstname = firstname;
-    }
-
     public Candidate(Email email, String firstname) {
         this.email = email;
         this.firstname = firstname;
