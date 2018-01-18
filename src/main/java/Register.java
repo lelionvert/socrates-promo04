@@ -5,9 +5,10 @@ import java.util.*;
  */
 public class Register {
 
-    private final Set<Candidate> candidateCollection = new HashSet<Candidate>();
+    private final List<Candidate> candidateCollection = new ArrayList<>();
 
     public boolean addCandidate(Candidate candidate) {
+        if (candidateCollection.contains(candidate)) return false;
         return candidateCollection.add(candidate);
     }
 
