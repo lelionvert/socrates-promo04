@@ -1,4 +1,8 @@
+import org.assertj.core.util.Lists;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -37,25 +41,14 @@ public class CandidateShould {
 
     @Test
     public void haveValidEmail() {
-        Candidate candidate = new Candidate("e@mail.com");
-        boolean isValid = candidate.hasValidEmail();
-        assertThat(isValid).isTrue();
+        List<String> something = Lists.newArrayList("houssam@gmail.com", "a@mail.com", "rien.quelquechose@re.com");
+        assertThat(something).allMatch(c ->new Candidate(c).hasValidEmail());
     }
 
     @Test
     public void haveInvalidEmail() {
-        assertHasInvalidEmail("something");
-        assertHasInvalidEmail("mail.com");
-        assertHasInvalidEmail("mail@com");
-        assertHasInvalidEmail("mail@com@");
-        assertHasInvalidEmail("@com.com");
-        assertHasInvalidEmail("");
-    }
-
-    private void assertHasInvalidEmail(String invalidEmail) {
-        Candidate candidate = new Candidate(invalidEmail);
-        boolean isValid = candidate.hasValidEmail();
-        assertThat(isValid).isFalse();
+        List<String> something = Lists.newArrayList("something", "", "rien@blabla @re.com");
+        assertThat(something).allMatch(c -> !(new Candidate(c).hasValidEmail()));
     }
 
 }
