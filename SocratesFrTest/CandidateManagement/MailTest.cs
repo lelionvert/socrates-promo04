@@ -10,10 +10,11 @@ namespace SocratesFrTest.CandidateManagement
     public class MailTest
     {
         [Test]
-        public void Equals_Same_Mail_Should_Return_True()
+        public void Mails_Should_Be_Equals()
         {
-            Mail mail = new Mail("toto@gmail.com");
-            Check.That(mail.GetValue().Equals("toto@gmail.com")).IsTrue();
+            Mail mail = new Mail("koala");
+            Mail mail2 = new Mail("koala");
+            Check.That(mail.Equals(mail2)).IsTrue();
         }
 
     }

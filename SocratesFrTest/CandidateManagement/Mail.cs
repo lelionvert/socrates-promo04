@@ -15,5 +15,17 @@ namespace SocratesFrTest.CandidateManagement
         {
             return value;
         }
+
+        public override bool Equals(object obj)
+        {
+            Mail mail = obj as Mail;
+            return this != null &&
+                   this.value == mail.value;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
