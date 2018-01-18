@@ -17,11 +17,23 @@ namespace SocratesFrTest.CandidateManagement
             Check.That(mail.Equals(mail2)).IsTrue();
         }
 
-        [Test]
-        public void Mail_HasValidMail_Should_Return_True()
+        [TestCase("Koala@gmail.com")]
+        public void Mail_HasValidMail_Should_Return_True(string stringMail)
         {
-            Mail mail = new Mail("koala");
+            Mail mail = buildTotoWithMail(stringMail);
             Check.That(mail.HasValidMail()).IsTrue();
+        }
+
+        [TestCase("Koala")]
+        public void Mail_HasValidMail_Should_Return_false(string stringMail)
+        {
+            Mail mail = buildTotoWithMail(stringMail);
+            Check.That(mail.HasValidMail()).IsFalse();
+        }
+
+        private Mail buildTotoWithMail(string mail)
+        {
+            return new Mail(mail);
         }
 
     }

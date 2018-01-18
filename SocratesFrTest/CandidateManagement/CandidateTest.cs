@@ -55,31 +55,5 @@ namespace SocratesFrTest.CandidateManagement
             Candidate candidateTwo = new Candidate("Titi", "toto@gmail.com");
             Check.That(candidateOne.GetHashCode()).IsNotEqualTo(candidateTwo.GetHashCode());
         }
-
-        [Test]
-        public void CandidateHasValidMail_Should_Return_True()
-        {
-            var candidate = buildTotoWithMail("toto@gmail.com");
-            Check.That(candidate.HasValidMail()).IsTrue();
-        }
-
-        [Test]
-        public void CandidateHasValidMail_Should_Return_False()
-        {
-            var candidate = buildTotoWithMail("toto");
-            Check.That(candidate.HasValidMail()).IsFalse();
-        }
-
-        [Test]
-        public void CandidateHasValidMail_Should_Return_False_With_No_Domain()
-        {
-            var candidate = buildTotoWithMail("toto.fr");
-            Check.That(candidate.HasValidMail()).IsFalse();
-        }
-
-        private Candidate buildTotoWithMail(string mail)
-        {
-            return new Candidate("toto", mail);
-        }
     }
 }

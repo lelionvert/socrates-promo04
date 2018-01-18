@@ -35,10 +35,5 @@ namespace SocratesFr.CandidateManagement
         {
             return Mail.Equals(candidate.Mail);
         }
-
-        public bool HasValidMail()
-        {
-            return "toto@gmail.com" == Mail;
-        }
     }
 }
