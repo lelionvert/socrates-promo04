@@ -35,5 +35,11 @@ public class CandidateShould {
         assertThat(isEqual).isFalse();
     }
 
+    @Test
+    public void haveValidEmail(){
+        Candidate candidate = new Candidate("e@mail.com");
+        boolean isValid = candidate.hasValidEmail();
+        assertThat(isValid).isTrue();
+    }
 
 }

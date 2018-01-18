@@ -47,4 +47,8 @@ public class Candidate {
     public boolean sameEmail(Candidate candidate) {
         return email.equals(candidate.email);
     }
+
+    public boolean hasValidEmail() {
+        return true;
+    }
 }
