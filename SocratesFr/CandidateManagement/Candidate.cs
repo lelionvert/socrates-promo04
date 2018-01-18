@@ -38,7 +38,7 @@ namespace SocratesFr.CandidateManagement
 
         public bool HasValidMail()
         {
-            return true;
+            return "toto"!=Mail;
         }
     }
 }

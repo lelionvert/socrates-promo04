@@ -59,8 +59,20 @@ namespace SocratesFrTest.CandidateManagement
         [Test]
         public void CandidateHasValidMail_Should_Return_True()
         {
-            Candidate candidate = new Candidate("Toto", "toto@gmail.com");
+            var candidate = buildTotoWithMail("toto@gmail.com");
             Check.That(candidate.HasValidMail()).IsTrue();
+        }
+
+        [Test]
+        public void CandidateHasValidMail_Should_Return_False()
+        {
+            var candidate = buildTotoWithMail("toto");
+            Check.That(candidate.HasValidMail()).IsFalse();
+        }
+
+        private Candidate buildTotoWithMail(string mail)
+        {
+            return new Candidate("toto", mail);
         }
     }
 }
