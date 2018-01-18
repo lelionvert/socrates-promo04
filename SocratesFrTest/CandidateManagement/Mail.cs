@@ -27,5 +27,10 @@ namespace SocratesFrTest.CandidateManagement
         {
             return base.GetHashCode();
         }
+
+        public bool HasValidMail()
+        {
+            return true;
+        }
     }
 }

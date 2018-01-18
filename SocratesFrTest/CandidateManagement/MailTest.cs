@@ -17,5 +17,12 @@ namespace SocratesFrTest.CandidateManagement
             Check.That(mail.Equals(mail2)).IsTrue();
         }
 
+        [Test]
+        public void Mail_HasValidMail_Should_Return_True()
+        {
+            Mail mail = new Mail("koala");
+            Check.That(mail.HasValidMail()).IsTrue();
+        }
+
     }
 }
