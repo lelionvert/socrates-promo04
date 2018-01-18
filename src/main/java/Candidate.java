@@ -5,16 +5,21 @@ import java.util.regex.Pattern;
  * Created by lenovo_3 on 17/01/2018.
  */
 public class Candidate {
-    private final String email;
+    private final Email email;
     private final String firstname;
 
     public Candidate(String email, String firstname) {
+        this.email = new Email(email);
+        this.firstname = firstname;
+    }
+
+    public Candidate(Email email, String firstname) {
         this.email = email;
         this.firstname = firstname;
     }
 
     public Candidate(String email) {
-        this.email = email;
+        this.email = new Email(email);
         this.firstname = "";
     }
 
