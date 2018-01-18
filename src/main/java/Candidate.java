@@ -22,4 +22,18 @@ class Candidate {
     public boolean isDuplicate(Candidate candidate) {
         return Objects.equals(email,candidate.email);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Candidate candidate = (Candidate) o;
+        return Objects.equals(name, candidate.name) &&
+                Objects.equals(email, candidate.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, email);
+    }
 }
