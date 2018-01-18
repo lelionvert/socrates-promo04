@@ -42,4 +42,11 @@ public class CandidateShould {
         assertThat(isValid).isTrue();
     }
 
+    @Test
+    public void haveInvalidEmail(){
+        Candidate candidate = new Candidate("something");
+        boolean isValid = candidate.hasValidEmail();
+        assertThat(isValid).isFalse();
+    }
+
 }
