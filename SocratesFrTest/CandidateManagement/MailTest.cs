@@ -18,6 +18,7 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [TestCase("Koala@gmail.com")]
+        [TestCase("KoalaBamboo@gmail.com")]
         public void Mail_HasValidMail_Should_Return_True(string stringMail)
         {
             Mail mail = buildTotoWithMail(stringMail);

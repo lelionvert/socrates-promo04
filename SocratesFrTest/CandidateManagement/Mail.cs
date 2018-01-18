@@ -30,7 +30,11 @@ namespace SocratesFrTest.CandidateManagement
 
         public bool HasValidMail()
         {
-            return value.Equals("Koala@gmail.com");
+            if (value.Contains("@"))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
