@@ -5,7 +5,7 @@ import java.util.*;
  */
 public class Register {
 
-    private final Set<Candidate> candidateCollection = new TreeSet<Candidate>();
+    private final Set<Candidate> candidateCollection = new HashSet<Candidate>();
 
     public boolean addCandidate(Candidate candidate) {
         return candidateCollection.add(candidate);
@@ -13,5 +13,12 @@ public class Register {
 
     public Collection<Candidate> getCandidateCollection() {
         return candidateCollection;
+    }
+
+
+    public Collection<Candidate> getOrderedCandidateByFirstname() {
+        ArrayList<Candidate> candidates = new ArrayList<>(candidateCollection);
+        candidates.sort(Comparator.comparing(Candidate::getFirstname));
+        return candidates;
     }
 }

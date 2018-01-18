@@ -44,6 +44,18 @@ public class RegisterShould {
     }
 
     @Test
+    public void notReaddCandidateAlreadyAddedWithDifferentFirstname() {
+        Candidate candidate = new Candidate("p@gmail.com", "alex");
+        Candidate candidate2 = new Candidate("p@gmail.com", "paul");
+        Register register = new Register();
+        register.addCandidate(candidate);
+        boolean candidateAdded = register.addCandidate(candidate2);
+        assertThat(candidateAdded).isFalse();
+        Collection<Candidate> candidateCollection = register.getCandidateCollection();
+        assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
+    }
+
+    @Test
     public void returnOrdredCandidatesByFirstname() {
         Candidate candidateA = new Candidate("p@gmail.com", "alex");
         Candidate candidateZ = new Candidate("z@gmail.com", "z");
@@ -52,7 +64,7 @@ public class RegisterShould {
         register.addCandidate(candidateA);
         register.addCandidate(candidateZ);
         register.addCandidate(candidateN);
-        Collection<Candidate> candidateCollection = register.getCandidateCollection();
+        Collection<Candidate> candidateCollection = register.getOrderedCandidateByFirstname();
         assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
     }
 
