@@ -18,4 +18,22 @@ public class CandidateShould {
         boolean isEqual = candidate1.equals(candidate2);
         assertThat(isEqual).isFalse();
     }
+
+    @Test
+    public void haveSameEmail() {
+        Candidate candidate1 = new Candidate("e@ma.il");
+        Candidate candidate2 = new Candidate("e@ma.il");
+        boolean isEqual = candidate1.sameEmail(candidate2);
+        assertThat(isEqual).isTrue();
+    }
+
+    @Test
+    public void notHaveSameEmail() {
+        Candidate candidate1 = new Candidate("e@ma.il");
+        Candidate candidate2 = new Candidate("a@ma.il");
+        boolean isEqual = candidate1.sameEmail(candidate2);
+        assertThat(isEqual).isFalse();
+    }
+
+
 }

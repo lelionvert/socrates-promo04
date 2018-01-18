@@ -10,6 +10,11 @@ public class Candidate {
         this.firstname = firstname;
     }
 
+    public Candidate(String email) {
+        this.email = email;
+        this.firstname = "";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
