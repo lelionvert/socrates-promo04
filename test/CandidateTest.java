@@ -5,19 +5,20 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CandidateTest {
+    public static final Candidate CAROLE = new Candidate("carole", "carole@gmail.com");
+    public static final Candidate GABRIEL = new Candidate("gabriel", "gabriel@gmail.com");
+    public static final Candidate ANTHONY = new Candidate("anthony", "anthony@gmail.com");
+    public static final Candidate ANTHONY_SAME_EMAIL_AS_CAROLE = new Candidate("anthony", "carole@gmail.com");
 
     @Test
     public void identicalCandidates() throws Exception {
-        Candidate carole = new Candidate("carole", "carole@gmail.com");
         Candidate carole2 = new Candidate("carole", "carole@gmail.com");
-        Assert.assertEquals(carole, carole2);
+        Assert.assertEquals(CAROLE, carole2);
     }
 
     @Test
     public void differentCandidates() throws Exception {
-        Candidate carole = new Candidate("carole", "carole@gmail.com");
-        Candidate gabriel = new Candidate("gabriel", "gabriel@gmail.com");
-        Assert.assertNotEquals(carole, gabriel);
+        Assert.assertNotEquals(CAROLE, GABRIEL);
     }
 
 }

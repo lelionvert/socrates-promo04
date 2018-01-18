@@ -8,11 +8,6 @@ import java.util.List;
 
 public class CandidateRegisterTest {
 
-    public static final Candidate CAROLE = new Candidate("carole", "carole@gmail.com");
-    public static final Candidate GABRIEL = new Candidate("gabriel", "gabriel@gmail.com");
-    public static final Candidate ANTHONY = new Candidate("anthony", "anthony@gmail.com");
-    public static final Candidate ANTHONY_SAME_EMAIL_AS_CAROLE = new Candidate("anthony", "carole@gmail.com");
-
     private CandidateRegister initCandidateRegister(Candidate... candidates) {
         List<Candidate> candidateList = new ArrayList<>();
         candidateList.addAll(Arrays.asList(candidates));
@@ -28,45 +23,45 @@ public class CandidateRegisterTest {
 
     @Test
     public void retrieveCandidateInList() {
-        List<Candidate> retrievedCandidateList = initCandidateRegister(CAROLE).retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(CAROLE);
+        List<Candidate> retrievedCandidateList = initCandidateRegister(CandidateTest.CAROLE).retrieveAll();
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CandidateTest.CAROLE);
     }
 
     @Test
     public void retrieveTwoCandidatesInList() {
-        CandidateRegister candidateRegister = initCandidateRegister(CAROLE, GABRIEL);
+        CandidateRegister candidateRegister = initCandidateRegister(CandidateTest.CAROLE, CandidateTest.GABRIEL);
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(CAROLE, GABRIEL);
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CandidateTest.CAROLE, CandidateTest.GABRIEL);
     }
 
     @Test
     public void addCandidateToEmptyList() {
         CandidateRegister candidateRegister = initCandidateRegister();
-        candidateRegister.addCandidate(CAROLE);
+        candidateRegister.addCandidate(CandidateTest.CAROLE);
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(CAROLE);
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CandidateTest.CAROLE);
     }
 
     @Test
     public void addCandidateToNonEmptyList() {
-        CandidateRegister candidateRegister = initCandidateRegister(CAROLE);
-        candidateRegister.addCandidate(GABRIEL);
+        CandidateRegister candidateRegister = initCandidateRegister(CandidateTest.CAROLE);
+        candidateRegister.addCandidate(CandidateTest.GABRIEL);
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(CAROLE, GABRIEL);
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CandidateTest.CAROLE, CandidateTest.GABRIEL);
     }
 
     @Test
     public void addCandidateWithSameEmail() {
-        CandidateRegister candidateRegister = initCandidateRegister(CAROLE);
-        candidateRegister.addCandidate(ANTHONY_SAME_EMAIL_AS_CAROLE);
+        CandidateRegister candidateRegister = initCandidateRegister(CandidateTest.CAROLE);
+        candidateRegister.addCandidate(CandidateTest.ANTHONY_SAME_EMAIL_AS_CAROLE);
         List<Candidate> retrievedCandidateList = candidateRegister.retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsExactly(CAROLE);
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CandidateTest.CAROLE);
     }
 
     @Test
     public void retrieveSortedCandidateList() {
-        List<Candidate> retrievedCandidateList = initCandidateRegister(CAROLE, GABRIEL, ANTHONY).retrieveAll();
-        Assertions.assertThat(retrievedCandidateList).containsSequence(ANTHONY, CAROLE, GABRIEL);
+        List<Candidate> retrievedCandidateList = initCandidateRegister(CandidateTest.CAROLE, CandidateTest.GABRIEL, CandidateTest.ANTHONY).retrieveAll();
+        Assertions.assertThat(retrievedCandidateList).containsSequence(CandidateTest.ANTHONY, CandidateTest.CAROLE, CandidateTest.GABRIEL);
     }
 
 
