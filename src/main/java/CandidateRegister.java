@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 class CandidateRegister {
 
     private List<Candidate> candidateList;
 
     public CandidateRegister() {
-        candidateList = new ArrayList<Candidate>();
+        candidateList = new ArrayList<>();
     }
 
     public CandidateRegister(List<Candidate> candidateList) {
@@ -16,15 +15,13 @@ class CandidateRegister {
     }
 
     public List<Candidate> retrieveAll() {
-        candidateList.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
+        candidateList.sort(Comparator.comparing(Candidate::getName));
         return candidateList;
     }
 
     public void addCandidate(Candidate candidate) {
 
-        if(candidateList.stream()
-                .filter(x -> candidate.getEmail().equals(x.getEmail()))
-                .findAny().isPresent()) {
+        if(candidateList.stream().anyMatch(x -> candidate.isDuplicate(x))) {
             return;
         }
         candidateList.add(candidate);

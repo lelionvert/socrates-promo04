@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 class Candidate {
 
     private String name;
@@ -15,5 +17,9 @@ class Candidate {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean isDuplicate(Candidate candidate) {
+        return Objects.equals(email,candidate.email);
     }
 }
