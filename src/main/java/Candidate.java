@@ -39,7 +39,7 @@ public class Candidate {
         return firstname;
     }
 
-    public String getEmail() {
-        return email;
+    public boolean sameEmail(Candidate candidate) {
+        return email.equals(candidate.email);
     }
 }

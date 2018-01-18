@@ -8,7 +8,7 @@ public class Register {
     private final List<Candidate> candidateCollection = new ArrayList<>();
 
     public boolean addCandidate(Candidate candidate) {
-        if (candidateCollection.stream().anyMatch(c -> c.getEmail().equals(candidate.getEmail()))) return false;
+        if (candidateCollection.stream().anyMatch(candidate::sameEmail)) return false;
         return candidateCollection.add(candidate);
     }
 
