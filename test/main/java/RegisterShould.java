@@ -18,7 +18,7 @@ public class RegisterShould {
     @Test
     public void emptyCollection() {
         Register register = new Register();
-        Collection<Candidate> candidateCollection = register.getCandidateCollection();
+        Iterable<Candidate> candidateCollection = register.getCandidateCollection();
         assertThat(candidateCollection).isEmpty();
     }
 
@@ -27,7 +27,7 @@ public class RegisterShould {
         Candidate candidate = new Candidate("p@gmail.com", "alex");
         Register register = new Register();
         register.addCandidate(candidate);
-        Collection<Candidate> candidateCollection = register.getCandidateCollection();
+        Iterable<Candidate> candidateCollection = register.getCandidateCollection();
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }
 
@@ -39,7 +39,7 @@ public class RegisterShould {
         register.addCandidate(candidate);
         boolean candidateAdded = register.addCandidate(candidate2);
         assertThat(candidateAdded).isFalse();
-        Collection<Candidate> candidateCollection = register.getCandidateCollection();
+        Iterable<Candidate> candidateCollection = register.getCandidateCollection();
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }
 
@@ -51,8 +51,8 @@ public class RegisterShould {
         register.addCandidate(candidate);
         boolean candidateAdded = register.addCandidate(candidate2);
         assertThat(candidateAdded).isFalse();
-        Collection<Candidate> candidateCollection = register.getCandidateCollection();
-        assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
+        Iterable<Candidate> candidateCollection = register.getCandidateCollection();
+        assertThat(candidateCollection).isNotEmpty().containsExactly(new Candidate("p@gmail.com", "alex"));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class RegisterShould {
         register.addCandidate(candidateA);
         register.addCandidate(candidateZ);
         register.addCandidate(candidateN);
-        Collection<Candidate> candidateCollection = register.getOrderedCandidateByFirstname();
+        Iterable<Candidate> candidateCollection = register.getCandidateCollection();
         assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
     }
 

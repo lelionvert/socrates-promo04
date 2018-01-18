@@ -12,12 +12,7 @@ public class Register {
         return candidateCollection.add(candidate);
     }
 
-    public Collection<Candidate> getCandidateCollection() {
-        return candidateCollection;
-    }
-
-
-    public Collection<Candidate> getOrderedCandidateByFirstname() {
+    public Iterable<Candidate> getCandidateCollection() {
         ArrayList<Candidate> candidates = new ArrayList<>(candidateCollection);
         candidates.sort(Comparator.comparing(Candidate::getFirstname));
         return candidates;
