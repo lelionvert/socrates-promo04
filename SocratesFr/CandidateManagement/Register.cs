@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SocratesFrTest
+namespace SocratesFr.CandidateManagement
 {
     public class Register
     {

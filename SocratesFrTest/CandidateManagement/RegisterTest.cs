@@ -1,10 +1,11 @@
 ﻿using NFluent;
 using NUnit.Framework;
+using SocratesFr.CandidateManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SocratesFrTest
+namespace SocratesFrTest.CandidateManagement
 {
     public class RegisterTest
     {

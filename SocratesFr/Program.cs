@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SocratesFr
+namespace SocratesFrCandidateManagement
 {
     class Program
     {
