@@ -17,12 +17,15 @@ public class Candidate {
 
         Candidate candidate = (Candidate) o;
 
-        return email != null ? email.equals(candidate.email) : candidate.email == null;
+        if (email != null ? !email.equals(candidate.email) : candidate.email != null) return false;
+        return firstname != null ? firstname.equals(candidate.firstname) : candidate.firstname == null;
     }
 
     @Override
     public int hashCode() {
-        return email != null ? email.hashCode() : 0;
+        int result = email != null ? email.hashCode() : 0;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        return result;
     }
 
     @Override
