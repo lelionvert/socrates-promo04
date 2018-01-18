@@ -7,12 +7,12 @@ using SocratesFr.CandidateManagement;
 
 namespace SocratesFrTest.CandidateManagement
 {
-    class MailShould
+    public class MailShould
     {
         [Test]
         public void FailWhenMailIsEmpty()
         {
-            Check.That(Mail.From("")).Equals(Mail.Invalid);
+            Assert.That(() => Mail.From(""), Throws.TypeOf<Mail.InvalidMailException>());
         }
     }
 }
