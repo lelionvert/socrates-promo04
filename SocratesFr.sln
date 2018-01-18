@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocratesFr", "SocratesFr\SocratesFr.csproj", "{9701B6A9-C30F-4EBD-99B6-55DC51FD3CBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocratesFr", "SocratesFr\SocratesFr.csproj", "{9701B6A9-C30F-4EBD-99B6-55DC51FD3CBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocratesFrTest", "SocratesFrTest\SocratesFrTest.csproj", "{11C25C46-9E56-452D-8411-F3FB3269BC9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocratesFrTest", "SocratesFrTest\SocratesFrTest.csproj", "{11C25C46-9E56-452D-8411-F3FB3269BC9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1D7B7142-3EC1-4606-976B-4E49D650106F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{11C25C46-9E56-452D-8411-F3FB3269BC9F} = {1D7B7142-3EC1-4606-976B-4E49D650106F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {007EC688-EC54-40A3-ABE2-68CD0BA572F1}
