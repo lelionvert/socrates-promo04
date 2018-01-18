@@ -15,7 +15,7 @@ namespace SocratesFr.CandidateManagement
 
         public void AddCandidate(Candidate candidate)
         {
-            if (candidates.Any(item => item.Equals(candidate)))
+            if (candidates.Any(item => item.HasSameMail(candidate)))
                 return;
             candidates.Add(candidate);
         }

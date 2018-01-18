@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SocratesFr.CandidateManagement
 {
@@ -18,6 +19,7 @@ namespace SocratesFr.CandidateManagement
         {
             var candidate = obj as Candidate;
             return candidate != null &&
+                   Name == candidate.Name &&
                    Mail == candidate.Mail;
         }
 
@@ -27,6 +29,11 @@ namespace SocratesFr.CandidateManagement
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Mail);
             return hashCode;
+        }
+
+        public bool HasSameMail(Candidate candidate)
+        {
+            return Mail.Equals(candidate.Mail);
         }
     }
 }
