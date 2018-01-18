@@ -70,6 +70,13 @@ namespace SocratesFrTest.CandidateManagement
             Check.That(candidate.HasValidMail()).IsFalse();
         }
 
+        [Test]
+        public void CandidateHasValidMail_Should_Return_False_With_No_Domain()
+        {
+            var candidate = buildTotoWithMail("toto.fr");
+            Check.That(candidate.HasValidMail()).IsFalse();
+        }
+
         private Candidate buildTotoWithMail(string mail)
         {
             return new Candidate("toto", mail);
