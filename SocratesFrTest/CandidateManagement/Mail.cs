@@ -30,7 +30,7 @@ namespace SocratesFrTest.CandidateManagement
 
         public bool HasValidMail()
         {
-            if (value.Contains("@"))
+            if (value.Contains("@") && value.Contains("."))
             {
                 return true;
             }
