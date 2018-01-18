@@ -12,4 +12,12 @@ public class CandidateTest {
         Candidate carole2 = new Candidate("carole", "carole@gmail.com");
         Assert.assertEquals(carole, carole2);
     }
+
+    @Test
+    public void differentCandidates() throws Exception {
+        Candidate carole = new Candidate("carole", "carole@gmail.com");
+        Candidate gabriel = new Candidate("gabriel", "gabriel@gmail.com");
+        Assert.assertNotEquals(carole, gabriel);
+    }
+
 }
