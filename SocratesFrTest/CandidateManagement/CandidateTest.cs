@@ -41,7 +41,7 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [Test]
-        public void GetHashCode_Should_Not_Add_Same_Candidate()
+        public void GetHashCode_Should_Be_Equal()
         {
             Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
             Candidate candidateTwo = new Candidate("Toto", "toto@gmail.com");
@@ -49,7 +49,7 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [Test]
-        public void GetHashCode_Should_Not_Add_Candidate()
+        public void GetHashCode_Should_Not_Be_Equal()
         {
             Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
             Candidate candidateTwo = new Candidate("Titi", "toto@gmail.com");
