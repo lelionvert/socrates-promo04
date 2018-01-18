@@ -18,6 +18,11 @@ class CandidateRegister {
     }
 
     public void addCandidate(Candidate candidate) {
+        if(candidateList.stream()
+                .filter(x -> candidate.getEmail().equals(x.getEmail()))
+                .findAny().isPresent()) {
+            return;
+        }
         candidateList.add(candidate);
     }
 }

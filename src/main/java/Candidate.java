@@ -8,4 +8,8 @@ class Candidate {
         this.name = name;
         this.email = email;
     }
+
+    public String getEmail() {
+        return email;
+    }
 }

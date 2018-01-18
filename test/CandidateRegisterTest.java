@@ -11,6 +11,7 @@ public class CandidateRegisterTest {
     private CandidateRegister initializedCandidateRegister;
     public static final Candidate CANDIDATE = new Candidate("carole", "carole@gmail.com");
     public static final Candidate CANDIDATE2 = new Candidate("gabriel", "gabriel@gmail.com");
+    public static final Candidate CANDIDATE_SAME_MAIL = new Candidate("anthony", "carole@gmail.com");
 
     @Before
     public void setUp() throws Exception {
@@ -55,6 +56,13 @@ public class CandidateRegisterTest {
         initializedCandidateRegister.addCandidate(CANDIDATE2);
         List<Candidate> retrievedCandidateList = initializedCandidateRegister.retrieveAll();
         Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE, CANDIDATE2);
+    }
+
+    @Test
+    public void addCandidateWithSameMail(){
+        initializedCandidateRegister.addCandidate(CANDIDATE_SAME_MAIL);
+        List<Candidate> retrievedCandidateList = initializedCandidateRegister.retrieveAll();
+        Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE);
     }
 
 }
