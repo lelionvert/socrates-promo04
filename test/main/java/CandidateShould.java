@@ -39,16 +39,5 @@ public class CandidateShould {
         assertThat(isEqual).isFalse();
     }
 
-    @Test
-    public void haveValidEmail() {
-        List<String> something = Lists.newArrayList("houssam@gmail.com", "a@mail.com", "rien.quelquechose@re.com");
-        assertThat(something).allMatch(c ->new Candidate(c).hasValidEmail());
-    }
-
-    @Test
-    public void haveInvalidEmail() {
-        List<String> something = Lists.newArrayList("something", "", "rien@blabla @re.com");
-        assertThat(something).allMatch(c -> !(new Candidate(c).hasValidEmail()));
-    }
 
 }
