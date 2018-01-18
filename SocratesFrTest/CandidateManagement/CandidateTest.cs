@@ -55,5 +55,12 @@ namespace SocratesFrTest.CandidateManagement
             Candidate candidateTwo = new Candidate("Titi", "toto@gmail.com");
             Check.That(candidateOne.GetHashCode()).IsNotEqualTo(candidateTwo.GetHashCode());
         }
+
+        [Test]
+        public void CandidateHasValidMail_Should_Return_True()
+        {
+            Candidate candidate = new Candidate("Toto", "toto@gmail.com");
+            Check.That(candidate.HasValidMail()).IsTrue();
+        }
     }
 }
