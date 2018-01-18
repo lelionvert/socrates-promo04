@@ -15,10 +15,6 @@ class Candidate {
         return name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public boolean isDuplicate(Candidate candidate) {
         return Objects.equals(email,candidate.email);
     }

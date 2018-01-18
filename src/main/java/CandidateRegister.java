@@ -6,10 +6,6 @@ class CandidateRegister {
 
     private List<Candidate> candidateList;
 
-    public CandidateRegister() {
-        candidateList = new ArrayList<>();
-    }
-
     public CandidateRegister(List<Candidate> candidateList) {
         this.candidateList = candidateList;
     }
