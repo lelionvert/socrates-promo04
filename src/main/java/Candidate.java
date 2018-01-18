@@ -3,11 +3,11 @@
  */
 public class Candidate implements Comparable{
     private final String email;
-    private final String firstName;
+    private final String firstname;
 
-    public Candidate(String email, String firstName) {
+    public Candidate(String email, String firstname) {
         this.email = email;
-        this.firstName = firstName;
+        this.firstname = firstname;
     }
 
     @Override
@@ -28,13 +28,13 @@ public class Candidate implements Comparable{
 
     public int compareTo(Object o) {
         Candidate candidate = (Candidate) o;
-        return firstName.compareTo(candidate.firstName);
+        return firstname.compareTo(candidate.firstname);
     }
 
     @Override
     public String toString() {
         return "Candidate{" +
-                "firstName='" + firstName + '\'' +
+                "firstname='" + firstname + '\'' +
                 '}';
     }
 }
