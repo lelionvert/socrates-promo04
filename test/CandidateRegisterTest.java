@@ -11,7 +11,7 @@ public class CandidateRegisterTest {
     private CandidateRegister initializedCandidateRegister;
     public static final Candidate CANDIDATE = new Candidate("carole", "carole@gmail.com");
     public static final Candidate CANDIDATE2 = new Candidate("gabriel", "gabriel@gmail.com");
-    public static final Candidate CANDIDATE_SAME_MAIL = new Candidate("anthony", "carole@gmail.com");
+    public static final Candidate CANDIDATE_SAME_EMAIL = new Candidate("anthony", "carole@gmail.com");
 
     @Before
     public void setUp() throws Exception {
@@ -59,10 +59,22 @@ public class CandidateRegisterTest {
     }
 
     @Test
-    public void addCandidateWithSameMail(){
-        initializedCandidateRegister.addCandidate(CANDIDATE_SAME_MAIL);
+    public void addCandidateWithSameEmail(){
+        initializedCandidateRegister.addCandidate(CANDIDATE_SAME_EMAIL);
         List<Candidate> retrievedCandidateList = initializedCandidateRegister.retrieveAll();
         Assertions.assertThat(retrievedCandidateList).containsExactly(CANDIDATE);
     }
+
+    @Test
+    public void retriveSortedCandidateList(){
+        initializedCandidateRegister.addCandidate(CANDIDATE2);
+        Candidate anthony = new Candidate("anthony", "anthony@gmail.com");
+        initializedCandidateRegister.addCandidate(anthony);
+        List<Candidate> retrievedCandidateList = initializedCandidateRegister.retrieveAll();
+        Assertions.assertThat(retrievedCandidateList).containsSequence(anthony, CANDIDATE, CANDIDATE2);
+    }
+
+
+
 
 }
