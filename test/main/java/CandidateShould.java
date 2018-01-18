@@ -36,15 +36,24 @@ public class CandidateShould {
     }
 
     @Test
-    public void haveValidEmail(){
+    public void haveValidEmail() {
         Candidate candidate = new Candidate("e@mail.com");
         boolean isValid = candidate.hasValidEmail();
         assertThat(isValid).isTrue();
     }
 
     @Test
-    public void haveInvalidEmail(){
-        Candidate candidate = new Candidate("something");
+    public void haveInvalidEmail() {
+        assertHasInvalidEmail("something");
+        assertHasInvalidEmail("mail.com");
+        assertHasInvalidEmail("mail@com");
+        assertHasInvalidEmail("mail@com@");
+        assertHasInvalidEmail("@com.com");
+        assertHasInvalidEmail("");
+    }
+
+    private void assertHasInvalidEmail(String invalidEmail) {
+        Candidate candidate = new Candidate(invalidEmail);
         boolean isValid = candidate.hasValidEmail();
         assertThat(isValid).isFalse();
     }
