@@ -22,10 +22,9 @@ public class EmailShould {
     }
 
     @Test
-    public void createValidEmail(){
-        Email email = Email.createEmail("houssam@gmail.com");
-        assertThat(email).isNotNull();
-        assertThat(email.getEmail()).isEqualTo("houssam@gmail.com");
+    public void createWhenValidInput(){
+        Email email = Email.create("houssam@gmail.com");
+        assertThat(email).isEqualTo(new Email("houssam@gmail.com"));
     }
-
+    
 }

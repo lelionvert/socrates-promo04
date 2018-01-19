@@ -39,11 +39,7 @@ public class Email {
         return email;
     }
 
-    public static Email createEmail(String s) {
-        return new Email(s);
-    }
-
-    public String getEmail() {
-        return email;
+    public static Email create(String email) {
+        return new Email(email);
     }
 }
