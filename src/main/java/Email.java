@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class Email {
 
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+    private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     private final String email;
 
     private Email(String email) {
@@ -17,6 +17,13 @@ public class Email {
     protected static boolean isValid(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         return matcher.find();
+    }
+
+    public static Email create(String email) throws InvalidEmailException {
+        if(!Email.isValid(email)){
+            throw new InvalidEmailException();
+        }
+        return new Email(email);
     }
 
     @Override
@@ -37,12 +44,5 @@ public class Email {
     @Override
     public String toString() {
         return email;
-    }
-
-    public static Email create(String email) throws InvalidEmailException {
-        if(!Email.isValid(email)){
-            throw new InvalidEmailException();
-        }
-        return new Email(email);
     }
 }
