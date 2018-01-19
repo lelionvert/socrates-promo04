@@ -7,7 +7,7 @@ namespace SocratesFr.CandidateManagement
     {
         private readonly IList<Candidate> _candidates = new List<Candidate>();
        
-        public IList<Candidate> GetCandidates()
+        public IList<Candidate> GetCandidatesOrderedByName()
         {
             return _candidates.OrderBy(item => item.Name).ToList();
         }

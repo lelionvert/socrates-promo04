@@ -10,7 +10,7 @@ namespace SocratesFrTest.CandidateManagement
         public void Candidates_List_Should_Return_An_Empty_List()
         {
             var register = new Register();
-            var listCandidates = register.GetCandidates();
+            var listCandidates = register.GetCandidatesOrderedByName();
             Check.That(listCandidates).IsEmpty();
         }
 
@@ -20,7 +20,7 @@ namespace SocratesFrTest.CandidateManagement
             var register = new Register();
             var candidate = new Candidate("Toto", Email.From("toto@gmail.com"));
             register.AddCandidate(candidate);
-            var listCandidates = register.GetCandidates();
+            var listCandidates = register.GetCandidatesOrderedByName();
             Check.That(listCandidates).ContainsExactly(candidate);
         }
 
@@ -32,7 +32,7 @@ namespace SocratesFrTest.CandidateManagement
             var candidateTwo = new Candidate("Titi", Email.From("toto@gmail.com"));
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
-            var listCandidates = register.GetCandidates();
+            var listCandidates = register.GetCandidatesOrderedByName();
             Check.That(listCandidates).ContainsExactly(candidateOne);
             Check.That(listCandidates).HasSize(1);
         }
@@ -47,7 +47,7 @@ namespace SocratesFrTest.CandidateManagement
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
             register.AddCandidate(candidateThree);
-            var listCandidates = register.GetCandidates();
+            var listCandidates = register.GetCandidatesOrderedByName();
             Check.That(listCandidates).ContainsExactly(candidateThree, candidateTwo, candidateOne);        
         }
     }
