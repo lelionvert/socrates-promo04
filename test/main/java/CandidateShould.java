@@ -8,20 +8,21 @@ public class CandidateShould {
         return new Candidate(email, "firstname");
     }
 
+    
 
     @Test
     public void beEqual() throws InvalidEmailException {
-        Candidate candidate1 = new Candidate(Email.create("e@ma.il"), "firstname");
-        Candidate candidate2 = new Candidate(Email.create("e@ma.il"), "firstname");
-        boolean isEqual = candidate1.equals(candidate2);
-        assertThat(isEqual).isTrue();
+        Candidate candidate = new Candidate(Email.create("e@ma.il"), "firstname");
+        Candidate sameCandidate = new Candidate(Email.create("e@ma.il"), "firstname");
+        boolean mustBeEquals = candidate.equals(sameCandidate);
+        assertThat(mustBeEquals).isTrue();
     }
 
     @Test
     public void notBeEqual() throws InvalidEmailException {
-        Candidate candidate1 = new Candidate(Email.create("e@ma.il"), "firstname");
-        Candidate candidate2 = new Candidate(Email.create("e@ma.il"), "other");
-        boolean isEqual = candidate1.equals(candidate2);
+        Candidate aCandidate = new Candidate(Email.create("e@ma.il"), "firstname");
+        Candidate anotherCandidate = new Candidate(Email.create("e@ma.il"), "other");
+        boolean isEqual = aCandidate.equals(anotherCandidate);
         assertThat(isEqual).isFalse();
     }
 
