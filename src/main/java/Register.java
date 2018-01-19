@@ -17,4 +17,19 @@ public class Register {
         Collections.sort(candidates);
         return candidates;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Register register = (Register) o;
+
+        return candidates != null ? candidates.equals(register.candidates) : register.candidates == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return candidates != null ? candidates.hashCode() : 0;
+    }
 }
