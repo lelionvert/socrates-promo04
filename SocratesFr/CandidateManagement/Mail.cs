@@ -28,7 +28,7 @@ namespace SocratesFr.CandidateManagement
 
         public class InvalidMailException : Exception
         {
-            public InvalidMailException(string message) : base(message)
+            public InvalidMailException(string message) : base($"This mail is invalid : {message}")
             {
             }
         }
