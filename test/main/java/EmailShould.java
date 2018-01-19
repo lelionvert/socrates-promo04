@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by lenovo_3 on 18/01/2018.
  */
-public class EmailTest {
+public class EmailShould {
     @Test
     public void haveValidEmail() {
         List<String> something = Lists.newArrayList("houssam@gmail.com", "a@mail.com", "rien.quelquechose@re.com");
