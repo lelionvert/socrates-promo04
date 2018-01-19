@@ -8,30 +8,30 @@ namespace SocratesFr.CandidateManagement
         public Candidate(string name, Email email)
         {
             this.Name = name;
-            this.Email = email.MailAddress;
+            this.Email = email;
         }
 
         public string Name { get; }
-        public string Email { get; }
+        public Email Email { get; }
+
+        public bool HasSameMail(Candidate candidate)
+        {
+            return Email.Equals(candidate.Email);
+        }
 
         public override bool Equals(object obj)
         {
             return obj is Candidate candidate &&
                    Name == candidate.Name &&
-                   Email == candidate.Email;
+                   EqualityComparer<Email>.Default.Equals(Email, candidate.Email);
         }
 
         public override int GetHashCode()
         {
-            var hashCode = 1938941508;
+            var hashCode = 1666616157;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Email>.Default.GetHashCode(Email);
             return hashCode;
-        }
-
-        public bool HasSameMail(Candidate candidate)
-        {
-            return Email.Equals(candidate.Email);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace SocratesFr.CandidateManagement
@@ -27,6 +27,17 @@ namespace SocratesFr.CandidateManagement
         private Email(string email)
         {
             MailAddress = email;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Email email &&
+                   MailAddress == email.MailAddress;
+        }
+
+        public override int GetHashCode()
+        {
+            return 826360918 + EqualityComparer<string>.Default.GetHashCode(MailAddress);
         }
 
         public class InvalidEmailException : Exception
