@@ -5,15 +5,15 @@ import java.util.*;
  */
 public class Register {
 
-    private final Collection<Candidate> candidateCollection = new ArrayList<>();
+    private final Collection<Candidate> candidates = new ArrayList<>();
 
     public boolean addCandidate(Candidate candidate) {
-        if (candidateCollection.stream().anyMatch(candidate::sameEmail)) return false;
-        return candidateCollection.add(candidate);
+        if (candidates.stream().anyMatch(candidate::sameEmail)) return false;
+        return candidates.add(candidate);
     }
 
-    public Iterable<Candidate> getCandidateCollection() {
-        ArrayList<Candidate> candidates = new ArrayList<>(candidateCollection);
+    public Iterable<Candidate> getCandidates() {
+        ArrayList<Candidate> candidates = new ArrayList<>(this.candidates);
         candidates.sort(Comparator.comparing(Candidate::getFirstname));
         return candidates;
     }
