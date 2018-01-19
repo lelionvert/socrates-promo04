@@ -7,8 +7,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class RegisterShould {
     @Test
-    public void addCandidate() {
-        Candidate candidate = new Candidate(new Email("p@gmail.com"), "alex");
+    public void addCandidate() throws InvalidEmailException {
+        Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Register register = new Register();
         assertThat(register.addCandidate(candidate)).isTrue();
     }
@@ -21,8 +21,8 @@ public class RegisterShould {
     }
 
     @Test
-    public void haveTheAddedCandidate() {
-        Candidate candidate = new Candidate(new Email("p@gmail.com"), "alex");
+    public void haveTheAddedCandidate() throws InvalidEmailException {
+        Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Register register = new Register();
         register.addCandidate(candidate);
         Iterable<Candidate> candidateCollection = register.getCandidateCollection();
@@ -30,9 +30,9 @@ public class RegisterShould {
     }
 
     @Test
-    public void notReaddCandidateAlreadyAdded() {
-        Candidate candidate = new Candidate(new Email("p@gmail.com"), "alex");
-        Candidate candidate2 = new Candidate(new Email("p@gmail.com"), "alex");
+    public void notReaddCandidateAlreadyAdded() throws InvalidEmailException {
+        Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
+        Candidate candidate2 = new Candidate(Email.create("p@gmail.com"), "alex");
         Register register = new Register();
         register.addCandidate(candidate);
         boolean candidateAdded = register.addCandidate(candidate2);
@@ -42,22 +42,22 @@ public class RegisterShould {
     }
 
     @Test
-    public void notReaddCandidateAlreadyAddedWithDifferentFirstname() {
-        Candidate candidate = new Candidate(new Email("p@gmail.com"), "alex");
-        Candidate candidate2 = new Candidate(new Email("p@gmail.com"), "paul");
+    public void notReaddCandidateAlreadyAddedWithDifferentFirstname() throws InvalidEmailException {
+        Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
+        Candidate candidate2 = new Candidate(Email.create("p@gmail.com"), "paul");
         Register register = new Register();
         register.addCandidate(candidate);
         boolean candidateAdded = register.addCandidate(candidate2);
         assertThat(candidateAdded).isFalse();
         Iterable<Candidate> candidateCollection = register.getCandidateCollection();
-        assertThat(candidateCollection).isNotEmpty().containsExactly(new Candidate(new Email("p@gmail.com"), "alex"));
+        assertThat(candidateCollection).isNotEmpty().containsExactly(new Candidate(Email.create("p@gmail.com"), "alex"));
     }
 
     @Test
-    public void returnOrdredCandidatesByFirstname() {
-        Candidate candidateA = new Candidate(new Email("p@gmail.com"), "alex");
-        Candidate candidateZ = new Candidate(new Email("z@gmail.com"), "z");
-        Candidate candidateN = new Candidate(new Email("n@gmail.com"), "n");
+    public void returnOrdredCandidatesByFirstname() throws InvalidEmailException {
+        Candidate candidateA = new Candidate(Email.create("p@gmail.com"), "alex");
+        Candidate candidateZ = new Candidate(Email.create("z@gmail.com"), "z");
+        Candidate candidateN = new Candidate(Email.create("n@gmail.com"), "n");
         Register register = new Register();
         register.addCandidate(candidateA);
         register.addCandidate(candidateZ);
