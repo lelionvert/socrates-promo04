@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace SocratesFr.CandidateManagement
 {
     public class CandidateBuilder
     {
-        public static void Create(string name, string email)
+        public static Candidate Create(string name, string email)
         {
-            throw new ArgumentException();
+            return new Candidate(name, Email.EmailBuilder(email)); 
         }
     }
 }

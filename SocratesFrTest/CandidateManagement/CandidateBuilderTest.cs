@@ -14,5 +14,12 @@ namespace SocratesFrTest.CandidateManagement
         {
             Check.ThatCode(() => CandidateBuilder.Create("toto", "toto@gmail")).Throws<ArgumentException>();
         }
+
+        [Test]
+        public void Valid_Candidate_Should_Be_Created()
+        {
+            Check.That(CandidateBuilder.Create("toto", "toto@gmail.fr")
+                .Equals(new Candidate("toto", Email.EmailBuilder("toto@gmail.fr"))));
+        }
     }
 }
