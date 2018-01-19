@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace SocratesFr.CandidateManagement
 {
-    public class Mail
+    public class Email
     {
         public string MailAddress { get; }
         private static readonly Regex emailRegex = new Regex(@"^([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})$");
@@ -14,24 +14,24 @@ namespace SocratesFr.CandidateManagement
             return emailRegex.IsMatch(email);
         }
 
-        public static Mail From(string mail)
+        public static Email From(string email)
         {
-            if (Validate(mail))
+            if (Validate(email))
             {
-                return new Mail(mail);
+                return new Email(email);
             }
 
-            throw new InvalidMailException(mail);
+            throw new InvalidEmailException(email);
         }
 
-        private Mail(string mail)
+        private Email(string email)
         {
-            MailAddress = mail;
+            MailAddress = email;
         }
 
-        public class InvalidMailException : Exception
+        public class InvalidEmailException : Exception
         {
-            public InvalidMailException(string message) : base($"This mail is invalid : {message}")
+            public InvalidEmailException(string message) : base($"This email is invalid : {message}")
             {
             }
         }

@@ -7,7 +7,7 @@ using SocratesFr.CandidateManagement;
 
 namespace SocratesFrTest.CandidateManagement
 {
-    public class MailShould
+    public class EmailShould
     {
         [TestCase("blabla")]
         [TestCase("")]
@@ -15,18 +15,18 @@ namespace SocratesFrTest.CandidateManagement
         [TestCase("@bla")]
         [TestCase("toto.bla")]
         [TestCase("to@to@bla.com")]
-        public void FailWhenMailIsInvalid(string mail)
+        public void FailWhenEmailIsInvalid(string email)
         {
-            Check.ThatCode(() => Mail.From(mail)).Throws<Mail.InvalidMailException>();
+            Check.ThatCode(() => Email.From(email)).Throws<Email.InvalidEmailException>();
         }
 
         [TestCase("bla@bla.com")]
         [TestCase("bla-bla@bla.fr")]
         [TestCase("bla.bla@bla.org")]
         [TestCase("toto.bla@la-combe-du-lion-vert.fr")]
-        public void PassWhenMailIsValid(string mail)
+        public void PassWhenEmailIsValid(string email)
         {
-            Check.That(Mail.From(mail).MailAddress).Equals(mail);
+            Check.That(Email.From(email).MailAddress).Equals(email);
         }
     }
 }
