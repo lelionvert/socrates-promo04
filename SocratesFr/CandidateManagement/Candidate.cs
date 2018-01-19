@@ -5,11 +5,10 @@ namespace SocratesFr.CandidateManagement
 {
     public class Candidate
     {
-        
-        public Candidate(string name, string email)
+        public Candidate(string name, Email email)
         {
             this.Name = name;
-            this.Email = email;
+            this.Email = email.MailAddress;
         }
 
         public string Name { get; }
