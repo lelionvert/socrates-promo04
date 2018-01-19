@@ -17,8 +17,7 @@ namespace SocratesFr.CandidateManagement
 
         public override bool Equals(object obj)
         {
-            var candidate = obj as Candidate;
-            return candidate != null &&
+            return obj is Candidate candidate &&
                    Name == candidate.Name &&
                    Mail == candidate.Mail;
         }

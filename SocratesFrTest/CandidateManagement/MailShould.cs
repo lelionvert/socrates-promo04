@@ -12,7 +12,7 @@ namespace SocratesFrTest.CandidateManagement
         [Test]
         public void FailWhenMailIsEmpty()
         {
-            Assert.That(() => Mail.From(""), Throws.TypeOf<Mail.InvalidMailException>());
+            Check.ThatCode(() => Mail.From("")).Throws<Mail.InvalidMailException>();
         }
     }
 }
