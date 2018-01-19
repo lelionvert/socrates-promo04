@@ -29,14 +29,10 @@ namespace SocratesFrTest.CandidateManagement
             return base.GetHashCode();
         }
 
-        public bool HasValidMail()
+        public bool IsValidMail()
         {
             string format = "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-            if (Regex.IsMatch(value, format))
-            {
-                return true;
-            }
-            return false;
+            return Regex.IsMatch(value, format);
         }
     }
 }

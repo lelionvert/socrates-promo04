@@ -19,24 +19,19 @@ namespace SocratesFrTest.CandidateManagement
 
         [TestCase("Koala@gmail.com")]
         [TestCase("KoalaBamboo@gmail.com")]
-        public void Mail_HasValidMail_Should_Return_True(string stringMail)
+        public void IsInvalidEmail_Should_Allowed_Invalid_Email(string stringMail)
         {
-            Mail mail = buildTotoWithMail(stringMail);
-            Check.That(mail.HasValidMail()).IsTrue();
+            Mail allowedEmail = new Mail(stringMail);
+            Check.That(allowedEmail.IsValidMail()).IsTrue();
         }
 
         [TestCase("Koala")]
         [TestCase("@")]
         [TestCase("@.fr")]
-        public void Mail_HasValidMail_Should_Return_false(string stringMail)
+        public void IsInvalidEmail_Should_Refused_Invalid_Email(string stringMail)
         {
-            Mail mail = buildTotoWithMail(stringMail);
-            Check.That(mail.HasValidMail()).IsFalse();
-        }
-
-        private Mail buildTotoWithMail(string mail)
-        {
-            return new Mail(mail);
+            Mail invalidEmail = new Mail(stringMail);
+            Check.That(invalidEmail.IsValidMail()).IsFalse();
         }
 
     }
