@@ -7,11 +7,11 @@ namespace SocratesFr.CandidateManagement
     public class Mail
     {
         public string MailAddress { get; }
+        private static readonly Regex emailRegex = new Regex(@"^([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})$");
 
-        public static bool Validate(string v)
+        public static bool Validate(string email)
         {
-            Regex rgx = new Regex(@"^([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})$");
-            return rgx.IsMatch(v);
+            return emailRegex.IsMatch(email);
         }
 
         public static Mail From(string mail)

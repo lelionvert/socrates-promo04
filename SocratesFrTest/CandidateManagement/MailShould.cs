@@ -9,13 +9,8 @@ namespace SocratesFrTest.CandidateManagement
 {
     public class MailShould
     {
-        [Test]
-        public void FailWhenMailIsEmpty()
-        {
-            Check.ThatCode(() => Mail.From("")).Throws<Mail.InvalidMailException>();
-        }
-        
         [TestCase("blabla")]
+        [TestCase("")]
         [TestCase("bla@bla")]
         [TestCase("@bla")]
         [TestCase("toto.bla")]
@@ -29,7 +24,7 @@ namespace SocratesFrTest.CandidateManagement
         [TestCase("bla-bla@bla.fr")]
         [TestCase("bla.bla@bla.org")]
         [TestCase("toto.bla@la-combe-du-lion-vert.fr")]
-        public void FailWhenMailIsValid(string mail)
+        public void PassWhenMailIsValid(string mail)
         {
             Check.That(Mail.From(mail).MailAddress).Equals(mail);
         }
