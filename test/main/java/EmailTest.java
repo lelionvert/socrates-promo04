@@ -19,7 +19,7 @@ public class EmailTest {
     @Test
     public void haveInvalidEmail() {
         List<String> something = Lists.newArrayList("something", "", "rien@blabla @re.com");
-        assertThat(something).allMatch(c -> !(new Email(c).hasValidEmail()));
+        assertThat(something).noneMatch(c -> new Email(c).hasValidEmail());
     }
 
 }
