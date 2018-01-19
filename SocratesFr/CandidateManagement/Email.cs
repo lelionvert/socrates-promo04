@@ -20,16 +20,22 @@ namespace SocratesFr.CandidateManagement
             throw new ArgumentException("Invalid email address.");
         }
 
+        protected bool Equals(Email other)
+        {
+            return string.Equals(Address, other.Address);
+        }
+
         public override bool Equals(object obj)
         {
-            Email email = obj as Email;
-            return this != null &&
-                   this.Address == email.Address;
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Email) obj);
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return (Address != null ? Address.GetHashCode() : 0);
         }
 
         public bool IsValidMail()

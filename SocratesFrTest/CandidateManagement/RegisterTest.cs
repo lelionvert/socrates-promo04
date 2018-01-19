@@ -21,7 +21,7 @@ namespace SocratesFrTest.CandidateManagement
         public void Add_Candidate_Should_Return_The_Candidate()
         {
             Register register = new Register();
-            Candidate candidate = new Candidate("Toto", "toto@gmail.com");
+            Candidate candidate = new Candidate("Toto", Email.EmailBuilder("toto@gmail.com"));
             register.AddCandidate(candidate);
             List<Candidate> listCandidates = register.GetCandidates();
             Check.That(listCandidates).ContainsExactly(candidate);
@@ -31,8 +31,8 @@ namespace SocratesFrTest.CandidateManagement
         public void Add_One_Candidate_Twice_Should_Return_The_First_Candidate()
         {
             Register register = new Register();
-            Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
-            Candidate candidateTwo = new Candidate("Titi", "toto@gmail.com");
+            Candidate candidateOne = new Candidate("Toto", Email.EmailBuilder("toto@gmail.com"));
+            Candidate candidateTwo = new Candidate("Titi", Email.EmailBuilder("toto@gmail.com"));
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
             List<Candidate> listCandidates = register.GetCandidates();
@@ -44,9 +44,9 @@ namespace SocratesFrTest.CandidateManagement
         public void List_Of_Candidate_Should_Return_Sorted_List()
         {
             Register register = new Register();
-            Candidate candidateOne = new Candidate("Toto", "toto@gmail.com");
-            Candidate candidateTwo = new Candidate("Titi", "titi@gmail.com");
-            Candidate candidateThree = new Candidate("Tati", "tati@gmail.com");
+            Candidate candidateOne = new Candidate("Toto", Email.EmailBuilder("toto@gmail.com"));
+            Candidate candidateTwo = new Candidate("Titi", Email.EmailBuilder("titi@gmail.com"));
+            Candidate candidateThree = new Candidate("Tati", Email.EmailBuilder("tati@gmail.com"));
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
             register.AddCandidate(candidateThree);
