@@ -14,11 +14,6 @@ public class Email {
         this.email = email;
     }
 
-    public boolean isValid() {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
-        return matcher.find();
-    }
-
     public static boolean isValid(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         return matcher.find();

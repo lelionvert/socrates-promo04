@@ -66,13 +66,4 @@ public class RegisterShould {
         assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
     }
 
-    @Test
-    public void notAddCandidateWithInvalidEmail(){
-        Candidate candidate=new Candidate(new Email("p@gma@il.com"), "alex");
-        Register register = new Register();
-        boolean addSuccessful = register.addCandidate(candidate);
-        assertThat(addSuccessful).isFalse();
-    }
-
-
 }

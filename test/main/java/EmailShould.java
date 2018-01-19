@@ -12,13 +12,13 @@ public class EmailShould {
     @Test
     public void haveValidEmail() {
         List<String> something = Lists.newArrayList("houssam@gmail.com", "a@mail.com", "rien.quelquechose@re.com");
-        assertThat(something).allMatch(c ->new Email(c).isValid());
+        assertThat(something).allMatch(Email::isValid);
     }
 
     @Test
     public void haveInvalidEmail() {
         List<String> something = Lists.newArrayList("something", "", "rien@blabla @re.com");
-        assertThat(something).noneMatch(c -> new Email(c).isValid());
+        assertThat(something).noneMatch(Email::isValid);
     }
 
     @Test
