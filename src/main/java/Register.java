@@ -7,14 +7,14 @@ public class Register {
 
     private final Collection<Candidate> candidates = new ArrayList<>();
 
-    public boolean addCandidate(Candidate candidate) {
+    public boolean add(Candidate candidate) {
         if (candidates.stream().anyMatch(candidate::sameEmail)) return false;
         return candidates.add(candidate);
     }
 
-    public Iterable<Candidate> getCandidates() {
+    public Iterable<Candidate> createAlphabeticallySortedListOfCandidates() {
         ArrayList<Candidate> candidates = new ArrayList<>(this.candidates);
-        candidates.sort(Comparator.comparing(Candidate::getFirstname));
+        Collections.sort(candidates);
         return candidates;
     }
 }

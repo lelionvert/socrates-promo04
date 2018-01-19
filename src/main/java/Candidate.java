@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 /**
  * Created by lenovo_3 on 17/01/2018.
  */
-public class Candidate {
+public class Candidate implements Comparable {
     private final Email email;
     private final String firstname;
 
@@ -47,4 +47,9 @@ public class Candidate {
     }
 
 
+    @Override
+    public int compareTo(Object o) {
+        Candidate candidate = (Candidate) o;
+        return firstname.compareTo(candidate.firstname);
+    }
 }

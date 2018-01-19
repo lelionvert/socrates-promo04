@@ -10,13 +10,13 @@ public class RegisterShould {
     public void addCandidate() throws InvalidEmailException {
         Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Register register = new Register();
-        assertThat(register.addCandidate(candidate)).isTrue();
+        assertThat(register.add(candidate)).isTrue();
     }
 
     @Test
     public void emptyCollection() {
         Register register = new Register();
-        Iterable<Candidate> candidateCollection = register.getCandidates();
+        Iterable<Candidate> candidateCollection = register.createAlphabeticallySortedListOfCandidates();
         assertThat(candidateCollection).isEmpty();
     }
 
@@ -24,8 +24,8 @@ public class RegisterShould {
     public void haveTheAddedCandidate() throws InvalidEmailException {
         Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Register register = new Register();
-        register.addCandidate(candidate);
-        Iterable<Candidate> candidateCollection = register.getCandidates();
+        register.add(candidate);
+        Iterable<Candidate> candidateCollection = register.createAlphabeticallySortedListOfCandidates();
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }
 
@@ -34,10 +34,10 @@ public class RegisterShould {
         Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate candidate2 = new Candidate(Email.create("p@gmail.com"), "alex");
         Register register = new Register();
-        register.addCandidate(candidate);
-        boolean candidateAdded = register.addCandidate(candidate2);
+        register.add(candidate);
+        boolean candidateAdded = register.add(candidate2);
         assertThat(candidateAdded).isFalse();
-        Iterable<Candidate> candidateCollection = register.getCandidates();
+        Iterable<Candidate> candidateCollection = register.createAlphabeticallySortedListOfCandidates();
         assertThat(candidateCollection).isNotEmpty().containsExactly(candidate);
     }
 
@@ -46,10 +46,10 @@ public class RegisterShould {
         Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate candidate2 = new Candidate(Email.create("p@gmail.com"), "paul");
         Register register = new Register();
-        register.addCandidate(candidate);
-        boolean candidateAdded = register.addCandidate(candidate2);
+        register.add(candidate);
+        boolean candidateAdded = register.add(candidate2);
         assertThat(candidateAdded).isFalse();
-        Iterable<Candidate> candidateCollection = register.getCandidates();
+        Iterable<Candidate> candidateCollection = register.createAlphabeticallySortedListOfCandidates();
         assertThat(candidateCollection).isNotEmpty().containsExactly(new Candidate(Email.create("p@gmail.com"), "alex"));
     }
 
@@ -59,10 +59,10 @@ public class RegisterShould {
         Candidate candidateZ = new Candidate(Email.create("z@gmail.com"), "z");
         Candidate candidateN = new Candidate(Email.create("n@gmail.com"), "n");
         Register register = new Register();
-        register.addCandidate(candidateA);
-        register.addCandidate(candidateZ);
-        register.addCandidate(candidateN);
-        Iterable<Candidate> candidateCollection = register.getCandidates();
+        register.add(candidateA);
+        register.add(candidateZ);
+        register.add(candidateN);
+        Iterable<Candidate> candidateCollection = register.createAlphabeticallySortedListOfCandidates();
         assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
     }
 
