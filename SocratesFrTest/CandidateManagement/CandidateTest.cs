@@ -18,11 +18,11 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [Test]
-        public void HasSameMail_Should_Return_True_When_Mail_Are_Same()
+        public void HasSameEmail_Should_Return_True_When_Email_Are_Same()
         {
             Candidate candidateOne = new Candidate("Toto", Email.From("toto@gmail.com"));
             Candidate candidateTwo = new Candidate("Titi", Email.From("toto@gmail.com"));
-            Check.That(candidateOne.HasSameMail(candidateTwo)).IsTrue();
+            Check.That(candidateOne.HasSameEmail(candidateTwo)).IsTrue();
         }
 
         [Test]
@@ -33,11 +33,11 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [Test]
-        public void HasSameMail_Should_Return_False_When_Mail_Are_Different()
+        public void HasSameEmail_Should_Return_False_When_Email_Are_Different()
         {
             Candidate candidateOne = new Candidate("Toto", Email.From("toto@gmail.com"));
             Candidate candidateTwo = new Candidate("Titi", Email.From("titi@gmail.com"));
-            Check.That(candidateOne.HasSameMail(candidateTwo)).IsFalse();
+            Check.That(candidateOne.HasSameEmail(candidateTwo)).IsFalse();
         }
 
         [Test]

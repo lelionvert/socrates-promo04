@@ -14,7 +14,7 @@ namespace SocratesFr.CandidateManagement
         public string Name { get; }
         public Email Email { get; }
 
-        public bool HasSameMail(Candidate candidate)
+        public bool HasSameEmail(Candidate candidate)
         {
             return Email.Equals(candidate.Email);
         }

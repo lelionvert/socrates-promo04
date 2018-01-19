@@ -10,7 +10,7 @@ namespace SocratesFrTest.CandidateManagement
     public class RegisterTest
     {
         [Test]
-        public void Candidates_List_Should_Return_Is_Empty()
+        public void Candidates_List_Should_Return_An_Empty_List()
         {
             Register register = new Register();
             List<Candidate> listCandidates = register.GetCandidates();
@@ -28,7 +28,7 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [Test]
-        public void Add_One_Candidate_Twice_Should_Return_The_First_Candidate()
+        public void Add_One_Candidate_Twice_Should_Add_It_Only_Once()
         {
             Register register = new Register();
             Candidate candidateOne = new Candidate("Toto", Email.From("toto@gmail.com"));
