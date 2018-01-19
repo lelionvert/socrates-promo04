@@ -8,7 +8,7 @@ public class Register {
     private final List<Candidate> candidateCollection = new ArrayList<>();
 
     public boolean addCandidate(Candidate candidate) {
-        if (!candidate.getEmail().hasValidEmail()) {
+        if (!candidate.getEmail().isValid()) {
             System.out.println(candidate.getEmail() + " " + "is invalid");
             return false;
         }
