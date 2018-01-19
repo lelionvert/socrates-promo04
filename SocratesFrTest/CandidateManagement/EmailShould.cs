@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NFluent;
+﻿using NFluent;
 using NUnit.Framework;
 using SocratesFr.CandidateManagement;
 

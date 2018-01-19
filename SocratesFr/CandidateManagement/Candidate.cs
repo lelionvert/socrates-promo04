@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SocratesFr.CandidateManagement
 {
     public class Candidate
     {
-        public Candidate(string name, Email email)
-        {
-            this.Name = name;
-            this.Email = email;
-        }
 
         public string Name { get; }
         public Email Email { get; }
+
+        public Candidate(string name, Email email)
+        {
+            Name = name;
+            Email = email;
+        }
 
         public bool HasSameEmail(Candidate candidate)
         {

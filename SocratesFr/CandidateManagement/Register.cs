@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace SocratesFr.CandidateManagement
 {
     public class Register
     {
-        private List<Candidate> candidates= new List<Candidate>();
+        private readonly IList<Candidate> _candidates = new List<Candidate>();
        
-        public List<Candidate> GetCandidates()
+        public IList<Candidate> GetCandidates()
         {
-            return candidates.OrderBy(item => item.Name).ToList();
+            return _candidates.OrderBy(item => item.Name).ToList();
         }
 
         public void AddCandidate(Candidate candidate)
         {
-            if (candidates.Any(item => item.HasSameEmail(candidate)))
+            if (_candidates.Any(item => item.HasSameEmail(candidate)))
                 return;
-            candidates.Add(candidate);
+            _candidates.Add(candidate);
         }
     }
 }
