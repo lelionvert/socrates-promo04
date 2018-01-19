@@ -14,5 +14,15 @@ namespace SocratesFrTest.CandidateManagement
         {
             Check.ThatCode(() => Mail.From("")).Throws<Mail.InvalidMailException>();
         }
+        
+        [TestCase("blabla")]
+        [TestCase("bla@bla")]
+        [TestCase("@bla")]
+        [TestCase("toto.bla")]
+        [TestCase("to@to@bla.com")]
+        public void FailWhenMailIsInvalid(string mail)
+        {
+            Check.ThatCode(() => Mail.From(mail)).Throws<Mail.InvalidMailException>();
+        }
     }
 }
