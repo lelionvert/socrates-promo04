@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 
 namespace SocratesFr.CandidateManagement
 {
     public class Mail
     {
-        private readonly string _mail;
+        public string MailAddress { get; }
 
         public static bool Validate(string v)
         {
-            return false;
+            Regex rgx = new Regex(@"^([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})$");
+            return rgx.IsMatch(v);
         }
 
         public static Mail From(string mail)
@@ -23,7 +26,7 @@ namespace SocratesFr.CandidateManagement
 
         private Mail(string mail)
         {
-            _mail = mail;
+            MailAddress = mail;
         }
 
         public class InvalidMailException : Exception
