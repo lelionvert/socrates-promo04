@@ -22,9 +22,13 @@ public class EmailShould {
     }
 
     @Test
-    public void createWhenValidInput(){
+    public void createWhenValidInput() throws InvalidEmailException {
         Email email = Email.create("houssam@gmail.com");
         assertThat(email).isEqualTo(new Email("houssam@gmail.com"));
     }
-    
+
+    @Test(expected = InvalidEmailException.class)
+    public void notCreateWhenInvalidInput() throws InvalidEmailException {
+        Email.create("houssam@gma@il.com");
+    }
 }

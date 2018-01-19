@@ -19,6 +19,11 @@ public class Email {
         return matcher.find();
     }
 
+    public static boolean isValid(String email) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
+        return matcher.find();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,7 +44,10 @@ public class Email {
         return email;
     }
 
-    public static Email create(String email) {
+    public static Email create(String email) throws InvalidEmailException {
+        if(!Email.isValid(email)){
+            throw new InvalidEmailException();
+        }
         return new Email(email);
     }
 }
