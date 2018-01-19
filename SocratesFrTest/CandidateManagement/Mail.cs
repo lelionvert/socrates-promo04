@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace SocratesFrTest.CandidateManagement
 {
@@ -30,7 +31,8 @@ namespace SocratesFrTest.CandidateManagement
 
         public bool HasValidMail()
         {
-            if (value.Contains("@") && value.Contains("."))
+            string format = "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+            if (Regex.IsMatch(value, format))
             {
                 return true;
             }
