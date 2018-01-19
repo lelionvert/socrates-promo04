@@ -21,4 +21,11 @@ public class EmailTest {
         assertThat(something).noneMatch(c -> new Email(c).isValid());
     }
 
+    @Test
+    public void createValidEmail(){
+        Email email = Email.createEmail("houssam@gmail.com");
+        assertThat(email).isNotNull();
+        assertThat(email.getEmail()).isEqualTo("houssam@gmail.com");
+    }
+
 }

@@ -38,4 +38,12 @@ public class Email {
     public String toString() {
         return email;
     }
+
+    public static Email createEmail(String s) {
+        return new Email(s);
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
