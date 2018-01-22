@@ -1,7 +1,6 @@
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by lenovo_3 on 22/01/2018.
@@ -87,19 +86,19 @@ public class RegisterShould {
     public void addCandidatesWithInvalidEmail() throws InvalidEmailException {
         Candidates candidates = new Candidates();
         Register register = new Register(candidates);
-        register.addCandidate("joe.dubois","joe");
+        register.addCandidate("joe.dubois", "joe");
     }
 
-    private Candidates createCandidatesWith(Candidate... all) throws InvalidEmailException {
+    private Candidates createCandidatesWith(Candidate... all) {
         Candidates candidates = new Candidates();
-        for(Candidate candidate: all) {
+        for (Candidate candidate : all) {
             candidates.add(candidate);
         }
         return candidates;
     }
 
 
-    private Candidate candidate(String email, String firstname) throws InvalidEmailException {
-        return new Candidate(Email.create(email), firstname);
+    private Candidate candidate(String email, String firstName) throws InvalidEmailException {
+        return new Candidate(Email.create(email), firstName);
     }
 }

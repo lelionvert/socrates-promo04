@@ -23,14 +23,14 @@ public class Candidates {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Candidates candidates = (Candidates) o;
+        Candidates that = (Candidates) o;
 
-        return this.candidates != null ? this.candidates.equals(candidates.candidates) : candidates.candidates == null;
+        return candidates.equals(that.candidates);
     }
 
     @Override
     public int hashCode() {
-        return candidates != null ? candidates.hashCode() : 0;
+        return candidates.hashCode();
     }
 
     @Override

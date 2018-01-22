@@ -4,11 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CandidateShould {
 
-    private Candidate createCandidateWithEmail(Email email){
+    private Candidate createCandidateWithEmail(Email email) {
         return new Candidate(email, "firstname");
     }
 
-    
 
     @Test
     public void beEqual() throws InvalidEmailException {

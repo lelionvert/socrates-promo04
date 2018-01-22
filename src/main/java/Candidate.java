@@ -1,16 +1,14 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by lenovo_3 on 17/01/2018.
  */
 public class Candidate implements Comparable<Candidate> {
     private final Email email;
-    private final String firstname;
+    private final String firstName;
 
-    public Candidate(Email email, String firstname) {
+    public Candidate(Email email, String firstName) {
         this.email = email;
-        this.firstname = firstname;
+        this.firstName = firstName;
     }
 
     @Override
@@ -20,21 +18,21 @@ public class Candidate implements Comparable<Candidate> {
 
         Candidate candidate = (Candidate) o;
 
-        if (email != null ? !email.equals(candidate.email) : candidate.email != null) return false;
-        return firstname != null ? firstname.equals(candidate.firstname) : candidate.firstname == null;
+        if (!email.equals(candidate.email)) return false;
+        return firstName != null ? firstName.equals(candidate.firstName) : candidate.firstName == null;
     }
 
     @Override
     public int hashCode() {
         int result = email != null ? email.hashCode() : 0;
-        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Candidate{" +
-                "firstname='" + firstname + '\'' +
+                "firstName='" + firstName + '\'' +
                 '}';
     }
 
@@ -45,7 +43,7 @@ public class Candidate implements Comparable<Candidate> {
 
     @Override
     public int compareTo(Candidate o) {
-        return firstname.compareTo(o.firstname);
+        return firstName.compareTo(o.firstName);
 
     }
 }

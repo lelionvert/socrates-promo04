@@ -58,7 +58,7 @@ public class CandidatesShould {
     }
 
     @Test
-    public void returnOrdredCandidatesByFirstname() throws InvalidEmailException {
+    public void returnOrdredCandidatesByFirstName() throws InvalidEmailException {
         Candidate candidateA = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate candidateZ = new Candidate(Email.create("z@gmail.com"), "z");
         Candidate candidateN = new Candidate(Email.create("n@gmail.com"), "n");

@@ -20,7 +20,7 @@ public class Email {
     }
 
     public static Email create(String email) throws InvalidEmailException {
-        if(!Email.isValid(email)){
+        if (!Email.isValid(email)) {
             throw new InvalidEmailException();
         }
         return new Email(email);
