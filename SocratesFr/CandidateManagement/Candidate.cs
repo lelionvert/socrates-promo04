@@ -33,5 +33,13 @@ namespace SocratesFr.CandidateManagement
             hashCode = hashCode * -1521134295 + EqualityComparer<Email>.Default.GetHashCode(Email);
             return hashCode;
         }
+
+        public class Builder
+        {
+            public Candidate Create()
+            {
+                throw new System.NullReferenceException();
+            }
+        }
     }
 }
