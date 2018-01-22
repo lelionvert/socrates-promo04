@@ -12,7 +12,7 @@ public class PriceCalculatorShould {
     @Test
     public void giveSingleRoomPrice() throws Exception {
         PriceCalculator priceCalculator = new PriceCalculator();
-        int price = priceCalculator.calculatePrice("single");
+        int price = priceCalculator.calculatePrice(RoomChoice.SINGLE);
 
         assertThat(price).isEqualTo(610);
     }
@@ -20,7 +20,7 @@ public class PriceCalculatorShould {
     @Test
     public void giveDoubleRoomPrice() throws Exception {
         PriceCalculator priceCalculator = new PriceCalculator();
-        int price = priceCalculator.calculatePrice("double");
+        int price = priceCalculator.calculatePrice(RoomChoice.DOUBLE);
 
         assertThat(price).isEqualTo(510);
     }
@@ -28,7 +28,7 @@ public class PriceCalculatorShould {
     @Test
     public void giveTripleRoomPrice() throws Exception {
         PriceCalculator priceCalculator = new PriceCalculator();
-        int price = priceCalculator.calculatePrice("triple");
+        int price = priceCalculator.calculatePrice(RoomChoice.TRIPLE);
 
         assertThat(price).isEqualTo(410);
     }
