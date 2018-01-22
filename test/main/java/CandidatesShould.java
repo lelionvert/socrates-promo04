@@ -5,21 +5,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by lenovo_3 on 17/01/2018.
  */
-public class RegisterShould {
+public class CandidatesShould {
     @Test
     public void addCandidate() throws InvalidEmailException {
         Candidate candidate = new Candidate(Email.create("p@gmail.com"), "alex");
-        Register register = new Register();
-        assertThat(register.add(candidate)).isTrue();
+        Candidates candidates = new Candidates();
+        assertThat(candidates.add(candidate)).isTrue();
     }
 
     @Test
     public void notSuccessfullyAddCandidateWithDuplicateEmail() throws InvalidEmailException {
         Candidate aCandidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate anotherCandidate = new Candidate(Email.create("p@gmail.com"), "alex");
-        Register register = new Register();
-        register.add(aCandidate);
-        boolean addSuccesful = register.add(anotherCandidate);
+        Candidates candidates = new Candidates();
+        candidates.add(aCandidate);
+        boolean addSuccesful = candidates.add(anotherCandidate);
         assertThat(addSuccesful).isFalse();
     }
 
@@ -27,21 +27,21 @@ public class RegisterShould {
     public void notAddDuplicateCandidate() throws InvalidEmailException {
         Candidate aCandidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate anotherCandidate = new Candidate(Email.create("p@gmail.com"), "alex");
-        Register register = new Register();
-        register.add(aCandidate);
-        register.add(anotherCandidate);
-        Register expectedRegister = new Register();
-        expectedRegister.add(aCandidate);
-        assertThat(register).isEqualTo(expectedRegister);
+        Candidates candidates = new Candidates();
+        candidates.add(aCandidate);
+        candidates.add(anotherCandidate);
+        Candidates expectedCandidates = new Candidates();
+        expectedCandidates.add(aCandidate);
+        assertThat(candidates).isEqualTo(expectedCandidates);
     }
 
     @Test
     public void notSuccessfullyAddAnotherCandidatesWithDuplicateEmail() throws InvalidEmailException {
         Candidate aCandidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate anotherCandidate = new Candidate(Email.create("p@gmail.com"), "paul");
-        Register register = new Register();
-        register.add(aCandidate);
-        boolean addSuccesful = register.add(anotherCandidate);
+        Candidates candidates = new Candidates();
+        candidates.add(aCandidate);
+        boolean addSuccesful = candidates.add(anotherCandidate);
         assertThat(addSuccesful).isFalse();
     }
 
@@ -49,12 +49,12 @@ public class RegisterShould {
     public void notAddAnotherCandidateWithDuplicateEmail() throws InvalidEmailException {
         Candidate aCandidate = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate anotherCandidate = new Candidate(Email.create("p@gmail.com"), "paul");
-        Register register = new Register();
-        register.add(aCandidate);
-        register.add(anotherCandidate);
-        Register expectedRegister = new Register();
-        expectedRegister.add(aCandidate);
-        assertThat(register).isEqualTo(expectedRegister);
+        Candidates candidates = new Candidates();
+        candidates.add(aCandidate);
+        candidates.add(anotherCandidate);
+        Candidates expectedCandidates = new Candidates();
+        expectedCandidates.add(aCandidate);
+        assertThat(candidates).isEqualTo(expectedCandidates);
     }
 
     @Test
@@ -62,11 +62,11 @@ public class RegisterShould {
         Candidate candidateA = new Candidate(Email.create("p@gmail.com"), "alex");
         Candidate candidateZ = new Candidate(Email.create("z@gmail.com"), "z");
         Candidate candidateN = new Candidate(Email.create("n@gmail.com"), "n");
-        Register register = new Register();
-        register.add(candidateA);
-        register.add(candidateZ);
-        register.add(candidateN);
-        Iterable<Candidate> candidateCollection = register.createAlphabeticallySortedListOfCandidates();
+        Candidates candidates = new Candidates();
+        candidates.add(candidateA);
+        candidates.add(candidateZ);
+        candidates.add(candidateN);
+        Iterable<Candidate> candidateCollection = candidates.createAlphabeticallySortedListOfCandidates();
         assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
     }
 
