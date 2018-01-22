@@ -71,22 +71,40 @@ namespace SocratesFrTest.CandidateManagement
             Check.That(listCandidates).Equals(orderedCandidatesList);
         }
 
-        private Register CreateTestRegister(params (string, string)[] tuples)
+        [Test]
+        public void No_Duplication()
+        {
+            Register register = CreateTestRegister(
+                ("regis", "regis.dubois@socrates.com"),
+                ("fanny", "fanny.dubois@crafts.com"));
+            List<Candidate> existingCandidates = register.GetCandidates();
+
+            register.AddCandidate("fanny", "fanny.dubois@crafts.com");
+            List<Candidate> candidates = register.GetCandidates();
+
+            List<Candidate> candidatesOrdered = CreateTestList(
+                ("fanny", "fanny.dubois@crafts.com"),
+                ("regis", "regis.dubois@socrates.com"));
+            Check.That(existingCandidates).Equals(candidatesOrdered);
+            Check.That(candidates).Equals(candidatesOrdered);
+        }
+
+        private Register CreateTestRegister(params (string Name, string Email)[] tuples)
         {
             Register register = new Register();
             foreach (var tuple in tuples)
             {
-                register.AddCandidate(CandidateBuilder.Create(tuple.Item1, tuple.Item2));
+                register.AddCandidate(CandidateBuilder.Create(tuple.Name, tuple.Email));
             }
             return (register);
         }
 
-        private List<Candidate> CreateTestList(params (string, string)[] tuples)
+        private List<Candidate> CreateTestList(params (string Name, string Email)[] tuples)
         {
             List<Candidate> candidates = new List<Candidate>();
             foreach (var tuple in tuples)
             {
-                candidates.Add(CandidateBuilder.Create(tuple.Item1, tuple.Item2));
+                candidates.Add(CandidateBuilder.Create(tuple.Name, tuple.Email));
             }
             return (candidates);
         }
