@@ -11,7 +11,7 @@ namespace SocratesFrTest.CandidateManagement
     public class EmailTest
     {
         [Test]
-        public void Mails_Should_Be_Equals()
+        public void Emails_Should_Be_Equals()
         {
             Email email = Email.EmailBuilder("koala@gmail.com");
             Email mail2 = Email.EmailBuilder("koala@gmail.com");
@@ -22,8 +22,7 @@ namespace SocratesFrTest.CandidateManagement
         [TestCase("KoalaBamboo@gmail.com")]
         public void IsInvalidEmail_Should_Allowed_Invalid_Email(string stringMail)
         {
-            Email allowedEmail = Email.EmailBuilder(stringMail);
-            Check.That(allowedEmail.IsValidMail()).IsTrue();
+            Check.That(Email.IsValidEmail(stringMail)).IsTrue();
         }
 
         [TestCase("Koala")]
