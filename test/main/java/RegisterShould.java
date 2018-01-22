@@ -1,5 +1,6 @@
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 /**
  * Created by lenovo_3 on 22/01/2018.
@@ -12,10 +13,8 @@ public class RegisterShould {
         Register service = new Register(candidates);
         service.addCandidate("regis.dubois@socrates.com", "regis");
 
-        Candidates onlyOneCandidate = new Candidates();
-        Candidate candidate = new Candidate(Email.create("regis.dubois@socrates.com"), "regis");
-        onlyOneCandidate.add(candidate);
-        Assertions.assertThat(candidates).isEqualTo(onlyOneCandidate);
+        Candidates onlyOneCandidate = createCandidatesWith(candidate("regis.dubois@socrates.com", "regis"));
+        assertThat(candidates).isEqualTo(onlyOneCandidate);
     }
 
     @Test
@@ -26,35 +25,42 @@ public class RegisterShould {
         service.addCandidate("fanny.dubois@crafts.com", "fanny");
         service.addCandidate("emilie.dupuis@testing.fr", "emilie");
 
-        Candidates threeCandidates = new Candidates();
-        Candidate regis = new Candidate(Email.create("regis.dubois@socrates.com"), "regis");
-        Candidate fanny = new Candidate(Email.create("fanny.dubois@crafts.com"), "fanny");
-        Candidate emilie = new Candidate(Email.create("emilie.dupuis@testing.fr"), "emilie");
-        threeCandidates.add(regis);
-        threeCandidates.add(fanny);
-        threeCandidates.add(emilie);
+        Candidates threeCandidates = createCandidatesWith(
+                candidate("regis.dubois@socrates.com", "regis"),
+                candidate("fanny.dubois@crafts.com", "fanny"),
+                candidate("emilie.dupuis@testing.fr", "emilie"));
 
-        Assertions.assertThat(candidates).isEqualTo(threeCandidates);
+        assertThat(candidates).isEqualTo(threeCandidates);
     }
 
-
     @Test
-    public void AddingSeveralCandidates() throws InvalidEmailException {
+    public void addingSeveralCandidatesWithSeveralExisting() throws InvalidEmailException {
         Candidates candidates = new Candidates();
-        candidates.add(new Candidate(Email.create("regis.dubois@socrates.com"), "regis"));
-        candidates.add(new Candidate(Email.create("fanny.dubois@crafts.com"), "fanny"));
+        String email = "regis.dubois@socrates.com";
+        String regis = "regis";
+        candidates.add(candidate(email, regis));
+        candidates.add(candidate("fanny.dubois@crafts.com", "fanny"));
         Register service = new Register(candidates);
         service.addCandidate("jules.fournier@xp.com", "jules");
 
+        Candidates threeCandidates = createCandidatesWith(
+                candidate("regis.dubois@socrates.com", "regis"),
+                candidate("fanny.dubois@crafts.com", "fanny"),
+                candidate("jules.fournier@xp.com", "jules"));
 
-        Candidates threeCandidates = new Candidates();
-        Candidate regis = new Candidate(Email.create("regis.dubois@socrates.com"), "regis");
-        Candidate fanny = new Candidate(Email.create("fanny.dubois@crafts.com"), "fanny");
-        Candidate jules = new Candidate(Email.create("jules.fournier@xp.com"), "jules");
-        threeCandidates.add(regis);
-        threeCandidates.add(fanny);
-        threeCandidates.add(jules);
+        assertThat(candidates).isEqualTo(threeCandidates);
+    }
 
-        Assertions.assertThat(candidates).isEqualTo(threeCandidates);
+    private Candidates createCandidatesWith(Candidate... all) throws InvalidEmailException {
+        Candidates candidates = new Candidates();
+        for(Candidate candidate: all) {
+            candidates.add(candidate);
+        }
+        return candidates;
+    }
+
+
+    private Candidate candidate(String email, String firstname) throws InvalidEmailException {
+        return new Candidate(Email.create(email), firstname);
     }
 }
