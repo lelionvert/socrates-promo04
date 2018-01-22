@@ -12,5 +12,11 @@ namespace SocratesFrTest.CandidateManagement
         {
             Check.That(EmailValidator.IsValid(stringMail)).IsTrue();
         }
+
+        [Test]
+        public void IsValid_Should_Not_Be_Valid_With_Null_Parameter()
+        {
+            Check.That(EmailValidator.IsValid(null)).IsFalse();
+        }
     }
 }

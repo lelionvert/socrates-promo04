@@ -4,10 +4,11 @@ namespace SocratesFr.CandidateManagement
 {
     public class EmailValidator
     {
+        private const string EMAIL_FORMAT = "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+
         public static bool IsValid(string address)
         {
-            const string format = "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-            return Regex.IsMatch(address, format);
+            return !string.IsNullOrEmpty(address) && Regex.IsMatch(address, EMAIL_FORMAT);
         }
     }
 }
