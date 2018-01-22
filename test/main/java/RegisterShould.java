@@ -34,7 +34,7 @@ public class RegisterShould {
     }
 
     @Test
-    public void addingSeveralCandidatesWithSeveralExisting() throws InvalidEmailException {
+    public void addSeveralCandidatesWithSeveralExisting() throws InvalidEmailException {
         Candidates candidates = new Candidates();
         String email = "regis.dubois@socrates.com";
         String regis = "regis";
