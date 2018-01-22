@@ -1,19 +1,20 @@
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 
 /**
  * Created by lenovo_3 on 22/01/2018.
  */
-public class PriceCalculatorTest {
+public class PriceCalculatorShould {
 
     @Test
     public void SingleRoom() throws Exception {
         PriceCalculator priceCalculator = new PriceCalculator();
         int price = priceCalculator.calculatePrice("single");
 
-        Assertions.assertThat(price).isEqualTo(610);
+        assertThat(price).isEqualTo(610);
     }
 
     @Test
@@ -21,6 +22,8 @@ public class PriceCalculatorTest {
         PriceCalculator priceCalculator = new PriceCalculator();
         int price = priceCalculator.calculatePrice("double");
 
-        Assertions.assertThat(price).isEqualTo(510);
+        assertThat(price).isEqualTo(510);
     }
+
+
 }
