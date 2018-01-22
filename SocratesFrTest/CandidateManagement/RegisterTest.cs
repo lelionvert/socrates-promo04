@@ -53,5 +53,17 @@ namespace SocratesFrTest.CandidateManagement
             List<Candidate> listCandidates = register.GetCandidates();
             Check.That(listCandidates).ContainsExactly(candidateThree, candidateTwo, candidateOne);        
         }
+
+        [Test]
+        public void User_Add_Candidate_With_Name_And_Email()
+        {
+            Register register = new Register();
+            string userEmail = "regis.dubois@socrates.com";
+            string userName = "regis";
+            register.AddCandidate(userName, userEmail);
+
+            List<Candidate> listCandidates = register.GetCandidates();
+            Check.That(listCandidates).ContainsExactly(CandidateBuilder.Create(userName, userEmail));
+        }
     }
 }

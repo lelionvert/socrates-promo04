@@ -19,5 +19,10 @@ namespace SocratesFr.CandidateManagement
                 return;
             candidates.Add(candidate);
         }
+
+        public void AddCandidate(string userName, string userEmail)
+        {
+            AddCandidate(CandidateBuilder.Create(userName, userEmail));
+        }    
     }
 }
