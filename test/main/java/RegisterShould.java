@@ -19,7 +19,7 @@ public class RegisterShould {
     }
 
     @Test
-    public void AddingSeveralCandidates() throws InvalidEmailException {
+    public void addSeveralCandidates() throws InvalidEmailException {
         Candidates candidates = new Candidates();
         Register service = new Register(candidates);
         service.addCandidate("regis.dubois@socrates.com", "regis");
