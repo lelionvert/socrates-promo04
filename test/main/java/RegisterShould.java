@@ -34,7 +34,7 @@ public class RegisterShould {
     }
 
     @Test
-    public void addSeveralCandidatesWithSeveralExisting() throws InvalidEmailException {
+    public void addOneCandidatesWithSeveralExisting() throws InvalidEmailException {
         Candidates candidates = new Candidates();
         String email = "regis.dubois@socrates.com";
         String regis = "regis";
@@ -47,6 +47,22 @@ public class RegisterShould {
                 candidate("regis.dubois@socrates.com", "regis"),
                 candidate("fanny.dubois@crafts.com", "fanny"),
                 candidate("jules.fournier@xp.com", "jules"));
+
+        assertThat(candidates).isEqualTo(threeCandidates);
+    }
+
+    @Test
+    public void addSeveralCandidatesWithOneExisting() throws InvalidEmailException {
+        Candidates candidates = new Candidates();
+        candidates.add(candidate("regis.dubois@socrates.com", "regis"));
+        Register service = new Register(candidates);
+        service.addCandidate("jules.fournier@xp.com", "jules");
+        service.addCandidate("fanny.dubois@crafts.com", "fanny");
+
+        Candidates threeCandidates = createCandidatesWith(
+                candidate("jules.fournier@xp.com", "jules"),
+                candidate("regis.dubois@socrates.com", "regis"),
+                candidate("fanny.dubois@crafts.com", "fanny"));
 
         assertThat(candidates).isEqualTo(threeCandidates);
     }

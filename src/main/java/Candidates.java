@@ -5,14 +5,14 @@ import java.util.*;
  */
 public class Candidates {
 
-    private final Collection<Candidate> candidates = new ArrayList<>();
+    private final Collection<Candidate> candidates = new HashSet<>();
 
     public boolean add(Candidate candidate) {
         if (candidates.stream().anyMatch(candidate::sameEmail)) return false;
         return candidates.add(candidate);
     }
 
-    public Iterable<Candidate> createAlphabeticallySortedListOfCandidates() {
+    public List<Candidate> createAlphabeticallySortedListOfCandidates() {
         ArrayList<Candidate> candidates = new ArrayList<>(this.candidates);
         Collections.sort(candidates);
         return candidates;
@@ -31,5 +31,12 @@ public class Candidates {
     @Override
     public int hashCode() {
         return candidates != null ? candidates.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Candidates{" +
+                "candidates=" + candidates +
+                '}';
     }
 }
