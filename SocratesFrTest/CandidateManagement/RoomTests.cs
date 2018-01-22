@@ -12,15 +12,22 @@ namespace SocratesFrTest.CandidateManagement
         [Test]
         public void Get_Price_For_Single_Room()
         {
-            var package = new Room(Room.RoomType.SINGLE, 6);
+            var package = new Room(Room.RoomType.SINGLE);
             Check.That(package.Price).Equals(610);
         }
 
         [Test]
         public void Get_Price_For_Double_Room()
         {
-            var package = new Room(Room.RoomType.DOUBLE, 6);
+            var package = new Room(Room.RoomType.DOUBLE);
             Check.That(package.Price).Equals(510);
+        }
+
+        [Test]
+        public void Get_Price_For_Triple_Room()
+        {
+            var package = new Room(Room.RoomType.TRIPLE);
+            Check.That(package.Price).Equals(410);
         }
     }
 }
