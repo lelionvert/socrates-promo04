@@ -10,9 +10,9 @@ namespace SocratesFrTest.CandidateManagement
     public class CandidateBuilderTest
     {
         [Test]
-        public void Invalid_Candidate_Should_Return_Error_Message()
+        public void Candidate_Cant_Be_Created_With_Invalid_Email()
         {
-            Check.ThatCode(() => CandidateBuilder.Create("toto", "toto@gmail")).Throws<ArgumentException>();
+            Check.ThatCode(() => CandidateBuilder.Create("toto", "toto@gmail")).Throws<InvalidEmailException>();
         }
 
         [Test]

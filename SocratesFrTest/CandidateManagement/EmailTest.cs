@@ -23,7 +23,7 @@ namespace SocratesFrTest.CandidateManagement
         [TestCase("@.fr")]
         public void IsInvalidEmail_Should_Refused_Invalid_Email(string stringMail)
         {
-            Check.ThatCode(() => Email.Builder(stringMail)).Throws<ArgumentException>();
+            Check.ThatCode(() => Email.Builder(stringMail)).Throws<InvalidEmailException>();
 
         }
 

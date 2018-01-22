@@ -15,7 +15,7 @@ namespace SocratesFr.CandidateManagement
         public static Email Builder(string address)
         {
             if (EmailValidator.IsValid(address) == false)
-                throw new ArgumentException("Invalid email address.");
+                throw new InvalidEmailException("Invalid email address.");
             return new Email(address);            
         }
 
