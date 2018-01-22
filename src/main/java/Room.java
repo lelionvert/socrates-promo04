@@ -4,7 +4,8 @@
 public enum Room {
     SINGLE(610),
     DOUBLE(510),
-    TRIPLE(410);
+    TRIPLE(410),
+    NOACCOMMODATION(240);
 
     private final int price;
 

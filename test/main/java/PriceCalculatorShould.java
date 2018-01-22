@@ -29,5 +29,11 @@ public class PriceCalculatorShould {
         assertThat(price).isEqualTo(410);
     }
 
+    @Test
+    public void giveNoAccomodationPrice() throws Exception {
+        int price = PriceCalculator.calculatePrice(Room.NOACCOMMODATION);
+        assertThat(price).isEqualTo(240);
+    }
+
 
 }
