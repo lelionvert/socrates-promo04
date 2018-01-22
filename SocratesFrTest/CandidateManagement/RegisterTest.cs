@@ -60,10 +60,21 @@ namespace SocratesFrTest.CandidateManagement
             Register register = new Register();
             string userEmail = "regis.dubois@socrates.com";
             string userName = "regis";
+
             register.AddCandidate(userName, userEmail);
 
             List<Candidate> listCandidates = register.GetCandidates();
             Check.That(listCandidates).ContainsExactly(CandidateBuilder.Create(userName, userEmail));
+        }
+
+        private Register CreateTestRegister((string, string)[] tuples)
+        {
+            Register register = new Register();
+            foreach (var tuple in tuples)
+            {
+                register.AddCandidate(CandidateBuilder.Create(tuple.Item1, tuple.Item2));
+            }
+            return (register);
         }
     }
 }
