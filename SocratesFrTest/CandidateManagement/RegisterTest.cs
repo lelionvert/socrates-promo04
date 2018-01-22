@@ -15,6 +15,14 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [Test]
+        public void Add_Null_Candidate_Should_Do_Nothing()
+        {
+            var register = new Register();
+            register.AddCandidate(null);
+            Check.That(register).Equals(new Register());
+        }
+
+        [Test]
         public void Add_Candidate_Should_Return_The_Candidate()
         {
             var register = new Register();
