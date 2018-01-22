@@ -40,7 +40,7 @@ namespace SocratesFr.CandidateManagement
             {
                 if (Email != null)
                 {
-                    CandidateManagement.Email.From(Email);
+                    return new Candidate(Name, CandidateManagement.Email.From(Email));
                 }
                 throw new System.NullReferenceException();
             }

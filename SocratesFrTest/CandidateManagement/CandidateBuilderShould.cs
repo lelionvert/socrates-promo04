@@ -22,5 +22,21 @@ namespace SocratesFrTest.CandidateManagement
             candidateBuilder.Email = "toto";
             Check.ThatCode(() => candidateBuilder.Create()).Throws<Email.InvalidEmailException>();
         }
+
+        [Test]
+        public void CreateACandidate()
+        {
+            var candidateBuilder1 = new Candidate.Builder();
+            candidateBuilder1.Name = "toto";
+            candidateBuilder1.Email = "toto@gmail.com";
+            var candidate1 = candidateBuilder1.Create();
+            var candidateBuilder2 = new Candidate.Builder();
+            candidateBuilder2.Name = "toto";
+            candidateBuilder2.Email = "toto@gmail.com";
+            var candidate2 = candidateBuilder2.Create();
+            Check.That(candidate1).Equals(candidate2);
+            Check.That(candidate1.Name).Equals("toto");
+            Check.That(candidate1.Email.Address).Equals("toto@gmail.com");
+        }
     }
 }
