@@ -1,4 +1,5 @@
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -65,6 +66,21 @@ public class RegisterShould {
                 candidate("fanny.dubois@crafts.com", "fanny"));
 
         assertThat(candidates).isEqualTo(threeCandidates);
+    }
+
+    @Test
+    public void ignoreDuplicateCandidate() throws InvalidEmailException {
+        Candidates candidates = new Candidates();
+        candidates.add(candidate("regis.dubois@socrates.com", "regis"));
+        candidates.add(candidate("fanny.dubois@crafts.com", "fanny"));
+        Register service = new Register(candidates);
+        service.addCandidate("fanny.dubois@crafts.com", "fanny");
+
+        Candidates twoCandidates = createCandidatesWith(
+                candidate("regis.dubois@socrates.com", "regis"),
+                candidate("fanny.dubois@crafts.com", "fanny"));
+
+        assertThat(candidates).isEqualTo(twoCandidates);
     }
 
     private Candidates createCandidatesWith(Candidate... all) throws InvalidEmailException {
