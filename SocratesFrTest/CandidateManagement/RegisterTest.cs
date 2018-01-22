@@ -1,6 +1,7 @@
 ﻿using NFluent;
 using NUnit.Framework;
 using SocratesFr.CandidateManagement;
+using static SocratesFrTest.CandidateManagement.CandidateCreator;
 
 namespace SocratesFrTest.CandidateManagement
 {
@@ -26,11 +27,7 @@ namespace SocratesFrTest.CandidateManagement
         public void Add_Candidate_Should_Return_The_Candidate()
         {
             var register = new Register();
-            var candidate = new Candidate.Builder
-            {
-                Name = "Toto",
-                Email = "toto@gmail.com"
-            }.Create();
+            var candidate = Create(CANDIDATE_ID.REGIS);
             register.AddCandidate(candidate);
             var listCandidates = register.GetCandidatesOrderedByName();
             Check.That(listCandidates).ContainsExactly(candidate);
@@ -40,20 +37,12 @@ namespace SocratesFrTest.CandidateManagement
         public void Add_One_Candidate_Twice_Should_Add_It_Only_Once()
         {
             var register = new Register();
-            var candidateOne = new Candidate.Builder
-            {
-                Name = "Toto",
-                Email = "toto@gmail.com"
-            }.Create();
-            var candidateTwo = new Candidate.Builder
-            {
-                Name = "Titi",
-                Email = "toto@gmail.com"
-            }.Create();
-            register.AddCandidate(candidateOne);
-            register.AddCandidate(candidateTwo);
+            var candidateRegis = Create(CANDIDATE_ID.REGIS);
+            var candidateFanny = Create(CANDIDATE_ID.FANNY_WITH_REGIS_EMAIL);
+            register.AddCandidate(candidateRegis);
+            register.AddCandidate(candidateFanny);
             var registerWithOneEmail = new Register();
-            registerWithOneEmail.AddCandidate(candidateOne);
+            registerWithOneEmail.AddCandidate(candidateRegis);
             Check.That(register).Equals(registerWithOneEmail);
         }
 
@@ -61,26 +50,14 @@ namespace SocratesFrTest.CandidateManagement
         public void List_Of_Candidate_Should_Return_Sorted_List()
         {
             var register = new Register();
-            var candidateOne = new Candidate.Builder
-            {
-                Name = "Toto",
-                Email = "toto@gmail.com"
-            }.Create();
-            var candidateTwo = new Candidate.Builder
-            {
-                Name = "Titi",
-                Email = "titi@gmail.com"
-            }.Create();
-            var candidateThree = new Candidate.Builder
-            {
-                Name = "Tati",
-                Email = "tati@gmail.com"
-            }.Create();
-            register.AddCandidate(candidateOne);
-            register.AddCandidate(candidateTwo);
-            register.AddCandidate(candidateThree);
+            var candidateRegis = Create(CANDIDATE_ID.REGIS);
+            var candidateFanny = Create(CANDIDATE_ID.FANNY);
+            var candidateEmilie = Create(CANDIDATE_ID.EMILIE);
+            register.AddCandidate(candidateRegis);
+            register.AddCandidate(candidateFanny);
+            register.AddCandidate(candidateEmilie);
             var listCandidates = register.GetCandidatesOrderedByName();
-            Check.That(listCandidates).ContainsExactly(candidateThree, candidateTwo, candidateOne);        
+            Check.That(listCandidates).ContainsExactly(candidateEmilie, candidateFanny, candidateRegis);        
         }
     }
 }
