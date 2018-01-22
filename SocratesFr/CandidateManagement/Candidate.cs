@@ -38,8 +38,15 @@ namespace SocratesFr.CandidateManagement
         {
             public Candidate Create()
             {
+                if (Email != null)
+                {
+                    CandidateManagement.Email.From(Email);
+                }
                 throw new System.NullReferenceException();
             }
+
+            public string Email { get; set; }
+            public string Name { get; set; }
         }
     }
 }

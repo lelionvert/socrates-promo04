@@ -13,5 +13,14 @@ namespace SocratesFrTest.CandidateManagement
             var candidateBuilder = new Candidate.Builder();
             Check.ThatCode(() => candidateBuilder.Create()).Throws<NullReferenceException>();
         }
+
+        [Test]
+        public void NotCreateCandidateWhenInvalidEmail()
+        {
+            var candidateBuilder = new Candidate.Builder();
+            candidateBuilder.Name = "toto";
+            candidateBuilder.Email = "toto";
+            Check.ThatCode(() => candidateBuilder.Create()).Throws<Email.InvalidEmailException>();
+        }
     }
 }
