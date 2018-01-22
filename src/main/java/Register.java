@@ -9,13 +9,8 @@ public class Register {
         this.candidates = candidates;
     }
 
-    public void addCandidate(String emailInput, String firstname) {
-        Email email = null;
-        try {
-            email = Email.create(emailInput);
-        } catch (InvalidEmailException e) {
-            e.printStackTrace();
-        }
+    public void addCandidate(String emailInput, String firstname) throws InvalidEmailException {
+        Email email = Email.create(emailInput);
         Candidate candidate = new Candidate(email, firstname);
         candidates.add(candidate);
     }

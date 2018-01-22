@@ -83,6 +83,13 @@ public class RegisterShould {
         assertThat(candidates).isEqualTo(twoCandidates);
     }
 
+    @Test(expected = InvalidEmailException.class)
+    public void addCandidatesWithInvalidEmail() throws InvalidEmailException {
+        Candidates candidates = new Candidates();
+        Register register = new Register(candidates);
+        register.addCandidate("joe.dubois","joe");
+    }
+
     private Candidates createCandidatesWith(Candidate... all) throws InvalidEmailException {
         Candidates candidates = new Candidates();
         for(Candidate candidate: all) {
