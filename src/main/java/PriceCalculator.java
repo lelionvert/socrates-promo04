@@ -2,7 +2,7 @@
  * Created by lenovo_3 on 22/01/2018.
  */
 public class PriceCalculator {
-    public int calculatePrice() {
-        return 610;
+    public int calculatePrice(String choice) {
+        return choice.equals("double") ? 510: 610;
     }
 }
