@@ -6,6 +6,7 @@ namespace SocratesFrTest.CandidateManagement
 {
     public class EmailShould
     {
+        [TestCase(null)]
         [TestCase("blabla")]
         [TestCase("")]
         [TestCase("bla@bla")]

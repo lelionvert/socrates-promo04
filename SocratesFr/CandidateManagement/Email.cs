@@ -11,7 +11,7 @@ namespace SocratesFr.CandidateManagement
 
         public static bool Validate(string email)
         {
-            return emailRegex.IsMatch(email);
+            return email != null && emailRegex.IsMatch(email);
         }
 
         public static Email From(string email)
