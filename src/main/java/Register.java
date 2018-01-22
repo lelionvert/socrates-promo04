@@ -1,20 +1,17 @@
-import java.util.*;
-
 /**
- * Created by lenovo_3 on 17/01/2018.
+ * Created by lenovo_3 on 22/01/2018.
  */
 public class Register {
 
-    private final List<Candidate> candidateCollection = new ArrayList<>();
+    private final Candidates candidates;
 
-    public boolean addCandidate(Candidate candidate) {
-        if (candidateCollection.stream().anyMatch(candidate::sameEmail)) return false;
-        return candidateCollection.add(candidate);
+    public Register(Candidates candidates) {
+        this.candidates = candidates;
     }
 
-    public Iterable<Candidate> getCandidateCollection() {
-        ArrayList<Candidate> candidates = new ArrayList<>(candidateCollection);
-        candidates.sort(Comparator.comparing(Candidate::getFirstname));
-        return candidates;
+    public void addCandidate(String emailInput, String firstName) throws InvalidEmailException {
+        Email email = Email.create(emailInput);
+        Candidate candidate = new Candidate(email, firstName);
+        candidates.add(candidate);
     }
 }
