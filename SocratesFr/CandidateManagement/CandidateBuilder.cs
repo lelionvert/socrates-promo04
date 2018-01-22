@@ -9,7 +9,7 @@ namespace SocratesFr.CandidateManagement
     {
         public static Candidate Create(string name, string email)
         {
-            return new Candidate(name, Email.EmailBuilder(email)); 
+            return new Candidate(name, Email.Builder(email)); 
         }
     }
 }

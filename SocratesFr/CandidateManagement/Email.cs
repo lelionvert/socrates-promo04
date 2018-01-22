@@ -12,9 +12,9 @@ namespace SocratesFr.CandidateManagement
             this.Address = address;
         }
 
-        public static Email EmailBuilder(string address)
+        public static Email Builder(string address)
         {
-            if (IsValidEmail(address) == false)
+            if (EmailValidator.IsValid(address) == false)
                 throw new ArgumentException("Invalid email address.");
             return new Email(address);            
         }
@@ -35,12 +35,6 @@ namespace SocratesFr.CandidateManagement
         public override int GetHashCode()
         {
             return (Address != null ? Address.GetHashCode() : 0);
-        }
-
-        public static bool IsValidEmail(string address)
-        {
-            string format = "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-            return Regex.IsMatch(address, format);
         }
     }
 }

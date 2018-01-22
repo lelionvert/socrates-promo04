@@ -19,7 +19,7 @@ namespace SocratesFrTest.CandidateManagement
         public void Valid_Candidate_Should_Be_Created()
         {
             Check.That(CandidateBuilder.Create("toto", "toto@gmail.fr")
-                .Equals(new Candidate("toto", Email.EmailBuilder("toto@gmail.fr"))));
+                .Equals(new Candidate("toto", Email.Builder("toto@gmail.fr"))));
         }
     }
 }
