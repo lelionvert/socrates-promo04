@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.*;
 public class PriceCalculatorShould {
 
     @Test
-    public void SingleRoom() throws Exception {
+    public void giveSingleRoomPrice() throws Exception {
         PriceCalculator priceCalculator = new PriceCalculator();
         int price = priceCalculator.calculatePrice("single");
 
@@ -18,11 +18,19 @@ public class PriceCalculatorShould {
     }
 
     @Test
-    public void DoubleRoom() throws Exception {
+    public void giveDoubleRoomPrice() throws Exception {
         PriceCalculator priceCalculator = new PriceCalculator();
         int price = priceCalculator.calculatePrice("double");
 
         assertThat(price).isEqualTo(510);
+    }
+
+    @Test
+    public void giveTripleRoomPrice() throws Exception {
+        PriceCalculator priceCalculator = new PriceCalculator();
+        int price = priceCalculator.calculatePrice("triple");
+
+        assertThat(price).isEqualTo(410);
     }
 
 

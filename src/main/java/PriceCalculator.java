@@ -3,6 +3,10 @@
  */
 public class PriceCalculator {
     public int calculatePrice(String choice) {
-        return choice.equals("double") ? 510: 610;
+        if ("triple".equals(choice))
+            return 410;
+        if ("double".equals(choice))
+            return 510;
+        return 610;
     }
 }
