@@ -7,13 +7,13 @@ import org.junit.Test;
 public class RegisterShould {
 
     @Test
-    public void name() throws InvalidEmailException {
+    public void addCandidate() throws InvalidEmailException {
         Candidates candidates = new Candidates();
         Register service = new Register(candidates);
-        service.addCandidate("regis.dubois@socrates.com");
+        service.addCandidate("regis.dubois@socrates.com", "regis");
 
         Candidates onlyOneCandidate = new Candidates();
-        Candidate candidate = new Candidate(Email.create("regis.dubois@socrates.com"), "firstname");
+        Candidate candidate = new Candidate(Email.create("regis.dubois@socrates.com"), "regis");
         onlyOneCandidate.add(candidate);
         Assertions.assertThat(candidates).isEqualTo(onlyOneCandidate);
     }

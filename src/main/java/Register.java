@@ -9,14 +9,14 @@ public class Register {
         this.candidates = candidates;
     }
 
-    public void addCandidate(String emailInput) {
+    public void addCandidate(String emailInput, String firstname) {
         Email email = null;
         try {
             email = Email.create(emailInput);
         } catch (InvalidEmailException e) {
             e.printStackTrace();
         }
-        Candidate candidate = new Candidate(email, "firstname");
+        Candidate candidate = new Candidate(email, firstname);
         candidates.add(candidate);
     }
 }
