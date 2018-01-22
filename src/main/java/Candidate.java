@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 /**
  * Created by lenovo_3 on 17/01/2018.
  */
-public class Candidate implements Comparable {
+public class Candidate implements Comparable<Candidate> {
     private final Email email;
     private final String firstname;
 
@@ -38,18 +38,14 @@ public class Candidate implements Comparable {
                 '}';
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
     public boolean sameEmail(Candidate candidate) {
         return email.equals(candidate.email);
     }
 
 
     @Override
-    public int compareTo(Object o) {
-        Candidate candidate = (Candidate) o;
-        return firstname.compareTo(candidate.firstname);
+    public int compareTo(Candidate o) {
+        return firstname.compareTo(o.firstname);
+
     }
 }
