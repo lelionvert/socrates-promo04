@@ -61,14 +61,14 @@ namespace SocratesFrTest.CandidateManagement
         [Test]
         public void User_Add_Candidate_With_Name_And_Email()
         {
-            Register register = new Register();
-            string userEmail = "regis.dubois@socrates.com";
-            string userName = "regis";
-            register.AddCandidate(userName, userEmail);
+            Register register = CreateTestRegister(
+                ("regis", "regis.dubois@socrates.com"));
 
             List<Candidate> listCandidates = register.GetCandidates();
 
-            Check.That(listCandidates).ContainsExactly(CandidateBuilder.Create(userName, userEmail));
+            List<Candidate> orderedCandidatesList = CreateTestList(
+                ("regis", "regis.dubois@socrates.com"));
+            Check.That(listCandidates).Equals(orderedCandidatesList);
         }
 
         private Register CreateTestRegister(params (string, string)[] tuples)
