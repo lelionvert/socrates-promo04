@@ -19,7 +19,7 @@ public class RegisterShould {
     }
 
     @Test
-    public void AddingSeveralCandidates() throws Exception, InvalidEmailException {
+    public void AddingSeveralCandidates() throws InvalidEmailException {
         Candidates candidates = new Candidates();
         Register service = new Register(candidates);
         service.addCandidate("regis.dubois@socrates.com", "regis");
@@ -27,12 +27,12 @@ public class RegisterShould {
         service.addCandidate("emilie.dupuis@testing.fr", "emilie");
 
         Candidates threeCandidates = new Candidates();
-        Candidate candidate = new Candidate(Email.create("regis.dubois@socrates.com"), "regis");
-        Candidate candidate2 = new Candidate(Email.create("fanny.dubois@crafts.com"), "fanny");
-        Candidate candidate3 = new Candidate(Email.create("emilie.dupuis@testing.fr"), "emilie");
-        threeCandidates.add(candidate);
-        threeCandidates.add(candidate2);
-        threeCandidates.add(candidate3);
+        Candidate regis = new Candidate(Email.create("regis.dubois@socrates.com"), "regis");
+        Candidate fanny = new Candidate(Email.create("fanny.dubois@crafts.com"), "fanny");
+        Candidate emilie = new Candidate(Email.create("emilie.dupuis@testing.fr"), "emilie");
+        threeCandidates.add(regis);
+        threeCandidates.add(fanny);
+        threeCandidates.add(emilie);
 
         Assertions.assertThat(candidates).isEqualTo(threeCandidates);
     }
