@@ -18,7 +18,11 @@ namespace SocratesFrTest.CandidateManagement
         public void Add_Candidate_Should_Return_The_Candidate()
         {
             var register = new Register();
-            var candidate = new Candidate("Toto", Email.From("toto@gmail.com"));
+            var candidate = new Candidate.Builder
+            {
+                Name = "Toto",
+                Email = "toto@gmail.com"
+            }.Create();
             register.AddCandidate(candidate);
             var listCandidates = register.GetCandidatesOrderedByName();
             Check.That(listCandidates).ContainsExactly(candidate);
@@ -28,8 +32,16 @@ namespace SocratesFrTest.CandidateManagement
         public void Add_One_Candidate_Twice_Should_Add_It_Only_Once()
         {
             var register = new Register();
-            var candidateOne = new Candidate("Toto", Email.From("toto@gmail.com"));
-            var candidateTwo = new Candidate("Titi", Email.From("toto@gmail.com"));
+            var candidateOne = new Candidate.Builder
+            {
+                Name = "Toto",
+                Email = "toto@gmail.com"
+            }.Create();
+            var candidateTwo = new Candidate.Builder
+            {
+                Name = "Titi",
+                Email = "toto@gmail.com"
+            }.Create();
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
             var registerWithOneEmail = new Register();
@@ -41,9 +53,21 @@ namespace SocratesFrTest.CandidateManagement
         public void List_Of_Candidate_Should_Return_Sorted_List()
         {
             var register = new Register();
-            var candidateOne = new Candidate("Toto", Email.From("toto@gmail.com"));
-            var candidateTwo = new Candidate("Titi", Email.From("titi@gmail.com"));
-            var candidateThree = new Candidate("Tati", Email.From("tati@gmail.com"));
+            var candidateOne = new Candidate.Builder
+            {
+                Name = "Toto",
+                Email = "toto@gmail.com"
+            }.Create();
+            var candidateTwo = new Candidate.Builder
+            {
+                Name = "Titi",
+                Email = "titi@gmail.com"
+            }.Create();
+            var candidateThree = new Candidate.Builder
+            {
+                Name = "Tati",
+                Email = "tati@gmail.com"
+            }.Create();
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
             register.AddCandidate(candidateThree);

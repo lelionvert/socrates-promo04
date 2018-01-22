@@ -8,7 +8,7 @@ namespace SocratesFr.CandidateManagement
         public string Name { get; }
         public Email Email { get; }
 
-        public Candidate(string name, Email email)
+        private Candidate(string name, Email email)
         {
             Name = name;
             Email = email;
