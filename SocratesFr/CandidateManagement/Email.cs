@@ -6,7 +6,7 @@ namespace SocratesFr.CandidateManagement
 {
     public class Email
     {
-        public string MailAddress { get; }
+        public string Address { get; }
         private static readonly Regex emailRegex = new Regex(@"^([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})$");
 
         public static bool Validate(string email)
@@ -26,18 +26,18 @@ namespace SocratesFr.CandidateManagement
 
         private Email(string email)
         {
-            MailAddress = email;
+            Address = email;
         }
 
         public override bool Equals(object obj)
         {
             return obj is Email email &&
-                   MailAddress == email.MailAddress;
+                   Address == email.Address;
         }
 
         public override int GetHashCode()
         {
-            return 826360918 + EqualityComparer<string>.Default.GetHashCode(MailAddress);
+            return 826360918 + EqualityComparer<string>.Default.GetHashCode(Address);
         }
 
         public class InvalidEmailException : Exception

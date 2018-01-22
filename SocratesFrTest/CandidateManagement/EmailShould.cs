@@ -24,7 +24,7 @@ namespace SocratesFrTest.CandidateManagement
         [TestCase("toto.bla@la-combe-du-lion-vert.fr")]
         public void PassWhenEmailIsValid(string email)
         {
-            Check.That(Email.From(email).MailAddress).Equals(email);
+            Check.That(Email.From(email).Address).Equals(email);
         }
     }
 }
