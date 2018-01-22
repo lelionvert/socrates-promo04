@@ -18,5 +18,16 @@ namespace SocratesFr.CandidateManagement
                 return;
             _candidates.Add(candidate);
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Register register &&
+                   _candidates.SequenceEqual(register._candidates);
+        }
+
+        public override int GetHashCode()
+        {
+            return -1213228956 + EqualityComparer<IList<Candidate>>.Default.GetHashCode(_candidates);
+        }
     }
 }

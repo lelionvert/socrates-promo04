@@ -32,9 +32,9 @@ namespace SocratesFrTest.CandidateManagement
             var candidateTwo = new Candidate("Titi", Email.From("toto@gmail.com"));
             register.AddCandidate(candidateOne);
             register.AddCandidate(candidateTwo);
-            var listCandidates = register.GetCandidatesOrderedByName();
-            Check.That(listCandidates).ContainsExactly(candidateOne);
-            Check.That(listCandidates).HasSize(1);
+            var registerWithOneEmail = new Register();
+            registerWithOneEmail.AddCandidate(candidateOne);
+            Check.That(register).Equals(registerWithOneEmail);
         }
 
         [Test]
