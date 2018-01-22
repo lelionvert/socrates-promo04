@@ -1,22 +1,25 @@
 ﻿namespace SocratesFr.CandidateManagement
 {
-    public class Package
+    public class Room
     {
-        private Room room;
+        private RoomType roomType;
         private int mealsNumber;
 
-        public enum Room
+        public enum RoomType
         {
             SINGLE = 0,
             DOUBLE,
             TRIPLE
         }
 
-        public Package(Room roomType, int mealsNumber)
+        public Room(RoomType room, int mealsNumber)
         {
-            this.room = roomType;
+            this.roomType = room;
             this.mealsNumber = mealsNumber;
-            Price = 610;
+            if (room == RoomType.SINGLE)
+                Price = 610;
+            else
+                Price = 510;
         }
 
         public object Price { get; private set; }
