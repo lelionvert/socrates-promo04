@@ -11,33 +11,33 @@ public class PriceCalculatorShould {
 
     @Test
     public void giveSingleRoomPrice() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.SINGLE);
+        double price = PriceCalculator.calculatePrice(Accommodation.SINGLE);
         assertThat(price).isEqualTo(610);
     }
 
     @Test
     public void giveDoubleRoomPrice() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.DOUBLE);
+        double price = PriceCalculator.calculatePrice(Accommodation.DOUBLE);
 
         assertThat(price).isEqualTo(510);
     }
 
     @Test
     public void giveTripleRoomPrice() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.TRIPLE);
+        double price = PriceCalculator.calculatePrice(Accommodation.TRIPLE);
 
         assertThat(price).isEqualTo(410);
     }
 
     @Test
     public void giveNoAccomodationPrice() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.NONE);
+        double price = PriceCalculator.calculatePrice(Accommodation.NONE);
         assertThat(price).isEqualTo(240);
     }
 
     @Test
     public void giveSingleRoomPriceWithout1Meal() {
-        int price = PriceCalculator.calculatePrice(Accommodation.SINGLE, 1);
+        double price = PriceCalculator.calculatePrice(Accommodation.SINGLE, 1);
         assertThat(price).isEqualTo(570);
     }
 }

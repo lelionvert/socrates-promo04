@@ -7,13 +7,13 @@ public enum Accommodation {
     TRIPLE(410),
     NONE(240);
 
-    private final int price;
+    private final double price;
 
-    Accommodation(int price) {
+    Accommodation(double price) {
         this.price = price;
     }
 
-    public int price() {
+    public double price() {
         return price;
     }
 }
