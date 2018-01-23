@@ -22,4 +22,16 @@ public class MealsCalculatorShould {
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
         assertThat(mealsNumber).isEqualTo(6);
     }
+
+    @Test
+    public void giveMealNumberWhenCheckinFridayAndCheckoutSundayAfter2PM() throws Exception {
+        Calendar checkin = Calendar.getInstance();
+        checkin.set(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
+        checkin.set(Calendar.HOUR,9);
+        Calendar checkout = Calendar.getInstance();
+        checkout.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
+        checkout.set(Calendar.HOUR,14);
+        int mealsNumber = MealsCalculator.calculate(checkin, checkout);
+        assertThat(mealsNumber).isEqualTo(5);
+    }
 }
