@@ -25,7 +25,7 @@ public class PriceCalculator {
     }
 
     public static double calculatePrice(Accommodation accommodation, Checkin checkin, Checkout checkout) {
-        if (checkin == Checkin.FRIDAY)
+        if (checkin == Checkin.AFTER_FIRST_MEAL)
             return 370;
         return 510;
     }

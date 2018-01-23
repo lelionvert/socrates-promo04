@@ -2,7 +2,6 @@
 import main.java.Checkin;
 import main.java.Checkout;
 import main.java.MinimumMealException;
-import org.assertj.core.util.CheckReturnValue;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -63,13 +62,13 @@ public class PriceCalculatorShould {
 
     @Test
     public void computeCompletePrice() {
-        double price = PriceCalculator.calculatePrice(Accommodation.DOUBLE, Checkin.THURSDAY, Checkout.SUNDAY);
+        double price = PriceCalculator.calculatePrice(Accommodation.DOUBLE, Checkin.BEFORE_FIRST_MEAL, Checkout.AFTER_LAST_MEAL);
         assertThat(price).isEqualTo(510);
     }
 
     @Test
-    public void computePriceWithout1Meal() {
-        double price = PriceCalculator.calculatePrice(Accommodation.TRIPLE, Checkin.FRIDAY, Checkout.SUNDAY);
+    public void computePriceWithoutFirstMeal() {
+        double price = PriceCalculator.calculatePrice(Accommodation.TRIPLE, Checkin.AFTER_FIRST_MEAL, Checkout.AFTER_LAST_MEAL);
         assertThat(price).isEqualTo(370);
     }
 }
