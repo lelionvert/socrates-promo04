@@ -47,4 +47,12 @@ public class MealsCalculatorShould {
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
         assertThat(mealsNumber).isEqualTo(4);
     }
+
+    @Test
+    public void giveMealNumberWhenCheckinThursdayAt10PMAndCheckoutSundayAt2PM(){
+        Calendar checkin = createCalendar("25/01/2018:10 PM");
+        Calendar checkout = createCalendar("28/01/2018:2 PM");
+        int mealsNumber = MealsCalculator.calculate(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(5);
+    }
 }
