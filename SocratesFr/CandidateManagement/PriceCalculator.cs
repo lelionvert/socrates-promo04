@@ -1,14 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace SocratesFr.CandidateManagement
-{
+namespace SocratesFr.CandidateManagement{
     public class PriceCalculator
     {
         private Accomodation accomodation;
-        private DayOfWeek arrivalDay;
-        private DayOfWeek departureDay;
-
+        private NumberOfMealCalculator mealCalculator;
 
         public enum Accomodation
         {
@@ -18,13 +15,11 @@ namespace SocratesFr.CandidateManagement
             NO_ACCOMODATION
         }
 
-        public PriceCalculator(Accomodation room, DayOfWeek arrivalDay, DayOfWeek departureDay)
+        public PriceCalculator(Accomodation room, DateTimeOffset arrivalDate, DateTimeOffset departureDate)
         {
             this.accomodation = room;
-            this.arrivalDay = arrivalDay;
-            this.departureDay = departureDay;
-
-            int nbmealsNotTaken = GetNumberOfMealsNotTaken();
+            this.mealCalculator = new NumberOfMealCalculator(arrivalDate, departureDate);
+            int nbmealsNotTaken = mealCalculator.NumberOfMealNotTaken();
             switch (accomodation)
             {
                 case Accomodation.SINGLE:
@@ -42,13 +37,6 @@ namespace SocratesFr.CandidateManagement
                 default:
                     throw new InvalidEnumArgumentException("Please select one of the four room price.");
             }
-        }
-
-        private int GetNumberOfMealsNotTaken()
-        {
-            if (this.arrivalDay == DayOfWeek.Friday && this.departureDay == DayOfWeek.Sunday)
-                return 1;
-            return 0;
         }
 
         private int CalculatePriceWithoutNMeal(int roomPrice, int nMeal)
