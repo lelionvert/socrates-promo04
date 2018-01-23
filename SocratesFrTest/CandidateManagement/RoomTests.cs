@@ -44,5 +44,12 @@ namespace SocratesFrTest.CandidateManagement
             var package = 
             Check.ThatCode(() => new Room((Room.RoomType)int.MaxValue)).Throws<InvalidEnumArgumentException>();
         }
+
+        [Test]
+        public void Get_Price_For_Single_Room_Without_One_Meal_Checkin_Friday_Chekout_Sunday()
+        {
+            var package = new Room(Room.RoomType.SINGLE, DayOfWeek.Friday, DayOfWeek.Sunday);
+            Check.That(package.Price).Equals(570);
+        }
     }
 }

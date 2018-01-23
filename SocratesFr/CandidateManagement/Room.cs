@@ -6,6 +6,9 @@ namespace SocratesFr.CandidateManagement
     public class Room
     {
         private RoomType roomType;
+        private DayOfWeek arrivalDay;
+        private DayOfWeek departureDay;
+
 
         public enum RoomType
         {
@@ -35,6 +38,23 @@ namespace SocratesFr.CandidateManagement
                     break;
                 default:
                     throw new InvalidEnumArgumentException("Please select one of the four room price.");
+            }
+        }
+
+        public Room(RoomType room, DayOfWeek arrivalDay, DayOfWeek departureDay) : this(room)
+        {
+            this.roomType = room;
+            this.arrivalDay = arrivalDay;
+            this.departureDay = departureDay;
+
+            int nbmealsNotTaken = 0;
+            if (this.arrivalDay == DayOfWeek.Friday && this.departureDay == DayOfWeek.Sunday)
+                nbmealsNotTaken = 1;
+            switch (roomType)
+            {
+                case RoomType.SINGLE:
+                    Price = 610 - (nbmealsNotTaken * 40);
+                    break;
             }
         }
 
