@@ -34,4 +34,12 @@ public class MealsCalculatorShould {
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
         assertThat(mealsNumber).isEqualTo(5);
     }
+
+    @Test
+    public void giveMealNumberWhenCheckinFridayAt10AMAndCheckoutSundayAt10AM() throws Exception {
+        Calendar checkin = createCalendar(Calendar.FRIDAY,10,Calendar.AM);
+        Calendar checkout = createCalendar(Calendar.SUNDAY,10,Calendar.AM);
+        int mealsNumber = MealsCalculator.calculate(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(4);
+    }
 }

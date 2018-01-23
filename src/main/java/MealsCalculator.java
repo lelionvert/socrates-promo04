@@ -5,6 +5,7 @@ import java.util.Calendar;
  */
 public class MealsCalculator {
     public static int calculate(Calendar c, Calendar c2) {
+        if(c2.get(Calendar.AM_PM) == Calendar.AM) return 4;
         if (c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
             return 5;
         }
