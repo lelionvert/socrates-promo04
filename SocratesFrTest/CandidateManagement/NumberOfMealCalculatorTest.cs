@@ -16,6 +16,7 @@ namespace SocratesFrTest.CandidateManagement
 
         [TestCase(THURSDAY, 9, SATURDAY, 18)]
         [TestCase(FRIDAY, 9, SUNDAY, 18)]
+        [TestCase(THURSDAY, 9, SUNDAY, 6)]
         public void Get_Number_Of_Meal_Taken_When_Missing_One_Meal(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
         {                     
             var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(dayArrival, hourArrival),
@@ -38,6 +39,7 @@ namespace SocratesFrTest.CandidateManagement
         }
 
         [TestCase(FRIDAY, 9, SATURDAY, 18)]
+        [TestCase(FRIDAY, 18, SATURDAY, 18)]
         public void Get_Number_Of_Meal_Taken_When_Missing_Two_Meals(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
         {
             var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(dayArrival, hourArrival),
