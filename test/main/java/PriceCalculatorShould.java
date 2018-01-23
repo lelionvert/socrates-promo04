@@ -52,4 +52,9 @@ public class PriceCalculatorShould {
     public void throwExceptionWhenMealsNotTakenIsAboveTheLimit() throws MinimumMealException {
         PriceCalculator.calculatePrice(Accommodation.NONE, 3);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void throwExceptionWhenMealsNotTakenIsNegative() throws IllegalArgumentException {
+        PriceCalculator.calculatePrice(Accommodation.NONE, -2);
+    }
 }

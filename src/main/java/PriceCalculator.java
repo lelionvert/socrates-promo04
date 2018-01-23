@@ -15,6 +15,10 @@ public class PriceCalculator {
         if (mealsNotTaken > maximumMealsNotTaken){
             throw new MinimumMealException();
         }
+        if (mealsNotTaken < 0){
+            throw new IllegalArgumentException();
+        }
+
         return accommodation.price() - mealsNotTaken * mealPrice;
     }
 }
