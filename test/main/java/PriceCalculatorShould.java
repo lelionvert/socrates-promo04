@@ -1,4 +1,5 @@
 
+import main.java.MinimumMealException;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -45,5 +46,10 @@ public class PriceCalculatorShould {
     public void giveNoAccommodationPriceWithout2Meals() {
         double price = PriceCalculator.calculatePrice(Accommodation.NONE, 2);
         assertThat(price).isEqualTo(160);
+    }
+
+    @Test(expected = MinimumMealException.class)
+    public void notCreateWhenInvalidInput() throws MinimumMealException {
+        PriceCalculator.calculatePrice(Accommodation.NONE, 3);
     }
 }
