@@ -9,92 +9,92 @@ public class RegisterShould {
 
     @Test
     public void addCandidate() throws InvalidEmailException {
-        Candidates candidates = new Candidates();
-        Register service = new Register(candidates);
+        CandidateCollection candidateCollection = new CandidateCollection();
+        Register service = new Register(candidateCollection);
         service.addCandidate("regis.dubois@socrates.com", "regis");
 
-        Candidates onlyOneCandidate = createCandidatesWith(candidate("regis.dubois@socrates.com", "regis"));
-        assertThat(candidates).isEqualTo(onlyOneCandidate);
+        CandidateCollection onlyOneCandidate = createCandidatesWith(candidate("regis.dubois@socrates.com", "regis"));
+        assertThat(candidateCollection).isEqualTo(onlyOneCandidate);
     }
 
     @Test
     public void addSeveralCandidates() throws InvalidEmailException {
-        Candidates candidates = new Candidates();
-        Register service = new Register(candidates);
+        CandidateCollection candidateCollection = new CandidateCollection();
+        Register service = new Register(candidateCollection);
         service.addCandidate("regis.dubois@socrates.com", "regis");
         service.addCandidate("fanny.dubois@crafts.com", "fanny");
         service.addCandidate("emilie.dupuis@testing.fr", "emilie");
 
-        Candidates threeCandidates = createCandidatesWith(
+        CandidateCollection threeCandidateCollection = createCandidatesWith(
                 candidate("regis.dubois@socrates.com", "regis"),
                 candidate("fanny.dubois@crafts.com", "fanny"),
                 candidate("emilie.dupuis@testing.fr", "emilie"));
 
-        assertThat(candidates).isEqualTo(threeCandidates);
+        assertThat(candidateCollection).isEqualTo(threeCandidateCollection);
     }
 
     @Test
     public void addOneCandidatesWithSeveralExisting() throws InvalidEmailException {
-        Candidates candidates = new Candidates();
+        CandidateCollection candidateCollection = new CandidateCollection();
         String email = "regis.dubois@socrates.com";
         String regis = "regis";
-        candidates.add(candidate(email, regis));
-        candidates.add(candidate("fanny.dubois@crafts.com", "fanny"));
-        Register service = new Register(candidates);
+        candidateCollection.add(candidate(email, regis));
+        candidateCollection.add(candidate("fanny.dubois@crafts.com", "fanny"));
+        Register service = new Register(candidateCollection);
         service.addCandidate("jules.fournier@xp.com", "jules");
 
-        Candidates threeCandidates = createCandidatesWith(
+        CandidateCollection threeCandidateCollection = createCandidatesWith(
                 candidate("regis.dubois@socrates.com", "regis"),
                 candidate("fanny.dubois@crafts.com", "fanny"),
                 candidate("jules.fournier@xp.com", "jules"));
 
-        assertThat(candidates).isEqualTo(threeCandidates);
+        assertThat(candidateCollection).isEqualTo(threeCandidateCollection);
     }
 
     @Test
     public void addSeveralCandidatesWithOneExisting() throws InvalidEmailException {
-        Candidates candidates = new Candidates();
-        candidates.add(candidate("regis.dubois@socrates.com", "regis"));
-        Register service = new Register(candidates);
+        CandidateCollection candidateCollection = new CandidateCollection();
+        candidateCollection.add(candidate("regis.dubois@socrates.com", "regis"));
+        Register service = new Register(candidateCollection);
         service.addCandidate("jules.fournier@xp.com", "jules");
         service.addCandidate("fanny.dubois@crafts.com", "fanny");
 
-        Candidates threeCandidates = createCandidatesWith(
+        CandidateCollection threeCandidateCollection = createCandidatesWith(
                 candidate("jules.fournier@xp.com", "jules"),
                 candidate("regis.dubois@socrates.com", "regis"),
                 candidate("fanny.dubois@crafts.com", "fanny"));
 
-        assertThat(candidates).isEqualTo(threeCandidates);
+        assertThat(candidateCollection).isEqualTo(threeCandidateCollection);
     }
 
     @Test
     public void ignoreDuplicateCandidate() throws InvalidEmailException {
-        Candidates candidates = new Candidates();
-        candidates.add(candidate("regis.dubois@socrates.com", "regis"));
-        candidates.add(candidate("fanny.dubois@crafts.com", "fanny"));
-        Register service = new Register(candidates);
+        CandidateCollection candidateCollection = new CandidateCollection();
+        candidateCollection.add(candidate("regis.dubois@socrates.com", "regis"));
+        candidateCollection.add(candidate("fanny.dubois@crafts.com", "fanny"));
+        Register service = new Register(candidateCollection);
         service.addCandidate("fanny.dubois@crafts.com", "fanny");
 
-        Candidates twoCandidates = createCandidatesWith(
+        CandidateCollection twoCandidateCollection = createCandidatesWith(
                 candidate("regis.dubois@socrates.com", "regis"),
                 candidate("fanny.dubois@crafts.com", "fanny"));
 
-        assertThat(candidates).isEqualTo(twoCandidates);
+        assertThat(candidateCollection).isEqualTo(twoCandidateCollection);
     }
 
     @Test(expected = InvalidEmailException.class)
     public void addCandidatesWithInvalidEmail() throws InvalidEmailException {
-        Candidates candidates = new Candidates();
-        Register register = new Register(candidates);
+        CandidateCollection candidateCollection = new CandidateCollection();
+        Register register = new Register(candidateCollection);
         register.addCandidate("joe.dubois", "joe");
     }
 
-    private Candidates createCandidatesWith(Candidate... all) {
-        Candidates candidates = new Candidates();
+    private CandidateCollection createCandidatesWith(Candidate... all) {
+        CandidateCollection candidateCollection = new CandidateCollection();
         for (Candidate candidate : all) {
-            candidates.add(candidate);
+            candidateCollection.add(candidate);
         }
-        return candidates;
+        return candidateCollection;
     }
 
 

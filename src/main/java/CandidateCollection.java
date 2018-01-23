@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Created by lenovo_3 on 17/01/2018.
  */
-public class Candidates {
+public class CandidateCollection {
 
     private final Collection<Candidate> candidates = new HashSet<>();
 
@@ -23,7 +23,7 @@ public class Candidates {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Candidates that = (Candidates) o;
+        CandidateCollection that = (CandidateCollection) o;
 
         return candidates.equals(that.candidates);
     }
@@ -35,7 +35,7 @@ public class Candidates {
 
     @Override
     public String toString() {
-        return "Candidates{" +
+        return "CandidateCollection{" +
                 "candidates=" + candidates +
                 '}';
     }

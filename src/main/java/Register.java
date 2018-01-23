@@ -3,15 +3,15 @@
  */
 public class Register {
 
-    private final Candidates candidates;
+    private final CandidateCollection candidateCollection;
 
-    public Register(Candidates candidates) {
-        this.candidates = candidates;
+    public Register(CandidateCollection candidateCollection) {
+        this.candidateCollection = candidateCollection;
     }
 
     public void addCandidate(String emailInput, String firstName) throws InvalidEmailException {
         Email email = Email.create(emailInput);
         Candidate candidate = new Candidate(email, firstName);
-        candidates.add(candidate);
+        candidateCollection.add(candidate);
     }
 }
