@@ -40,4 +40,10 @@ public class PriceCalculatorShould {
         double price = PriceCalculator.calculatePrice(Accommodation.SINGLE, 1);
         assertThat(price).isEqualTo(570);
     }
+
+    @Test
+    public void giveNoAccommodationPriceWithout2Meals() {
+        double price = PriceCalculator.calculatePrice(Accommodation.NONE, 2);
+        assertThat(price).isEqualTo(160);
+    }
 }

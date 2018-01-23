@@ -9,8 +9,6 @@ public class PriceCalculator {
     }
 
     public static double calculatePrice(Accommodation accommodation, int mealsNotTaken) {
-        if (mealsNotTaken == 1)
-            return accommodation.price() - mealPrice;
-        return accommodation.price();
+        return accommodation.price() - mealsNotTaken * mealPrice;
     }
 }
