@@ -35,5 +35,9 @@ public class PriceCalculatorShould {
         assertThat(price).isEqualTo(240);
     }
 
-
+    @Test
+    public void giveSingleRoomPriceWithout1Meal() {
+        int price = PriceCalculator.calculatePrice(Accommodation.SINGLE, 1);
+        assertThat(price).isEqualTo(570);
+    }
 }
