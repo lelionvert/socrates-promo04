@@ -1,12 +1,10 @@
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by lenovo_3 on 23/01/2018.
@@ -25,34 +23,34 @@ public class MealsCalculatorShould {
     }
 
     @Test
-    public void giveMealNumberWhenCheckinThursdayAndCheckoutSundayAt2PM() {
+    public void giveMaxMealNumber() {
         Calendar checkin = createCalendar("25/01/2018:2 PM");
         Calendar checkout = createCalendar("28/01/2018:2 PM");
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(6);
+        assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER);
     }
 
     @Test
-    public void giveMealNumberWhenCheckinFridayAt10AMAndCheckoutSundayAt2PM(){
+    public void giveMealsNumberWithoutThursdayDinner(){
         Calendar checkin = createCalendar("26/01/2018:10 AM");
         Calendar checkout = createCalendar("28/01/2018:2 PM");
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(5);
+        assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER-1);
     }
 
     @Test
-    public void giveMealNumberWhenCheckinFridayAt10AMAndCheckoutSundayAt10AM(){
-        Calendar checkin = createCalendar("26/01/2018:2 PM");
+    public void giveMealsNumberWithtoutThursdayDinnerAndSundayLunch(){
+        Calendar checkin = createCalendar("26/01/2018:10 AM");
         Calendar checkout = createCalendar("28/01/2018:10 AM");
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(4);
+        assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER-2);
     }
 
     @Test
-    public void giveMealNumberWhenCheckinThursdayAt10PMAndCheckoutSundayAt2PM(){
+    public void giveMealsNumberWhenCheckinAfterThursdayDinner(){
         Calendar checkin = createCalendar("25/01/2018:10 PM");
         Calendar checkout = createCalendar("28/01/2018:2 PM");
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(5);
+        assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER-1);
     }
 }
