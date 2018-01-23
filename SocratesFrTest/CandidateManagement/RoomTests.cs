@@ -29,5 +29,12 @@ namespace SocratesFrTest.CandidateManagement
             var package = new Room(Room.RoomType.TRIPLE);
             Check.That(package.Price).Equals(410);
         }
+
+        [Test]
+        public void Get_Price_For_No_Accomodation_Room()
+        {
+            var package = new Room(Room.RoomType.NO_ACCOMODATION);
+            Check.That(package.Price).Equals(240);
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace SocratesFr.CandidateManagement
+﻿using System;
+
+namespace SocratesFr.CandidateManagement
 {
     public class Room
     {
@@ -8,19 +10,30 @@
         {
             SINGLE = 0,
             DOUBLE,
-            TRIPLE
+            TRIPLE,
+            NO_ACCOMODATION
         }
 
         public Room(RoomType room)
         {
             this.roomType = room;
-            if (room == RoomType.SINGLE)
-                Price = 610;
-            else if(room == RoomType.DOUBLE)
-                Price = 510;
-            else
+
+            switch (roomType)
             {
-                Price = 410;
+                case RoomType.SINGLE:
+                    Price = 610;
+                    break;
+                case RoomType.DOUBLE:
+                    Price = 510;
+                    break;
+                case RoomType.TRIPLE:
+                    Price = 410;
+                    break;
+                case RoomType.NO_ACCOMODATION:
+                    Price = 240;
+                    break;
+                default:
+                    break;
             }
         }
 
