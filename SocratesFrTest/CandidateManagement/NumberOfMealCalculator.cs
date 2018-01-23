@@ -2,12 +2,12 @@
 
 namespace SocratesFr.CandidateManagement
 {
-    public class MealPrice
+    public class NumberOfMealCalculator
     {
         private DateTimeOffset arrivalTime;
         private DateTimeOffset departureTime;
 
-        public MealPrice(DateTimeOffset arrivalDate, DateTimeOffset departureDate)
+        public NumberOfMealCalculator(DateTimeOffset arrivalDate, DateTimeOffset departureDate)
         {
             this.arrivalTime = arrivalDate;
             this.departureTime = departureDate;

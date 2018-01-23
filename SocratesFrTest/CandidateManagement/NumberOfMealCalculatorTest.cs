@@ -7,12 +7,12 @@ using SocratesFr.CandidateManagement;
 
 namespace SocratesFrTest.CandidateManagement
 {
-    public class MealPriceTest
+    public class NumberOfMealCalculatorTest
     {
         [Test]
         public void Get_Number_Of_Meal_Not_Taken_When_Missing_One_Meal()
         {           
-            var checkInTime = new MealPrice(CreateDateTimeOffset(2018, 01, 25, 9),
+            var checkInTime = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
                                                 CreateDateTimeOffset(2018, 01, 27, 18));
 
             int numberOfMealNotTaken = checkInTime.NumberOfMealNotTaken();
@@ -23,7 +23,7 @@ namespace SocratesFrTest.CandidateManagement
         [Test]
         public void Get_Number_Of_Meal_Not_Taken_When_Taking_All_Meal()
         {
-            var checkInTime = new MealPrice(CreateDateTimeOffset(2018, 01, 25, 9),
+            var checkInTime = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
                 CreateDateTimeOffset(2018, 01, 28, 18));
 
             int numberOfMealNotTaken = checkInTime.NumberOfMealNotTaken();
