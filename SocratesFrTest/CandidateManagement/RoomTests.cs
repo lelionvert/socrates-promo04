@@ -13,35 +13,35 @@ namespace SocratesFrTest.CandidateManagement
         [Test]
         public void Get_Price_For_Single_Room()
         {
-            var package = new Room(Room.RoomType.SINGLE);
+            var package = new Room(Room.RoomType.SINGLE, DayOfWeek.Thursday, DayOfWeek.Sunday);
             Check.That(package.Price).Equals(610);
         }
 
         [Test]
         public void Get_Price_For_Double_Room()
         {
-            var package = new Room(Room.RoomType.DOUBLE);
+            var package = new Room(Room.RoomType.DOUBLE, DayOfWeek.Thursday, DayOfWeek.Sunday);
             Check.That(package.Price).Equals(510);
         }
 
         [Test]
         public void Get_Price_For_Triple_Room()
         {
-            var package = new Room(Room.RoomType.TRIPLE);
+            var package = new Room(Room.RoomType.TRIPLE, DayOfWeek.Thursday, DayOfWeek.Sunday);
             Check.That(package.Price).Equals(410);
         }
 
         [Test]
         public void Get_Price_For_No_Accomodation_Room()
         {
-            var package = new Room(Room.RoomType.NO_ACCOMODATION);
+            var package = new Room(Room.RoomType.NO_ACCOMODATION, DayOfWeek.Thursday, DayOfWeek.Sunday);
             Check.That(package.Price).Equals(240);
         }
 
         [Test]
         public void Get_Price_For_Unknown_Selection()
         { 
-            Check.ThatCode(() => new Room((Room.RoomType)int.MaxValue)).Throws<InvalidEnumArgumentException>();
+            Check.ThatCode(() => new Room((Room.RoomType)int.MaxValue, DayOfWeek.Thursday, DayOfWeek.Sunday)).Throws<InvalidEnumArgumentException>();
         }
 
         [Test]
