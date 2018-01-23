@@ -25,7 +25,6 @@ namespace SocratesFr.CandidateManagement
             this.departureDay = departureDay;
 
             int nbmealsNotTaken = GetNumberOfMealsNotTaken();
-            
             switch (roomType)
             {
                 case RoomType.SINGLE:
