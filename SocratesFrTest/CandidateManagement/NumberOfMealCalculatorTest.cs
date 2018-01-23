@@ -9,31 +9,48 @@ namespace SocratesFrTest.CandidateManagement
 {
     public class NumberOfMealCalculatorTest
     {
-        [Test]
-        public void Get_Number_Of_Meal_Taken_When_Missing_One_Meal()
-        {           
-            var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
-                                                CreateDateTimeOffset(2018, 01, 27, 18));
+        public const int THURSDAY = 25;
+        public const int FRIDAY = 26;
+        public const int SATURDAY = 27;
+        public const int SUNDAY = 28;
+
+        [TestCase(THURSDAY, 9, SATURDAY, 18)]
+        [TestCase(FRIDAY, 9, SUNDAY, 18)]
+        public void Get_Number_Of_Meal_Taken_When_Missing_One_Meal(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
+        {                     
+            var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(dayArrival, hourArrival),
+                CreateDateTimeOffset(dayDeparture, hourDeparture));
 
             int numberOfMealTaken = mealCalculator.NumberOfMealTaken();
 
             Check.That(numberOfMealTaken).IsEqualTo(5);
         }
 
-        [Test]
-        public void Get_Number_Of_Meal_Taken_When_Taking_All_Meal()
+        [TestCase(THURSDAY, 9, SUNDAY, 18)]
+        public void Get_Number_Of_Meal_Taken_When_Taking_All_Meals(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
         {
-            var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
-                CreateDateTimeOffset(2018, 01, 28, 18));
+            var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(dayArrival, hourArrival),
+                CreateDateTimeOffset(dayDeparture, hourDeparture));
 
             int numberOfMealTaken = mealCalculator.NumberOfMealTaken();
 
             Check.That(numberOfMealTaken).IsEqualTo(6);
         }
 
-        private DateTimeOffset CreateDateTimeOffset(int year, int month, int day, int hour)
+        [TestCase(FRIDAY, 9, SATURDAY, 18)]
+        public void Get_Number_Of_Meal_Taken_When_Missing_Two_Meals(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
         {
-            return new DateTimeOffset(new DateTime(year, month, day, hour, 0, 0));
+            var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(dayArrival, hourArrival),
+                CreateDateTimeOffset(dayDeparture, hourDeparture));
+
+            int numberOfMealTaken = mealCalculator.NumberOfMealTaken();
+
+            Check.That(numberOfMealTaken).IsEqualTo(4);
+        }
+
+        private DateTimeOffset CreateDateTimeOffset(int day, int hour)
+        {
+            return new DateTimeOffset(new DateTime(2018, 01, day, hour, 0, 0));
         }
     }
 }
