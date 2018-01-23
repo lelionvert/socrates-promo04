@@ -4,10 +4,10 @@ using System.ComponentModel;
 namespace SocratesFr.CandidateManagement{
     public class PriceCalculator
     {
-        private Accomodation accomodation;
+        private Accommodation accomodation;
         private NumberOfMealCalculator mealCalculator;
 
-        public enum Accomodation
+        public enum Accommodation
         {
             SINGLE = 0,
             DOUBLE,
@@ -15,23 +15,23 @@ namespace SocratesFr.CandidateManagement{
             NO_ACCOMODATION
         }
 
-        public PriceCalculator(Accomodation room, DateTimeOffset arrivalDate, DateTimeOffset departureDate)
+        public PriceCalculator(Accommodation accommodation, DateTimeOffset arrivalDate, DateTimeOffset departureDate)
         {
-            this.accomodation = room;
+            this.accomodation = accommodation;
             this.mealCalculator = new NumberOfMealCalculator(arrivalDate, departureDate);
             int nbmealsNotTaken = mealCalculator.NumberOfMealNotTaken();
             switch (accomodation)
             {
-                case Accomodation.SINGLE:
+                case Accommodation.SINGLE:
                     Price = CalculatePriceWithoutNMeal(610, nbmealsNotTaken);
                     break;
-                case Accomodation.DOUBLE:
+                case Accommodation.DOUBLE:
                     Price = CalculatePriceWithoutNMeal(510, nbmealsNotTaken);
                     break;
-                case Accomodation.TRIPLE:
+                case Accommodation.TRIPLE:
                     Price = CalculatePriceWithoutNMeal(410, nbmealsNotTaken);
                     break;
-                case Accomodation.NO_ACCOMODATION:
+                case Accommodation.NO_ACCOMODATION:
                     Price = CalculatePriceWithoutNMeal(240, nbmealsNotTaken);
                     break;
                 default:

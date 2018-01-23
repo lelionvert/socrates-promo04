@@ -10,25 +10,25 @@ namespace SocratesFrTest.CandidateManagement
     public class NumberOfMealCalculatorTest
     {
         [Test]
-        public void Get_Number_Of_Meal_Not_Taken_When_Missing_One_Meal()
+        public void Get_Number_Of_Meal_Taken_When_Missing_One_Meal()
         {           
-            var checkInTime = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
+            var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
                                                 CreateDateTimeOffset(2018, 01, 27, 18));
 
-            int numberOfMealNotTaken = checkInTime.NumberOfMealNotTaken();
+            int numberOfMealTaken = mealCalculator.NumberOfMealTaken();
 
-            Check.That(numberOfMealNotTaken).IsEqualTo(1);
+            Check.That(numberOfMealTaken).IsEqualTo(5);
         }
 
         [Test]
-        public void Get_Number_Of_Meal_Not_Taken_When_Taking_All_Meal()
+        public void Get_Number_Of_Meal_Taken_When_Taking_All_Meal()
         {
-            var checkInTime = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
+            var mealCalculator = new NumberOfMealCalculator(CreateDateTimeOffset(2018, 01, 25, 9),
                 CreateDateTimeOffset(2018, 01, 28, 18));
 
-            int numberOfMealNotTaken = checkInTime.NumberOfMealNotTaken();
+            int numberOfMealTaken = mealCalculator.NumberOfMealTaken();
 
-            Check.That(numberOfMealNotTaken).IsEqualTo(0);
+            Check.That(numberOfMealTaken).IsEqualTo(6);
         }
 
         private DateTimeOffset CreateDateTimeOffset(int year, int month, int day, int hour)

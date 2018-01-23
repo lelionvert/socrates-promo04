@@ -19,5 +19,12 @@ namespace SocratesFr.CandidateManagement
                 return 0;
             return 1;
         }
+
+        public int NumberOfMealTaken()
+        {
+            if (arrivalTime.DayOfWeek == DayOfWeek.Thursday && departureTime.DayOfWeek == DayOfWeek.Sunday && departureTime.Hour > 12)
+                return 6;
+            return 5;
+        }
     }
 }
