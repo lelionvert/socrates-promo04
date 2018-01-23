@@ -5,13 +5,14 @@ import main.java.MinimumMealException;
  */
 public class PriceCalculator {
     private static final double mealPrice = 40;
+    private static final int maximumMealsNotTaken = 2;
 
     public static double calculatePrice(Accommodation accommodation) {
         return calculatePrice(accommodation, 0);
     }
 
     public static double calculatePrice(Accommodation accommodation, int mealsNotTaken) {
-        if (mealsNotTaken > 2){
+        if (mealsNotTaken > maximumMealsNotTaken){
             throw new MinimumMealException();
         }
         return accommodation.price() - mealsNotTaken * mealPrice;

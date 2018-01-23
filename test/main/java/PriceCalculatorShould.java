@@ -49,7 +49,7 @@ public class PriceCalculatorShould {
     }
 
     @Test(expected = MinimumMealException.class)
-    public void notCreateWhenInvalidInput() throws MinimumMealException {
+    public void throwExceptionWhenMealsNotTakenIsAboveTheLimit() throws MinimumMealException {
         PriceCalculator.calculatePrice(Accommodation.NONE, 3);
     }
 }
