@@ -58,6 +58,14 @@ namespace SocratesFr.CandidateManagement
                 case RoomType.DOUBLE:
                     Price = CalculatePriceWithoutNMeal(510, nbmealsNotTaken);
                     break;
+                case RoomType.TRIPLE:
+                    Price = CalculatePriceWithoutNMeal(410, nbmealsNotTaken);
+                    break;
+                case RoomType.NO_ACCOMODATION:
+                    Price = CalculatePriceWithoutNMeal(240, nbmealsNotTaken);
+                    break;
+                default:
+                    throw new InvalidEnumArgumentException("Please select one of the four room price.");
             }
         }
 
