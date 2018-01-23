@@ -19,20 +19,20 @@ namespace SocratesFr.CandidateManagement{
         {
             this.accomodation = accommodation;
             this.mealCalculator = new NumberOfMealCalculator(arrivalDate, departureDate);
-            int nbmealsNotTaken = mealCalculator.NumberOfMealNotTaken();
+            int nbMealsTaken = mealCalculator.NumberOfMealTaken();
             switch (accomodation)
             {
                 case Accommodation.SINGLE:
-                    Price = CalculatePriceWithoutNMeal(610, nbmealsNotTaken);
+                    Price = CalculatePriceWithoutNMeal(370, nbMealsTaken);
                     break;
                 case Accommodation.DOUBLE:
-                    Price = CalculatePriceWithoutNMeal(510, nbmealsNotTaken);
+                    Price = CalculatePriceWithoutNMeal(270, nbMealsTaken);
                     break;
                 case Accommodation.TRIPLE:
-                    Price = CalculatePriceWithoutNMeal(410, nbmealsNotTaken);
+                    Price = CalculatePriceWithoutNMeal(170, nbMealsTaken);
                     break;
                 case Accommodation.NO_ACCOMODATION:
-                    Price = CalculatePriceWithoutNMeal(240, nbmealsNotTaken);
+                    Price = CalculatePriceWithoutNMeal(0, nbMealsTaken);
                     break;
                 default:
                     throw new InvalidEnumArgumentException("Please select one of the four room price.");
@@ -41,7 +41,7 @@ namespace SocratesFr.CandidateManagement{
 
         private int CalculatePriceWithoutNMeal(int roomPrice, int nMeal)
         {
-            return roomPrice - (nMeal * 40);
+            return roomPrice + (nMeal * 40);
         }
 
         public object Price { get; private set; }
