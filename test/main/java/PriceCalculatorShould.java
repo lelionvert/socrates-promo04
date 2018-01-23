@@ -77,4 +77,10 @@ public class PriceCalculatorShould {
         double price = PriceCalculator.calculatePrice(Accommodation.NONE, Checkin.BEFORE_FIRST_MEAL, Checkout.BEFORE_LAST_MEAL);
         assertThat(price).isEqualTo(200);
     }
+
+    @Test
+    public void computePriceWithoutFirstAndLastMeal() {
+        double price = PriceCalculator.calculatePrice(Accommodation.SINGLE, Checkin.AFTER_FIRST_MEAL, Checkout.BEFORE_LAST_MEAL);
+        assertThat(price).isEqualTo(530);
+    }
 }
