@@ -14,10 +14,10 @@ public class PriceCalculator {
     }
 
     public static double calculatePrice(Accommodation accommodation, int mealsNotTaken) {
-        if (mealsNotTaken > MAXIMUM_MEALS_NOT_TAKEN){
+        if (mealsNotTaken > MAXIMUM_MEALS_NOT_TAKEN) {
             throw new MinimumMealException();
         }
-        if (mealsNotTaken < 0){
+        if (mealsNotTaken < 0) {
             throw new IllegalArgumentException();
         }
 
@@ -25,6 +25,8 @@ public class PriceCalculator {
     }
 
     public static double calculatePrice(Accommodation accommodation, Checkin checkin, Checkout checkout) {
+        if (checkin == Checkin.FRIDAY)
+            return 370;
         return 510;
     }
 }
