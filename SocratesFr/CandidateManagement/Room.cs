@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace SocratesFr.CandidateManagement
 {
@@ -33,7 +34,7 @@ namespace SocratesFr.CandidateManagement
                     Price = 240;
                     break;
                 default:
-                    break;
+                    throw new InvalidEnumArgumentException("Please select one of the four room price.");
             }
         }
 

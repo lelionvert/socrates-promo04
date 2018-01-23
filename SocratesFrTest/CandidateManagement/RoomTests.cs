@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using NUnit.Framework;
 using NFluent;
@@ -35,6 +36,13 @@ namespace SocratesFrTest.CandidateManagement
         {
             var package = new Room(Room.RoomType.NO_ACCOMODATION);
             Check.That(package.Price).Equals(240);
+        }
+
+        [Test]
+        public void Get_Price_For_Unknown_Selection()
+        {
+            var package = 
+            Check.ThatCode(() => new Room((Room.RoomType)int.MaxValue)).Throws<InvalidEnumArgumentException>();
         }
     }
 }
