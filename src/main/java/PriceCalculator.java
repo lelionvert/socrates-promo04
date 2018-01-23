@@ -25,12 +25,7 @@ public class PriceCalculator {
     }
 
     public static double calculatePrice(Accommodation accommodation, Checkin checkin, Checkout checkout) {
-        if (checkin == Checkin.AFTER_FIRST_MEAL && checkout == Checkout.BEFORE_LAST_MEAL)
-            return 530;
-        if (checkin == Checkin.AFTER_FIRST_MEAL)
-            return 370;
-        if (checkout == Checkout.BEFORE_LAST_MEAL)
-            return 200;
-        return 510;
+        int mealsNotTaken = checkin.getMealsNotTaken() + checkout.getMealsNotTaken();
+        return calculatePrice(accommodation, mealsNotTaken);
     }
 }

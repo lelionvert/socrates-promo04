@@ -9,4 +9,8 @@ public enum Checkout {
     Checkout(int mealsNotTaken) {
         this.mealsNotTaken = mealsNotTaken;
     }
+
+    public int getMealsNotTaken() {
+        return mealsNotTaken;
+    }
 }
