@@ -1,7 +1,8 @@
 package main.java;
 
 public enum Checkout {
-    AFTER_LAST_MEAL(0);
+    AFTER_LAST_MEAL(0),
+    BEFORE_LAST_MEAL(1);
 
     private final int mealsNotTaken;
 
