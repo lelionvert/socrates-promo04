@@ -3,7 +3,6 @@
  */
 public class PriceCalculator {
     public static int calculatePrice(Accommodation accommodation, int mealsNumber) {
-        if(5==mealsNumber) return accommodation.price() + 200;
-        return accommodation.price() + 240;
+        return accommodation.price() + mealsNumber * 40;
     }
 }

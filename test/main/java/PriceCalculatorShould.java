@@ -37,7 +37,13 @@ public class PriceCalculatorShould {
 
     @Test
     public void giveSingleRoomWithFiveMeals() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.SINGLE,5);
+        int price = PriceCalculator.calculatePrice(Accommodation.SINGLE, 5);
         assertThat(price).isEqualTo(570);
+    }
+
+    @Test
+    public void giveDoubleRoomWithFourMeals() throws Exception {
+        int price = PriceCalculator.calculatePrice(Accommodation.DOUBLE, 4);
+        assertThat(price).isEqualTo(430);
     }
 }
