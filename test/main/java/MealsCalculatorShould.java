@@ -11,27 +11,27 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class MealsCalculatorShould {
 
+    private Calendar createCalendar(int day, int hour, int am_pm) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_WEEK, day);
+        calendar.set(Calendar.HOUR, hour);
+        calendar.set(Calendar.AM_PM, am_pm);
+        return calendar;
+    }
+
     @Test
-    public void giveMealNumberWhenCheckinThursdayAndCheckoutSundayAfter14PM() {
-        Calendar checkin = Calendar.getInstance();
-        checkin.add(Calendar.THURSDAY,1);
-        checkin.add(Calendar.HOUR_OF_DAY,14);
-        Calendar checkout = Calendar.getInstance();
-        checkout.add(Calendar.SUNDAY,1);
-        checkout.add(Calendar.HOUR_OF_DAY,14);
+    public void giveMealNumberWhenCheckinThursdayAndCheckoutSundayAt2PM() {
+        Calendar checkin = createCalendar(Calendar.THURSDAY,2,Calendar.PM);
+        Calendar checkout = createCalendar(Calendar.SUNDAY,2,Calendar.PM);
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
         assertThat(mealsNumber).isEqualTo(6);
     }
 
     @Test
-    public void giveMealNumberWhenCheckinFridayAndCheckoutSundayAfter2PM() throws Exception {
-        Calendar checkin = Calendar.getInstance();
-        checkin.set(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
-        checkin.set(Calendar.HOUR,9);
-        Calendar checkout = Calendar.getInstance();
-        checkout.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
-        checkout.set(Calendar.HOUR,14);
-        int mealsNumber = MealsCalculator.calculate(checkin, checkout);
+    public void giveMealNumberWhenCheckinFridayAt10AMAndCheckoutSundayAt2PM() throws Exception {
+        Calendar checkin = createCalendar(Calendar.FRIDAY,10,Calendar.AM);
+        Calendar checkout = createCalendar(Calendar.SUNDAY,2,Calendar.PM);
+        int mealsNumber = MealsCalculator.calculate(checkin,checkout);
         assertThat(mealsNumber).isEqualTo(5);
     }
 }
