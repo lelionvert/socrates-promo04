@@ -1,4 +1,6 @@
 
+import main.java.Checkin;
+import main.java.Checkout;
 import main.java.MinimumMealException;
 import org.junit.Test;
 
@@ -56,5 +58,11 @@ public class PriceCalculatorShould {
     @Test(expected = IllegalArgumentException.class)
     public void throwExceptionWhenMealsNotTakenIsNegative() throws IllegalArgumentException {
         PriceCalculator.calculatePrice(Accommodation.NONE, -2);
+    }
+
+    @Test
+    public void computeCompletePrice() {
+        double price = PriceCalculator.calculatePrice(Accommodation.DOUBLE, Checkin.THURSDAY, Checkout.SUNDAY);
+        assertThat(price).isEqualTo(510);
     }
 }
