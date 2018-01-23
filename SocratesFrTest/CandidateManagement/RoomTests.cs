@@ -51,5 +51,12 @@ namespace SocratesFrTest.CandidateManagement
             var package = new Room(Room.RoomType.SINGLE, DayOfWeek.Friday, DayOfWeek.Sunday);
             Check.That(package.Price).Equals(570);
         }
+
+        [Test]
+        public void Get_Price_For_Double_Room_Without_One_Meal_Checkin_Friday_Chekout_Sunday()
+        {
+            var package = new Room(Room.RoomType.DOUBLE, DayOfWeek.Friday, DayOfWeek.Sunday);
+            Check.That(package.Price).Equals(470);
+        }
     }
 }

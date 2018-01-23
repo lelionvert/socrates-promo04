@@ -53,9 +53,17 @@ namespace SocratesFr.CandidateManagement
             switch (roomType)
             {
                 case RoomType.SINGLE:
-                    Price = 610 - (nbmealsNotTaken * 40);
+                    Price = CalculatePriceWithoutNMeal(610, nbmealsNotTaken);
+                    break;
+                case RoomType.DOUBLE:
+                    Price = CalculatePriceWithoutNMeal(510, nbmealsNotTaken);
                     break;
             }
+        }
+
+        private int CalculatePriceWithoutNMeal(int roomPrice, int nMeal)
+        {
+            return roomPrice - (nMeal * 40);
         }
 
         public object Price { get; private set; }
