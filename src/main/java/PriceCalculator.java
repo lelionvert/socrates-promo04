@@ -9,10 +9,6 @@ public class PriceCalculator {
     private static final double MEAL_PRICE = 40;
     private static final int MAXIMUM_MEALS_NOT_TAKEN = 2;
 
-    public static double calculatePrice(Accommodation accommodation) {
-        return calculatePrice(accommodation, 0);
-    }
-
     public static double calculatePrice(Accommodation accommodation, int mealsNotTaken) {
         if (mealsNotTaken > MAXIMUM_MEALS_NOT_TAKEN) {
             throw new MinimumMealException();
