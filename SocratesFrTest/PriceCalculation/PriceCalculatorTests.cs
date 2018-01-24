@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using NFluent;
 using NUnit.Framework;
@@ -45,7 +46,7 @@ namespace SocratesFrTest.PriceCalculation
         public void Get_Price_For_Unknown_Selection()
         {
             var priceCalculator = new PriceCalculator();            
-            Check.ThatCode<double>(() => priceCalculator.CalculatePrice((PriceCalculator.Accommodation)int.MaxValue, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18))).Throws<InvalidEnumArgumentException>();
+            Check.ThatCode<double>(() => priceCalculator.CalculatePrice((PriceCalculator.Accommodation)int.MaxValue, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18))).Throws<KeyNotFoundException>();
         }
 
         [Test]

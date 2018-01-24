@@ -26,25 +26,10 @@ namespace SocratesFr.PriceCalculation{
       
         public double CalculatePrice(Accommodation accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
         {
-            double totalPrice = 0;
             int nbMealsTaken = mealCalculator.NumberOfMealTaken(checkin, checkout);
-            switch (accommodation)
-            {
-                case Accommodation.SINGLE:
-                    totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(Accommodation.SINGLE.ToString()), nbMealsTaken);
-                    break;
-                case Accommodation.DOUBLE:
-                    totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(Accommodation.DOUBLE.ToString()), nbMealsTaken);
-                    break;
-                case Accommodation.TRIPLE:
-                    totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(Accommodation.TRIPLE.ToString()), nbMealsTaken);
-                    break;
-                case Accommodation.NO_ACCOMMODATION:
-                    totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(Accommodation.NO_ACCOMMODATION.ToString()), nbMealsTaken);
-                    break;
-                default:
-                    throw new InvalidEnumArgumentException("Please select one of the four room price.");
-            }
+            
+            var totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(accommodation.ToString()), nbMealsTaken);
+                   
 
             return totalPrice;
         }

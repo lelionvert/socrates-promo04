@@ -17,10 +17,7 @@ namespace SocratesFr.SocratesBDD
         {
             if (productPriceDictionnary.ContainsKey(productKey))
                 return productPriceDictionnary[productKey];
-            else
-            {
-                return -1;
-            }
+            throw new KeyNotFoundException();
         }
     }
 }

@@ -18,16 +18,12 @@ namespace SocratesFr.SocratesBDD
 
         public bool FirstMealIsGranted(DateTimeOffset checkin)
         {
-            if (checkin.DayOfWeek == DAY_BEGIN_SOCRATES && checkin.Hour <= HOUR_OF_NIGHT_MEAL)
-                return true;
-            return false;
+            return checkin.DayOfWeek == DAY_BEGIN_SOCRATES && checkin.Hour <= HOUR_OF_NIGHT_MEAL;
         }
 
         public bool LastMealIsGranted(DateTimeOffset checkout)
         {
-            if (checkout.DayOfWeek == DAY_END_SOCRATES && checkout.Hour >= HOUR_OF_AFTERNOON_MEAL)
-                return true;
-            return false;
+            return checkout.DayOfWeek == DAY_END_SOCRATES && checkout.Hour >= HOUR_OF_AFTERNOON_MEAL;
         }
     }
 }

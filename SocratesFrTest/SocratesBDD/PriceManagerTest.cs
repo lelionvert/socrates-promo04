@@ -34,9 +34,7 @@ namespace SocratesFrTest.SocratesBDD
         {
             PriceManager priceManager = new PriceManager();
 
-            var price = priceManager.GetProductPrice("TOTO");
-
-            Check.That(price).IsEqualTo(-1);
+            Check.ThatCode(() => priceManager.GetProductPrice("TOTO")).Throws<KeyNotFoundException>();
         }
     }
 }
