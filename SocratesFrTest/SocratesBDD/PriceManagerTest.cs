@@ -18,5 +18,25 @@ namespace SocratesFrTest.SocratesBDD
 
             Check.That(price).IsEqualTo(370);
         }
+
+        [Test]
+        public void Get_Accomodation_Double_Price()
+        {
+            PriceManager priceManager = new PriceManager();
+
+            var price = priceManager.GetProductPrice("DOUBLE");
+
+            Check.That(price).IsEqualTo(270);
+        }
+
+        [Test]
+        public void Ask_Wrong_Product_Key()
+        {
+            PriceManager priceManager = new PriceManager();
+
+            var price = priceManager.GetProductPrice("TOTO");
+
+            Check.That(price).IsEqualTo(-1);
+        }
     }
 }
