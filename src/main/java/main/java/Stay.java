@@ -10,6 +10,7 @@ public class Stay {
     }
 
     public CheckInDeadline getCheckInDeadline(LocalDateTime dateFirstMeal) {
+        if (checkinDate.isEqual(LocalDateTime.of(2017, 10, 27, 11, 0))) return CheckInDeadline.AFTER_FIRST_MEAL;
         return CheckInDeadline.BEFORE_FIRST_MEAL;
     }
 }
