@@ -21,12 +21,13 @@ namespace SocratesFr.CandidateManagement{
 
         private const int MEAL_MANDATORY = 4;
         private const int HOUR_OF_AFTERNOON_MEAL = 12;
+        private const int HOURS_OF_NIGHT_MEAL = 21;
         private const DayOfWeek DAY_BEGIN_SOCRATES = DayOfWeek.Thursday;
         private const DayOfWeek DAY_END_SOCRATES = DayOfWeek.Sunday;
 
         public PriceCalculator()
         {
-            this.mealCalculator = new NumberOfMealCalculator(MEAL_MANDATORY, HOUR_OF_AFTERNOON_MEAL, DAY_BEGIN_SOCRATES, DAY_END_SOCRATES);
+            this.mealCalculator = new NumberOfMealCalculator(MEAL_MANDATORY, HOUR_OF_AFTERNOON_MEAL, DAY_BEGIN_SOCRATES, DAY_END_SOCRATES, HOURS_OF_NIGHT_MEAL);
         }
       
         public int CalculatePrice(Accommodation accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
