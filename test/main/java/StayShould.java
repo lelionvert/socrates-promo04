@@ -36,18 +36,20 @@ public class StayShould {
 
     @Test
     public void beginAfterDinnerHour() throws Exception {
-        Date date = createDate("25/01/2018:22");
+        Date date = createDate("25/01/2018:23");
         Stay stay = new Stay(date);
-        Date dinnerDate = createDate("25/01/2018:21");
+        Date dinnerDate = createDate("25/01/2018:22");
         boolean isBefore = stay.checkinBefore(dinnerDate);
         assertThat(isBefore).isFalse();
     }
 
-/*    @Test
-    public void beginMorning() throws Exception {
-        Stay stay = new Stay();
-        boolean isBefore = stay.checkinBefore(23);
-        assertThat(isBefore).isFalse();
+ /*   @Test
+    public void beginAtDinnerHour() throws Exception {
+        Date date = createDate("25/01/2018:21");
+        Stay stay = new Stay(date);
+        Date dinnerDate = createDate("25/01/2018:21");
+        boolean isBefore = stay.checkinBefore(dinnerDate);
+        assertThat(isBefore).isTrue();
 
     }*/
 }

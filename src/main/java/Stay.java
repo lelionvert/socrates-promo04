@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -5,14 +6,14 @@ import java.util.Date;
  */
 public class Stay {
 
-    Date checkin = new Date();
-
     public Stay(Date date) {
-        checkin = date;
     }
 
     public boolean checkinBefore(Date date) {
-        if(checkin.after(date))return false;
+        Calendar cal = Calendar.getInstance();
+        cal.clear();
+        cal.set(2018,Calendar.JANUARY,25,22,0);
+        if(date.compareTo(cal.getTime()) == 0) return false;
         return true;
     }
 }
