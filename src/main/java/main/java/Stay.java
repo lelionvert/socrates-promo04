@@ -12,12 +12,10 @@ public class Stay {
     }
 
     public CheckInDeadline getCheckInDeadline(LocalDateTime dateFirstMeal) {
-        if (checkInDate.isEqual(LocalDateTime.of(2017, 10, 27, 11, 0))) return CheckInDeadline.AFTER_FIRST_MEAL;
-        return CheckInDeadline.BEFORE_FIRST_MEAL;
+        return checkInDate.isBefore(dateFirstMeal) ? CheckInDeadline.BEFORE_FIRST_MEAL : CheckInDeadline.AFTER_FIRST_MEAL;
     }
 
     public CheckOutDeadline getCheckOutDeadline(LocalDateTime dateLastMeal) {
-        if (checkOutDate.isEqual(LocalDateTime.of(2017, 10, 29, 18, 0))) return CheckOutDeadline.AFTER_LAST_MEAL;
-        return CheckOutDeadline.BEFORE_LAST_MEAL;
+        return checkOutDate.isBefore(dateLastMeal) ? CheckOutDeadline.BEFORE_LAST_MEAL : CheckOutDeadline.AFTER_LAST_MEAL;
     }
 }
