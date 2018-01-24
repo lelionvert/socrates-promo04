@@ -3,6 +3,8 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -26,9 +28,9 @@ public class StayShould {
 
     @Test
     public void beginBeforeDinnerHour() throws Exception {
-        Date date = createDate("25/01/2018:18");
+        LocalDateTime date = LocalDateTime.parse("2018-01-25T18:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         Stay stay = new Stay(date);
-        Date dinnerDate = createDate("25/01/2018:21");
+        LocalDateTime dinnerDate = LocalDateTime.parse("2018-01-25T21:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         boolean isBefore = stay.checkinBefore(dinnerDate);
         assertThat(isBefore).isTrue();
 
@@ -36,20 +38,19 @@ public class StayShould {
 
     @Test
     public void beginAfterDinnerHour() throws Exception {
-        Date date = createDate("25/01/2018:23");
+        LocalDateTime date = LocalDateTime.parse("2018-01-25T23:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         Stay stay = new Stay(date);
-        Date dinnerDate = createDate("25/01/2018:22");
+        LocalDateTime dinnerDate = LocalDateTime.parse("2018-01-25T22:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         boolean isBefore = stay.checkinBefore(dinnerDate);
         assertThat(isBefore).isFalse();
     }
 
- /*   @Test
+    @Test
     public void beginAtDinnerHour() throws Exception {
-        Date date = createDate("25/01/2018:21");
+        LocalDateTime date = LocalDateTime.parse("2018-01-25T22:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         Stay stay = new Stay(date);
-        Date dinnerDate = createDate("25/01/2018:21");
+        LocalDateTime dinnerDate = LocalDateTime.parse("2018-01-25T22:00:00", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         boolean isBefore = stay.checkinBefore(dinnerDate);
         assertThat(isBefore).isTrue();
-
-    }*/
+    }
 }
