@@ -14,7 +14,7 @@ namespace SocratesFrTest.SocratesBDD
         {
             PriceManager priceManager = new PriceManager();
 
-            var price = priceManager.GetProductPrice("SINGLE");
+            var price = priceManager.GetProductPrice(Product.SINGLE);
 
             Check.That(price).IsEqualTo(370);
         }
@@ -24,7 +24,7 @@ namespace SocratesFrTest.SocratesBDD
         {
             PriceManager priceManager = new PriceManager();
 
-            var price = priceManager.GetProductPrice("DOUBLE");
+            var price = priceManager.GetProductPrice(Product.DOUBLE);
 
             Check.That(price).IsEqualTo(270);
         }
@@ -34,7 +34,7 @@ namespace SocratesFrTest.SocratesBDD
         {
             PriceManager priceManager = new PriceManager();
 
-            Check.ThatCode(() => priceManager.GetProductPrice("TOTO")).Throws<KeyNotFoundException>();
+            Check.ThatCode(() => priceManager.GetProductPrice((Product)int.MaxValue)).Throws<KeyNotFoundException>();
         }
     }
 }

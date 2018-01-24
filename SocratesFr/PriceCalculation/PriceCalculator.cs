@@ -8,15 +8,6 @@ namespace SocratesFr.PriceCalculation{
     {
         private NumberOfMealCalculator mealCalculator;
         private PriceManager priceManager;
-        private string MEAL_PRODUCT_KEY = "MEAL";
-
-        public enum Accommodation
-        {
-            SINGLE = 0,
-            DOUBLE,
-            TRIPLE,
-            NO_ACCOMMODATION
-        }
 
         public PriceCalculator()
         {            
@@ -24,19 +15,20 @@ namespace SocratesFr.PriceCalculation{
             this.mealCalculator = new NumberOfMealCalculator(new MealPlanningManager());
         }
       
-        public double CalculatePrice(Accommodation accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
+        public double CalculatePrice(Product accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
         {
             int nbMealsTaken = mealCalculator.NumberOfMealTaken(checkin, checkout);
-            
-            var totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(accommodation.ToString()), nbMealsTaken);
-                   
+            double roomPrice = priceManager.GetProductPrice(accommodation);
+
+            var totalPrice = CalculatePriceWithNMeal(roomPrice, nbMealsTaken);
+
 
             return totalPrice;
         }
 
         private double CalculatePriceWithNMeal(double roomPrice, int nMeal)
         {
-            double mealPrice = priceManager.GetProductPrice(MEAL_PRODUCT_KEY);
+            double mealPrice = priceManager.GetProductPrice(Product.MEAL);
             return roomPrice + (nMeal * mealPrice);
         }
 
