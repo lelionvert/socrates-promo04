@@ -18,5 +18,15 @@ namespace SocratesFrTest.SocratesBDD
 
             Check.That(value).IsEqualTo(4);
         }
+
+        [Test]
+        public void Get_Hour_Of_Afternoon_Meal()
+        {
+            var mealPlanningManager = new MealPlanningManager();
+
+            var value = mealPlanningManager.GetMealOrganisation("HOUR_OF_AFTERNOON_MEAL");
+
+            Check.That(value).IsEqualTo(12);
+        }
     }
 }
