@@ -1,10 +1,17 @@
+import java.util.Date;
+
 /**
  * Created by lenovo_3 on 23/01/2018.
  */
 public class Stay {
 
-    public boolean checkinBefore(int hour) {
-        if(hour > 21) return false;
+    Date checkin = new Date();
+
+    public Stay(Date date) {
+        checkin = date;
+    }
+
+    public boolean checkinBefore(Date date) {
         return true;
     }
 }
