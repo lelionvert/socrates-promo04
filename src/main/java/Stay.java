@@ -5,13 +5,13 @@ import java.time.LocalDateTime;
  */
 public class Stay {
 
-    private final LocalDateTime date;
+    private final LocalDateTime checkin;
 
-    public Stay(LocalDateTime date) {
-        this.date = date;
+    public Stay(LocalDateTime checkin) {
+        this.checkin = checkin;
     }
 
-    public boolean checkinBefore(LocalDateTime date) {
-        return !this.date.isAfter(date);
+    public boolean checkinBefore(LocalDateTime dateTime) {
+        return !this.checkin.isAfter(dateTime);
     }
 }
