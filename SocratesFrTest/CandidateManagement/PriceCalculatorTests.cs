@@ -13,8 +13,9 @@ namespace SocratesFrTest.CandidateManagement
         [Test]
         public void Get_Price_For_Single_Room()
         {
-            var package = new PriceCalculator(PriceCalculator.Accommodation.SINGLE, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18));
-            Check.That(package.Price).Equals(610);
+            var priceCalculator = new PriceCalculator();
+            int price = priceCalculator.CalculatePrice(PriceCalculator.Accommodation.SINGLE, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18));
+            Check.That(price).Equals(610);
         }
 
         [Test]
