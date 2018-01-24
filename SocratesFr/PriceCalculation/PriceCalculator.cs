@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using SocratesFr.CandidateManagement;
 
-namespace SocratesFr.CandidateManagement{
+namespace SocratesFr.PriceCalculation{
     public class PriceCalculator
     {
         private NumberOfMealCalculator mealCalculator;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SocratesFr.CandidateManagement
+namespace SocratesFr.PriceCalculation
 {
     public class NumberOfMealCalculator
     {

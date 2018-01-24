@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using NFluent;
 using NUnit.Framework;
 using SocratesFr.CandidateManagement;
+using SocratesFr.PriceCalculation;
 
-namespace SocratesFrTest.CandidateManagement
+namespace SocratesFrTest.PriceCalculation
 {
     public class NumberOfMealCalculatorTest
     {

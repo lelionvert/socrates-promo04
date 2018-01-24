@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
-using NUnit.Framework;
 using NFluent;
+using NUnit.Framework;
 using SocratesFr.CandidateManagement;
+using SocratesFr.PriceCalculation;
 
-namespace SocratesFrTest.CandidateManagement
+namespace SocratesFrTest.PriceCalculation
 {
     public class PriceCalculatorTests
     {
@@ -46,7 +45,7 @@ namespace SocratesFrTest.CandidateManagement
         public void Get_Price_For_Unknown_Selection()
         {
             var priceCalculator = new PriceCalculator();            
-            Check.ThatCode(() => priceCalculator.CalculatePrice((PriceCalculator.Accommodation)int.MaxValue, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18))).Throws<InvalidEnumArgumentException>();
+            Check.ThatCode<int>(() => priceCalculator.CalculatePrice((PriceCalculator.Accommodation)int.MaxValue, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18))).Throws<InvalidEnumArgumentException>();
         }
 
         [Test]
