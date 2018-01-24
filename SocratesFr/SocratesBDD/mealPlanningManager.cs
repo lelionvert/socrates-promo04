@@ -33,6 +33,11 @@ namespace SocratesFr.SocratesBDD
             return new DateTimeOffset(new DateTime(2018, 01, 25, 21, 0, 0));
         }
 
+        public DateTimeOffset GetLastMeal()
+        {
+            return new DateTimeOffset(new DateTime(2018, 01, 28, 12, 0, 0));
+        }
+
         public (DateTimeOffset endSocrates, TimeSpan afternoonMeal) GetSocratesEndDate()
         {
             return (new DateTimeOffset(new DateTime(2018, 01, 25, 9, 0, 0)), new TimeSpan(12, 0, 0));

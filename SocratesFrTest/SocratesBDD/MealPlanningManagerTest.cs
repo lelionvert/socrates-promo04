@@ -30,13 +30,13 @@ namespace SocratesFrTest.SocratesBDD
         }
 
         [Test]
-        public void Ask_Wrong_Product_Key()
+        public void Get_Last_Meal_Of_Socrates()
         {
             var mealPlanningManager = new MealPlanningManager();
 
-            var value = mealPlanningManager.GetMealOrganisation("TOTO");
+            DateTimeOffset value = mealPlanningManager.GetLastMeal();
 
-            Check.That(value).IsEqualTo(-1);
+            Check.That(value).IsEqualTo(new DateTimeOffset(new DateTime(2018, 01, 28, 12, 0, 0)));
         }
     }
 }
