@@ -28,9 +28,9 @@ namespace SocratesFr.SocratesBDD
             return MEAL_MANDATORY;
         }
 
-        public (DateTimeOffset beginSocrates, TimeSpan nightMeal) GetSocratesBeginDate()
+        public DateTimeOffset GetFirstMeal()
         {
-            return (new DateTimeOffset(new DateTime(2018, 01, 25, 9, 0, 0)), new TimeSpan(21, 0, 0));
+            return new DateTimeOffset(new DateTime(2018, 01, 25, 21, 0, 0));
         }
 
         public (DateTimeOffset endSocrates, TimeSpan afternoonMeal) GetSocratesEndDate()

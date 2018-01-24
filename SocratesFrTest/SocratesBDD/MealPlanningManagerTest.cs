@@ -20,14 +20,13 @@ namespace SocratesFrTest.SocratesBDD
         }
 
         [Test]
-        public void Get_Hour_Of_Afternoon_Meal()
+        public void Get_First_Meal_Of_Socrates()
         {
             var mealPlanningManager = new MealPlanningManager();
 
-            (DateTimeOffset beginSocrates, TimeSpan nightMeal) value = mealPlanningManager.GetSocratesBeginDate();
+            DateTimeOffset value = mealPlanningManager.GetFirstMeal();
 
-            Check.That(value).IsEqualTo(
-                (new DateTimeOffset(new DateTime(2018, 01, 25, 9, 0, 0)), new TimeSpan(21, 0, 0) ));
+            Check.That(value).IsEqualTo(new DateTimeOffset(new DateTime(2018, 01, 25, 21, 0, 0)));
         }
 
         [Test]
