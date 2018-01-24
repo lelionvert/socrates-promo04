@@ -33,16 +33,17 @@ public class StayShould {
         assertThat(isBefore).isTrue();
 
     }
-/*
+
     @Test
     public void beginAfterDinnerHour() throws Exception {
-        Stay stay = new Stay();
-        boolean isBefore = stay.checkinBefore(22);
+        Date date = createDate("25/01/2018:22");
+        Stay stay = new Stay(date);
+        Date dinnerDate = createDate("25/01/2018:21");
+        boolean isBefore = stay.checkinBefore(dinnerDate);
         assertThat(isBefore).isFalse();
-
     }
 
-    @Test
+/*    @Test
     public void beginMorning() throws Exception {
         Stay stay = new Stay();
         boolean isBefore = stay.checkinBefore(23);

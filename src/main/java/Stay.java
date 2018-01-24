@@ -12,6 +12,7 @@ public class Stay {
     }
 
     public boolean checkinBefore(Date date) {
+        if(checkin.after(date))return false;
         return true;
     }
 }
