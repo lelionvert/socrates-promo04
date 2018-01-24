@@ -28,5 +28,15 @@ namespace SocratesFrTest.SocratesBDD
 
             Check.That(value).IsEqualTo(12);
         }
+
+        [Test]
+        public void Ask_Wrong_Product_Key()
+        {
+            var mealPlanningManager = new MealPlanningManager();
+
+            var value = mealPlanningManager.GetMealOrganisation("TOTO");
+
+            Check.That(value).IsEqualTo(-1);
+        }
     }
 }

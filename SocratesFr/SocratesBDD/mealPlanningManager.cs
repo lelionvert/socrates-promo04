@@ -16,7 +16,9 @@ namespace SocratesFr.SocratesBDD
 
         public int GetMealOrganisation(string organisationKey)
         {
-            return mealOrganisationDictionnary[organisationKey];
+            if (mealOrganisationDictionnary.ContainsKey(organisationKey))
+                return mealOrganisationDictionnary[organisationKey];
+            return -1;
         }
     }
 }
