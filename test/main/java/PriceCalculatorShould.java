@@ -36,4 +36,11 @@ public class PriceCalculatorShould {
         double price = priceCalculator.calculatePrice(Accommodation.SINGLE, Checkin.AFTER_FIRST_MEAL, Checkout.BEFORE_LAST_MEAL);
         assertThat(price).isEqualTo(530);
     }
+
+    @Test
+    public void computePriceWithCustomMealPrice() {
+        PriceCalculator priceCalculator = new PriceCalculator(30);
+        double price = priceCalculator.calculatePrice(Accommodation.SINGLE, Checkin.AFTER_FIRST_MEAL, Checkout.BEFORE_LAST_MEAL);
+        assertThat(price).isEqualTo(550);
+    }
 }
