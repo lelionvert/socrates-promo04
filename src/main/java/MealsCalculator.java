@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.Calendar;
 
 /**
@@ -7,7 +8,15 @@ public class MealsCalculator {
     private static final int DINNER_HOUR = 21;
     private static final int LUNCH_HOUR = 12;
     public static final int MAX_MEALS_NUMBER = 6;
+    private final LocalDateTime firstMeal;
+    private final LocalDateTime lastMeal;
+    private final int mandatoryMeals;
 
+    public MealsCalculator(LocalDateTime firstMeal, LocalDateTime lastMeal, int mandatoryMeals) {
+        this.firstMeal = firstMeal;
+        this.lastMeal = lastMeal;
+        this.mandatoryMeals = mandatoryMeals;
+    }
 
     public static int calculate(Calendar checkin, Calendar checkout) {
         int mealsNumber = MAX_MEALS_NUMBER;
@@ -18,5 +27,10 @@ public class MealsCalculator {
             mealsNumber--;
         }
         return mealsNumber;
+    }
+
+    public int calculate(CheckTime checkIn, CheckTime checkOut){
+        if(checkIn.isBefore(firstMeal)) return 6;
+        return 5;
     }
 }

@@ -1,7 +1,9 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,11 +24,28 @@ public class MealsCalculatorShould {
         return calendar;
     }
 
+    private MealsCalculator mealsCalculator;
+
+    @BeforeEach
+    void setUp() {
+        LocalDateTime firstMeal = LocalDateTime.parse("2018-01-25T21:00:00");
+        LocalDateTime lastMeal = LocalDateTime.parse("2018-01-28T12:00:00");
+        mealsCalculator = new MealsCalculator(firstMeal, lastMeal, 4);
+    }
+
     @Test
     public void giveMaxMealNumber() {
         Calendar checkin = createCalendar("25/01/2018:2 PM");
         Calendar checkout = createCalendar("28/01/2018:2 PM");
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER);
+    }
+
+    @Test
+    public void giveMaxMealNumber2() {
+        CheckTime checkin = CheckTime.parse("2018-01-25T14:00:00");
+        CheckTime checkout = CheckTime.parse("2018-01-28T14:00:00");
+        int mealsNumber = mealsCalculator.calculate(checkin,checkout);
         assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER);
     }
 
@@ -51,6 +70,14 @@ public class MealsCalculatorShould {
         Calendar checkin = createCalendar("25/01/2018:10 PM");
         Calendar checkout = createCalendar("28/01/2018:2 PM");
         int mealsNumber = MealsCalculator.calculate(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER-1);
+    }
+
+    @Test
+    public void giveMealsNumberWhenCheckinAfterThursdayDinner2(){
+        CheckTime checkin = CheckTime.parse("2018-01-25T22:00:00");
+        CheckTime checkout = CheckTime.parse("2018-01-28T14:00:00");
+        int mealsNumber = mealsCalculator.calculate(checkin,checkout);
         assertThat(mealsNumber).isEqualTo(MealsCalculator.MAX_MEALS_NUMBER-1);
     }
 }

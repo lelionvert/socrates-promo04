@@ -14,4 +14,8 @@ public class CheckTime {
     public boolean isBefore(LocalDateTime dateTime) {
         return !this.dateTime.isAfter(dateTime);
     }
+
+    public static CheckTime parse(String formattedDate) {
+        return new CheckTime(LocalDateTime.parse(formattedDate));
+    }
 }
