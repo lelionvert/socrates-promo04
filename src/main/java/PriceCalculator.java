@@ -1,5 +1,5 @@
 import main.java.CheckInDeadline;
-import main.java.Checkout;
+import main.java.CheckOutDeadline;
 
 /**
  * Created by lenovo_3 on 22/01/2018.
@@ -16,8 +16,8 @@ public class PriceCalculator {
         this(DEFAULT_MEAL_PRICE);
     }
 
-    public double calculatePrice(Accommodation accommodation, CheckInDeadline checkInDeadline, Checkout checkout) {
-        int mealsNotTaken = checkInDeadline.getMealsNotTaken() + checkout.getMealsNotTaken();
+    public double calculatePrice(Accommodation accommodation, CheckInDeadline checkInDeadline, CheckOutDeadline checkOutDeadline) {
+        int mealsNotTaken = checkInDeadline.getMealsNotTaken() + checkOutDeadline.getMealsNotTaken();
         return accommodation.price() - mealsNotTaken * mealPrice;
     }
 }

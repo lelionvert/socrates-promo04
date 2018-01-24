@@ -1,12 +1,12 @@
 package main.java;
 
-public enum Checkout {
+public enum CheckOutDeadline {
     AFTER_LAST_MEAL(0),
     BEFORE_LAST_MEAL(1);
 
     private final int mealsNotTaken;
 
-    Checkout(int mealsNotTaken) {
+    CheckOutDeadline(int mealsNotTaken) {
         this.mealsNotTaken = mealsNotTaken;
     }
 
