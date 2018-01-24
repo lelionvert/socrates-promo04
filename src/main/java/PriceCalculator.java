@@ -8,7 +8,7 @@ import main.java.MinimumMealException;
 public class PriceCalculator {
     private static final double MEAL_PRICE = 40;
 
-    public static double calculatePrice(Accommodation accommodation, Checkin checkin, Checkout checkout) {
+    public double calculatePrice(Accommodation accommodation, Checkin checkin, Checkout checkout) {
         int mealsNotTaken = checkin.getMealsNotTaken() + checkout.getMealsNotTaken();
         return accommodation.price() - mealsNotTaken * MEAL_PRICE;
     }
