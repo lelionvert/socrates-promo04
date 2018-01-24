@@ -1,7 +1,6 @@
 
 import main.java.CheckInDeadline;
 import main.java.Checkout;
-import main.java.MinimumMealException;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;

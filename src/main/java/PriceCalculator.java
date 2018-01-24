@@ -1,6 +1,5 @@
 import main.java.CheckInDeadline;
 import main.java.Checkout;
-import main.java.MinimumMealException;
 
 /**
  * Created by lenovo_3 on 22/01/2018.
