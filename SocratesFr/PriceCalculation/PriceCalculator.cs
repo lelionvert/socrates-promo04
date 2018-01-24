@@ -15,7 +15,7 @@ namespace SocratesFr.PriceCalculation{
             SINGLE = 0,
             DOUBLE,
             TRIPLE,
-            NO_ACCOMODATION
+            NO_ACCOMMODATION
         }
        
         private const int MEAL_MANDATORY = 4;
@@ -45,8 +45,8 @@ namespace SocratesFr.PriceCalculation{
                 case Accommodation.TRIPLE:
                     totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(Accommodation.TRIPLE.ToString()), nbMealsTaken);
                     break;
-                case Accommodation.NO_ACCOMODATION:
-                    totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(Accommodation.NO_ACCOMODATION.ToString()), nbMealsTaken);
+                case Accommodation.NO_ACCOMMODATION:
+                    totalPrice = CalculatePriceWithNMeal(priceManager.GetProductPrice(Accommodation.NO_ACCOMMODATION.ToString()), nbMealsTaken);
                     break;
                 default:
                     throw new InvalidEnumArgumentException("Please select one of the four room price.");

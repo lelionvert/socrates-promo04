@@ -37,7 +37,7 @@ namespace SocratesFrTest.PriceCalculation
         public void Get_Price_For_No_Accomodation_Room()
         {
             var priceCalculator = new PriceCalculator();
-            double price = priceCalculator.CalculatePrice(PriceCalculator.Accommodation.NO_ACCOMODATION, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18));
+            double price = priceCalculator.CalculatePrice(PriceCalculator.Accommodation.NO_ACCOMMODATION, CreateDateTimeOffset(25, 9), CreateDateTimeOffset(28, 18));
             Check.That(price).Equals(240);
         }
 
@@ -76,7 +76,7 @@ namespace SocratesFrTest.PriceCalculation
         public void Get_Price_For_No_Accomodation_Room_Without_One_Meal_Checkin_Friday_Chekout_Sunday()
         {
             var priceCalculator = new PriceCalculator();
-            double price = priceCalculator.CalculatePrice(PriceCalculator.Accommodation.NO_ACCOMODATION, CreateDateTimeOffset(26, 9), CreateDateTimeOffset(28, 18));
+            double price = priceCalculator.CalculatePrice(PriceCalculator.Accommodation.NO_ACCOMMODATION, CreateDateTimeOffset(26, 9), CreateDateTimeOffset(28, 18));
             Check.That(price).Equals(200);
         }
 
