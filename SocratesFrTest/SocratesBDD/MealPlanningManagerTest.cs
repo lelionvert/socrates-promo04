@@ -14,7 +14,7 @@ namespace SocratesFrTest.SocratesBDD
         {
             var mealPlanningManager = new MealPlanningManager();
 
-            var value = mealPlanningManager.GetMealOrganisation("MEAL_MANDATORY");
+            var value = mealPlanningManager.GetMealMandatory();
 
             Check.That(value).IsEqualTo(4);
         }
@@ -24,9 +24,10 @@ namespace SocratesFrTest.SocratesBDD
         {
             var mealPlanningManager = new MealPlanningManager();
 
-            var value = mealPlanningManager.GetMealOrganisation("HOUR_OF_AFTERNOON_MEAL");
+            (DateTimeOffset beginSocrates, TimeSpan nightMeal) value = mealPlanningManager.GetSocratesBeginDate();
 
-            Check.That(value).IsEqualTo(12);
+            Check.That(value).IsEqualTo(
+                (new DateTimeOffset(new DateTime(2018, 01, 25, 9, 0, 0)), new TimeSpan(21, 0, 0) ));
         }
 
         [Test]

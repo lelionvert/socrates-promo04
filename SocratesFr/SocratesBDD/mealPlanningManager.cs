@@ -14,11 +14,28 @@ namespace SocratesFr.SocratesBDD
             {"DAY_END_SOCRATES", (int)DayOfWeek.Sunday}
         };
 
+        private const int MEAL_MANDATORY = 4;    
+
         public int GetMealOrganisation(string organisationKey)
         {
             if (mealOrganisationDictionnary.ContainsKey(organisationKey))
                 return mealOrganisationDictionnary[organisationKey];
             return -1;
+        }
+
+        public int GetMealMandatory()
+        {
+            return MEAL_MANDATORY;
+        }
+
+        public (DateTimeOffset beginSocrates, TimeSpan nightMeal) GetSocratesBeginDate()
+        {
+            return (new DateTimeOffset(new DateTime(2018, 01, 25, 9, 0, 0)), new TimeSpan(21, 0, 0));
+        }
+
+        public (DateTimeOffset endSocrates, TimeSpan afternoonMeal) GetSocratesEndDate()
+        {
+            return (new DateTimeOffset(new DateTime(2018, 01, 25, 9, 0, 0)), new TimeSpan(12, 0, 0));
         }
     }
 }
