@@ -1,4 +1,4 @@
-import main.java.Checkin;
+import main.java.CheckInDeadline;
 import main.java.Checkout;
 import main.java.MinimumMealException;
 
@@ -17,8 +17,8 @@ public class PriceCalculator {
         this(DEFAULT_MEAL_PRICE);
     }
 
-    public double calculatePrice(Accommodation accommodation, Checkin checkin, Checkout checkout) {
-        int mealsNotTaken = checkin.getMealsNotTaken() + checkout.getMealsNotTaken();
+    public double calculatePrice(Accommodation accommodation, CheckInDeadline checkInDeadline, Checkout checkout) {
+        int mealsNotTaken = checkInDeadline.getMealsNotTaken() + checkout.getMealsNotTaken();
         return accommodation.price() - mealsNotTaken * mealPrice;
     }
 }

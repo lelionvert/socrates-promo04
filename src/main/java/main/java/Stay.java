@@ -9,7 +9,7 @@ public class Stay {
         this.checkinDate = checkinDate;
     }
 
-    public Checkin getCheckinDeadline(LocalDateTime dateFirstMeal) {
-        return Checkin.BEFORE_FIRST_MEAL;
+    public CheckInDeadline getCheckInDeadline(LocalDateTime dateFirstMeal) {
+        return CheckInDeadline.BEFORE_FIRST_MEAL;
     }
 }
