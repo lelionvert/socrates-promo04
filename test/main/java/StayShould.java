@@ -36,4 +36,14 @@ public class StayShould {
         CheckOutDeadline checkOut = stay.getCheckOutDeadline(dateLastMeal);
         assertThat(checkOut).isEqualTo(CheckOutDeadline.BEFORE_LAST_MEAL);
     }
+
+    @Test
+    public void getCheckOutDeadlineWhenCheckOutIsAfterLastMeal() {
+        LocalDateTime checkInDate = LocalDateTime.of(2017, 10, 27, 11, 0);
+        LocalDateTime checkOutDate = LocalDateTime.of(2017, 10, 29, 18, 0);
+        LocalDateTime dateLastMeal = LocalDateTime.of(2017, 10, 29, 12, 0);
+        Stay stay = new Stay(checkInDate, checkOutDate);
+        CheckOutDeadline checkOut = stay.getCheckOutDeadline(dateLastMeal);
+        assertThat(checkOut).isEqualTo(CheckOutDeadline.AFTER_LAST_MEAL);
+    }
 }
