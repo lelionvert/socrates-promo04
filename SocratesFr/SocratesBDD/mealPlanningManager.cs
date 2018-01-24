@@ -28,19 +28,14 @@ namespace SocratesFr.SocratesBDD
             return MEAL_MANDATORY;
         }
 
-        public DateTimeOffset GetFirstMeal()
+        public bool FirstMealIsGranted(DateTimeOffset checkin)
         {
-            return new DateTimeOffset(new DateTime(2018, 01, 25, 21, 0, 0));
+            return true;
         }
 
-        public DateTimeOffset GetLastMeal()
+        public bool LastMealIsGranted(DateTimeOffset checkout)
         {
-            return new DateTimeOffset(new DateTime(2018, 01, 28, 12, 0, 0));
-        }
-
-        public (DateTimeOffset endSocrates, TimeSpan afternoonMeal) GetSocratesEndDate()
-        {
-            return (new DateTimeOffset(new DateTime(2018, 01, 25, 9, 0, 0)), new TimeSpan(12, 0, 0));
+            return true;
         }
     }
 }

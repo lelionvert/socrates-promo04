@@ -20,23 +20,25 @@ namespace SocratesFrTest.SocratesBDD
         }
 
         [Test]
-        public void Get_First_Meal_Of_Socrates()
+        public void First_Meal_Is_Granted()
         {
-            var mealPlanningManager = new MealPlanningManager();
+            MealPlanningManager mealPlanningManager = new MealPlanningManager();
 
-            DateTimeOffset value = mealPlanningManager.GetFirstMeal();
+            bool firstMealGranted =
+                mealPlanningManager.FirstMealIsGranted(new DateTimeOffset(new DateTime(2018, 01, 25, 21, 0, 0)));
 
-            Check.That(value).IsEqualTo(new DateTimeOffset(new DateTime(2018, 01, 25, 21, 0, 0)));
+            Check.That(firstMealGranted).IsTrue();
         }
 
         [Test]
-        public void Get_Last_Meal_Of_Socrates()
+        public void Last_Meal_Is_Granted()
         {
-            var mealPlanningManager = new MealPlanningManager();
+            MealPlanningManager mealPlanningManager = new MealPlanningManager();
 
-            DateTimeOffset value = mealPlanningManager.GetLastMeal();
+            bool lastMealGranted =
+                mealPlanningManager.LastMealIsGranted(new DateTimeOffset(new DateTime(2018, 01, 28, 12, 0, 0)));
 
-            Check.That(value).IsEqualTo(new DateTimeOffset(new DateTime(2018, 01, 28, 12, 0, 0)));
+            Check.That(lastMealGranted).IsTrue();
         }
     }
 }
