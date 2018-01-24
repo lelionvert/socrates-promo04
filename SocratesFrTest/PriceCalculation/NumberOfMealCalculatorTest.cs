@@ -3,6 +3,7 @@ using NFluent;
 using NUnit.Framework;
 using SocratesFr.CandidateManagement;
 using SocratesFr.PriceCalculation;
+using SocratesFr.SocratesBDD;
 
 namespace SocratesFrTest.PriceCalculation
 {
@@ -24,7 +25,7 @@ namespace SocratesFrTest.PriceCalculation
         [TestCase(THURSDAY, 22, SUNDAY, 16)]
         public void Get_Number_Of_Meal_Taken_When_Missing_One_Meal(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
         {                     
-            var mealCalculator = new NumberOfMealCalculator(MEAL_MANDATORY, HOUR_OF_AFTERNOON_MEAL, DAY_BEGIN_SOCRATES, DAY_END_SOCRATES, HOUR_OF_NIGHT_MEAL);
+            var mealCalculator = new NumberOfMealCalculator(new MealPlanningManager());
 
             int numberOfMealTaken = mealCalculator.NumberOfMealTaken(CreateDateTimeOffset(dayArrival, hourArrival), CreateDateTimeOffset(dayDeparture, hourDeparture));
 
@@ -35,7 +36,7 @@ namespace SocratesFrTest.PriceCalculation
         [TestCase(THURSDAY, 21, SUNDAY, 18)]
         public void Get_Number_Of_Meal_Taken_When_Taking_All_Meals(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
         {
-            var mealCalculator = new NumberOfMealCalculator(MEAL_MANDATORY, HOUR_OF_AFTERNOON_MEAL, DAY_BEGIN_SOCRATES, DAY_END_SOCRATES, HOUR_OF_NIGHT_MEAL);
+            var mealCalculator = new NumberOfMealCalculator(new MealPlanningManager());
 
             int numberOfMealTaken = mealCalculator.NumberOfMealTaken(CreateDateTimeOffset(dayArrival, hourArrival), CreateDateTimeOffset(dayDeparture, hourDeparture));
 
@@ -46,7 +47,7 @@ namespace SocratesFrTest.PriceCalculation
         [TestCase(FRIDAY, 18, SATURDAY, 18)]
         public void Get_Number_Of_Meal_Taken_When_Missing_Two_Meals(int dayArrival, int hourArrival, int dayDeparture, int hourDeparture)
         {
-            var mealCalculator = new NumberOfMealCalculator(MEAL_MANDATORY, HOUR_OF_AFTERNOON_MEAL, DAY_BEGIN_SOCRATES, DAY_END_SOCRATES, HOUR_OF_NIGHT_MEAL);
+            var mealCalculator = new NumberOfMealCalculator(new MealPlanningManager());
 
             int numberOfMealTaken = mealCalculator.NumberOfMealTaken(CreateDateTimeOffset(dayArrival, hourArrival), CreateDateTimeOffset(dayDeparture, hourDeparture));
 

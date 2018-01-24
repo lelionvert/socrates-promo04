@@ -5,24 +5,12 @@ namespace SocratesFr.SocratesBDD
 {
     public class MealPlanningManager
     {
-        private Dictionary<string, int> mealOrganisationDictionnary = new Dictionary<string, int>()
-        {
-            {"MEAL_MANDATORY", 4 },
-            {"HOUR_OF_AFTERNOON_MEAL", 12 },
-            {"HOUR_OF_NIGHT_MEAL", 21 },
-            {"DAY_BEGIN_SOCRATES", (int)DayOfWeek.Thursday},
-            {"DAY_END_SOCRATES", (int)DayOfWeek.Sunday}
-        };
-
-        private const int MEAL_MANDATORY = 4;    
-
-        public int GetMealOrganisation(string organisationKey)
-        {
-            if (mealOrganisationDictionnary.ContainsKey(organisationKey))
-                return mealOrganisationDictionnary[organisationKey];
-            return -1;
-        }
-
+        private int MEAL_MANDATORY = 4;
+        private int HOUR_OF_AFTERNOON_MEAL = 12;
+        private DayOfWeek DAY_BEGIN_SOCRATES = DayOfWeek.Thursday;
+        private DayOfWeek DAY_END_SOCRATES = DayOfWeek.Sunday;
+        private int HOUR_OF_NIGHT_MEAL = 21;  
+      
         public int GetMealMandatory()
         {
             return MEAL_MANDATORY;
@@ -30,12 +18,16 @@ namespace SocratesFr.SocratesBDD
 
         public bool FirstMealIsGranted(DateTimeOffset checkin)
         {
-            return true;
+            if (checkin.DayOfWeek == DAY_BEGIN_SOCRATES && checkin.Hour <= HOUR_OF_NIGHT_MEAL)
+                return true;
+            return false;
         }
 
         public bool LastMealIsGranted(DateTimeOffset checkout)
         {
-            return true;
+            if (checkout.DayOfWeek == DAY_END_SOCRATES && checkout.Hour >= HOUR_OF_AFTERNOON_MEAL)
+                return true;
+            return false;
         }
     }
 }

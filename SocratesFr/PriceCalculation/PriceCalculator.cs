@@ -9,7 +9,6 @@ namespace SocratesFr.PriceCalculation{
         private NumberOfMealCalculator mealCalculator;
         private PriceManager priceManager;
         private string MEAL_PRODUCT_KEY = "MEAL";
-        private MealPlanningManager mealPlanningManager;
 
         public enum Accommodation
         {
@@ -22,13 +21,7 @@ namespace SocratesFr.PriceCalculation{
         public PriceCalculator()
         {            
             this.priceManager = new PriceManager();
-            this.mealPlanningManager = new MealPlanningManager();
-            this.mealCalculator = new NumberOfMealCalculator(
-                mealPlanningManager.GetMealOrganisation("MEAL_MANDATORY"),
-                mealPlanningManager.GetMealOrganisation("HOUR_OF_AFTERNOON_MEAL"),
-                (DayOfWeek)mealPlanningManager.GetMealOrganisation("DAY_BEGIN_SOCRATES"),
-                (DayOfWeek)mealPlanningManager.GetMealOrganisation("DAY_END_SOCRATES"),
-                mealPlanningManager.GetMealOrganisation("HOUR_OF_NIGHT_MEAL"));
+            this.mealCalculator = new NumberOfMealCalculator(new MealPlanningManager());
         }
       
         public double CalculatePrice(Accommodation accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
