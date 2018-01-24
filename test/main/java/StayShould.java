@@ -19,4 +19,11 @@ public class StayShould {
         Assertions.assertThat(isBefore).isFalse();
 
     }
+
+    @Test
+    public void beginMorning() throws Exception {
+        boolean isBefore = Stay.checkinBefore(23);
+        Assertions.assertThat(isBefore).isFalse();
+
+    }
 }
