@@ -1,5 +1,9 @@
 import org.assertj.core.util.Lists;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.util.List;
 
@@ -27,8 +31,8 @@ public class EmailShould {
         assertThat(email).isEqualTo(Email.create("houssam@gmail.com"));
     }
 
-    @Test(expected = InvalidEmailException.class)
+    @Test
     public void notCreateWhenInvalidInput() throws InvalidEmailException {
-        Email.create("houssam@gma@il.com");
+        Assertions.assertThrows(InvalidEmailException.class, () -> Email.create("houssam@gma@il.com"));
     }
 }

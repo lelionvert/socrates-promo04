@@ -1,4 +1,5 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -82,11 +83,11 @@ public class RegisterShould {
         assertThat(candidates).isEqualTo(twoCandidates);
     }
 
-    @Test(expected = InvalidEmailException.class)
+    @Test
     public void addCandidatesWithInvalidEmail() throws InvalidEmailException {
         Candidates candidates = new Candidates();
         Register register = new Register(candidates);
-        register.addCandidate("joe.dubois", "joe");
+        Assertions.assertThrows(InvalidEmailException.class, ()->register.addCandidate("joe.dubois", "joe"));
     }
 
     private Candidates createCandidatesWith(Candidate... all) {
