@@ -9,20 +9,20 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class StayShould {
     @Test
     public void getCheckInDeadlineWhenCheckInIsBeforeFirstMeal() {
-        LocalDateTime checkinDate = LocalDateTime.of(2017, 10, 26, 15, 0);
+        LocalDateTime checkInDate = LocalDateTime.of(2017, 10, 26, 15, 0);
         LocalDateTime checkoutDate = LocalDateTime.of(2017, 10, 29, 15, 0);
-        LocalDateTime dateFirstMeal = LocalDateTime.of(2017, 10, 29, 19, 0);
-        Stay stay = new Stay(checkinDate, checkoutDate);
+        LocalDateTime dateFirstMeal = LocalDateTime.of(2017, 10, 26, 19, 0);
+        Stay stay = new Stay(checkInDate, checkoutDate);
         CheckInDeadline checkInDeadline = stay.getCheckInDeadline(dateFirstMeal);
         assertThat(checkInDeadline).isEqualTo(CheckInDeadline.BEFORE_FIRST_MEAL);
     }
 
     @Test
     public void getCheckInDeadlineWhenCheckInIsAfterFirstMeal() {
-        LocalDateTime checkinDate = LocalDateTime.of(2017, 10, 27, 11, 0);
+        LocalDateTime checkInDate = LocalDateTime.of(2017, 10, 27, 11, 0);
         LocalDateTime checkoutDate = LocalDateTime.of(2017, 10, 29, 15, 0);
         LocalDateTime dateFirstMeal = LocalDateTime.of(2017, 10, 26, 19, 0);
-        Stay stay = new Stay(checkinDate, checkoutDate);
+        Stay stay = new Stay(checkInDate, checkoutDate);
         CheckInDeadline checkInDeadline = stay.getCheckInDeadline(dateFirstMeal);
         assertThat(checkInDeadline).isEqualTo(CheckInDeadline.AFTER_FIRST_MEAL);
     }
