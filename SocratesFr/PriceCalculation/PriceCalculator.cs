@@ -18,18 +18,18 @@ namespace SocratesFr.PriceCalculation{
         public double CalculatePrice(Product accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
         {
             int nbMealsTaken = mealCalculator.NumberOfMealTaken(checkin, checkout);
-            double roomPrice = priceManager.GetProductPrice(accommodation);
+            double accommodationPrice = priceManager.GetProductPrice(accommodation);
 
-            var totalPrice = CalculatePriceWithNMeal(roomPrice, nbMealsTaken);
+            var totalPrice = CalculatePriceWithNMeal(accommodationPrice, nbMealsTaken);
 
 
             return totalPrice;
         }
 
-        private double CalculatePriceWithNMeal(double roomPrice, int nMeal)
+        private double CalculatePriceWithNMeal(double accommodationPrice, int nMeal)
         {
             double mealPrice = priceManager.GetProductPrice(Product.MEAL);
-            return roomPrice + (nMeal * mealPrice);
+            return accommodationPrice + (nMeal * mealPrice);
         }
 
         public double Price { get; private set; }
