@@ -1,3 +1,6 @@
+package fr.lacombe.socratesfr;
+
+import fr.lacombe.socratesfr.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

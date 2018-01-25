@@ -1,3 +1,6 @@
+package fr.lacombe.socratesfr;
+
+import fr.lacombe.socratesfr.CheckTime;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 

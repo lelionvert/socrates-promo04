@@ -1,3 +1,5 @@
+package fr.lacombe.socratesfr;
+
 import java.time.LocalDateTime;
 
 public class MealsCalculator {

@@ -1,3 +1,6 @@
+package fr.lacombe.socratesfr;
+
+import fr.lacombe.socratesfr.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -18,7 +21,7 @@ public class StayCalculatorShould {
                                                  4));
         CheckTime checkin = CheckTime.parse(formattedCheckin);
         CheckTime checkout = CheckTime.parse(formattedCheckout);
-        int price = stayCalculator.calculate(checkin,checkout,room);
+        int price = stayCalculator.calculate(new Stay(checkin, checkout, room));
         assertThat(price).isEqualTo(expectedPrice);
 
     }

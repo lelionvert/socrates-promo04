@@ -1,3 +1,5 @@
+package fr.lacombe.socratesfr;
+
 import java.util.*;
 
 /**
@@ -35,7 +37,7 @@ public class Candidates {
 
     @Override
     public String toString() {
-        return "Candidates{" +
+        return "fr.lacombe.socratesfr.Candidates{" +
                 "candidates=" + candidates +
                 '}';
     }

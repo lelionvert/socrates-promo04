@@ -1,3 +1,4 @@
+package fr.lacombe.socratesfr;
 
 /**
  * Created by lenovo_3 on 17/01/2018.
@@ -31,7 +32,7 @@ public class Candidate implements Comparable<Candidate> {
 
     @Override
     public String toString() {
-        return "Candidate{" +
+        return "fr.lacombe.socratesfr.Candidate{" +
                 "firstName='" + firstName + '\'' +
                 '}';
     }

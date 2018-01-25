@@ -1,3 +1,7 @@
+package fr.lacombe.socratesfr;
+
+import fr.lacombe.socratesfr.CheckTime;
+import fr.lacombe.socratesfr.MealsCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

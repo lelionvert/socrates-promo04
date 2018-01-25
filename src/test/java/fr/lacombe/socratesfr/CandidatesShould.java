@@ -1,3 +1,9 @@
+package fr.lacombe.socratesfr;
+
+import fr.lacombe.socratesfr.Candidate;
+import fr.lacombe.socratesfr.Candidates;
+import fr.lacombe.socratesfr.Email;
+import fr.lacombe.socratesfr.InvalidEmailException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

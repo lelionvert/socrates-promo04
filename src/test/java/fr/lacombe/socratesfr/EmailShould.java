@@ -1,9 +1,10 @@
+package fr.lacombe.socratesfr;
+
+import fr.lacombe.socratesfr.Email;
+import fr.lacombe.socratesfr.InvalidEmailException;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import java.util.List;
 
