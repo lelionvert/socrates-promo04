@@ -1,5 +1,6 @@
 package fr.lacombe.socratesfr;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,41 +11,48 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class PriceCalculatorShould {
 
+    private PriceCalculator priceCalculator;
+
+    @BeforeEach
+    void setUp() {
+        priceCalculator = new PriceCalculator(40);
+    }
+
     @Test
     public void giveSingleRoomPriceWithSixMeals() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.SINGLE, 6);
+        int price = priceCalculator.calculate(Accommodation.SINGLE, 6);
         assertThat(price).isEqualTo(610);
     }
 
     @Test
     public void giveDoubleRoomPriceWithSixMeals() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.DOUBLE, 6);
+        int price = priceCalculator.calculate(Accommodation.DOUBLE, 6);
 
         assertThat(price).isEqualTo(510);
     }
 
     @Test
     public void giveTripleRoomPriceWithSixMeals() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.TRIPLE, 6);
+        int price = priceCalculator.calculate(Accommodation.TRIPLE, 6);
 
         assertThat(price).isEqualTo(410);
     }
 
     @Test
     public void giveSixMealsPrice() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.NONE, 6);
+        int price = priceCalculator.calculate(Accommodation.NONE, 6);
         assertThat(price).isEqualTo(240);
     }
 
     @Test
     public void giveSingleRoomWithFiveMeals() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.SINGLE, 5);
+        int price = priceCalculator.calculate(Accommodation.SINGLE, 5);
         assertThat(price).isEqualTo(570);
     }
 
     @Test
     public void giveDoubleRoomWithFourMeals() throws Exception {
-        int price = PriceCalculator.calculatePrice(Accommodation.DOUBLE, 4);
+        int price = priceCalculator.calculate(Accommodation.DOUBLE, 4);
         assertThat(price).isEqualTo(430);
     }
 }

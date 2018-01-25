@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 /**
  * Created by lenovo_3 on 23/01/2018.
  */
-public class CheckTime {
+public class  CheckTime {
 
     private final LocalDateTime dateTime;
 
