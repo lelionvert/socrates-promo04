@@ -11,7 +11,10 @@ import static org.assertj.core.api.Assertions.*;
  * Created by lenovo_3 on 22/01/2018.
  */
 public class PriceCalculatorShould {
-    private PriceCalculator priceCalculator = new PriceCalculator(LocalDateTime.of(2017, 10, 26, 19, 0), LocalDateTime.of(2017, 10, 29, 12, 0));
+    public static final LocalDateTime DATE_FIRST_MEAL = LocalDateTime.of(2017, 10, 26, 19, 0);
+    public static final LocalDateTime DATE_LAST_MEAL = LocalDateTime.of(2017, 10, 29, 12, 0);
+
+    private PriceCalculator priceCalculator = new PriceCalculator(DATE_FIRST_MEAL, DATE_LAST_MEAL);
 
     @Test
     public void computeCompletePrice() {
@@ -47,7 +50,7 @@ public class PriceCalculatorShould {
 
     @Test
     public void computePriceWithCustomMealPrice() {
-        PriceCalculator priceCalculator = new PriceCalculator(30, LocalDateTime.of(2017, 10, 26, 19, 0), LocalDateTime.of(2017, 10, 29, 12, 0));
+        PriceCalculator priceCalculator = new PriceCalculator(LocalDateTime.of(2017, 10, 26, 19, 0), LocalDateTime.of(2017, 10, 29, 12, 0), 30);
         LocalDateTime checkInDate = LocalDateTime.of(2017, 10, 27, 11, 0);
         LocalDateTime checkOutDate = LocalDateTime.of(2017, 10, 29, 11, 0);
         double price = priceCalculator.getPrice(Accommodation.SINGLE, checkInDate, checkOutDate);

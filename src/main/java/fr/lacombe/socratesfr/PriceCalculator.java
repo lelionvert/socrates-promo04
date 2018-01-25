@@ -11,14 +11,14 @@ public class PriceCalculator {
     private final LocalDateTime dateFirstMeal;
     private final LocalDateTime dateLastMeal;
 
-    public PriceCalculator(double mealPrice, LocalDateTime dateFirstMeal, LocalDateTime dateLastMeal) {
+    public PriceCalculator(LocalDateTime dateFirstMeal, LocalDateTime dateLastMeal, double mealPrice) {
         this.mealPrice = mealPrice;
         this.dateFirstMeal = dateFirstMeal;
         this.dateLastMeal = dateLastMeal;
     }
 
     public PriceCalculator(LocalDateTime dateFirstMeal, LocalDateTime dateLastMeal) {
-        this(DEFAULT_MEAL_PRICE, dateFirstMeal, dateLastMeal);
+        this(dateFirstMeal, dateLastMeal, DEFAULT_MEAL_PRICE);
     }
     
     public double getPrice(Accommodation accommodation, LocalDateTime checkInDate, LocalDateTime checkOutDate) {
