@@ -1,10 +1,10 @@
 import java.time.LocalDateTime;
 
-public class Stay {
+public class StayCalculator {
 
     MealsCalculator mealsCalculator;
 
-    public Stay(MealsCalculator mealsCalculator) {
+    public StayCalculator(MealsCalculator mealsCalculator) {
         this.mealsCalculator = mealsCalculator;
     }
 
