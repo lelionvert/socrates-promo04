@@ -1,3 +1,6 @@
+package fr.lacombe.socratesfr;
+
+import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 

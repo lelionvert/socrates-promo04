@@ -1,5 +1,8 @@
-package main.java;
+package fr.lacombe.socratesfr;
 
+import fr.lacombe.socratesfr.CheckInDeadline;
+import fr.lacombe.socratesfr.CheckOutDeadline;
+import fr.lacombe.socratesfr.Stay;
 import org.junit.Test;
 
 import java.time.LocalDateTime;

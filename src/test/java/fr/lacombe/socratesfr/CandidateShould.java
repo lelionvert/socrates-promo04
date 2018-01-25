@@ -1,3 +1,5 @@
+package fr.lacombe.socratesfr;
+
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,4 +1,4 @@
-package main.java;
+package fr.lacombe.socratesfr;
 
 public enum CheckOutDeadline {
     AFTER_LAST_MEAL(0),

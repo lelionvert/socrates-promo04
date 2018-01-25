@@ -1,4 +1,4 @@
-package main.java;
+package fr.lacombe.socratesfr;
 
 import java.time.LocalDateTime;
 

@@ -1,3 +1,6 @@
+package fr.lacombe.socratesfr;
+
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -67,7 +70,7 @@ public class CandidateCollectionShould {
         candidates.add(candidateZ);
         candidates.add(candidateN);
         Iterable<Candidate> candidateCollection = candidates.createAlphabeticallySortedListOfCandidates();
-        assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
+        Assertions.assertThat(candidateCollection).containsSequence(candidateA, candidateN, candidateZ);
     }
 
 }
