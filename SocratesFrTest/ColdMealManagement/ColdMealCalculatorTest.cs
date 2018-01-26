@@ -8,18 +8,24 @@ namespace SocratesFrTest.ColdMealManagement
 {
     public class ColdMealCalculatorTest
     {
+
+        private List<DateTime> CheckInsGenerator(params DateTime[] checkins)
+        {
+            return new List<DateTime>(checkins);
+        }
+
         [Test]
         public void Calculate_With_Empty_List()
         {
             ColdMealCalculator coldMealCalculator = new ColdMealCalculator();
-            Check.That(coldMealCalculator.Calculate(new List<DateTime>())).IsEqualTo(0);
+            Check.That(coldMealCalculator.Calculate(CheckInsGenerator())).IsEqualTo(0);
         }
 
         [Test]
         public void Calculate_With_One_Check_In_In_Range()
         {
             ColdMealCalculator coldMealCalculator = new ColdMealCalculator();
-            Check.That(coldMealCalculator.Calculate(new List<DateTime>(){ new DateTime(2018, 1, 25, 22, 0, 0) })).IsEqualTo(1);
+            Check.That(coldMealCalculator.Calculate(CheckInsGenerator(new DateTime(2018, 1, 25, 22, 0, 0)))).IsEqualTo(1);
         }
 
     }
