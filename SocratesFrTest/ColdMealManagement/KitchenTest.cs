@@ -10,12 +10,10 @@ namespace SocratesFrTest.ColdMealManagement
     public class KitchenTest
     {
 
-        [Test]
-        public void Meal_Is_Cold_When_Check_In_At_22()
+        [TestCase(25, 22, 0)]
+        public void Cold_Meal_Available_When_Check_In_Is_In_Range(int day, int hour, int minute)
         {
-            Kitchen kitchen = new Kitchen();
-            bool isCold = kitchen.HasColdMealAvailableAt(new DateTime(2018, 1, 25, 22, 0, 0));
-            Check.That(isCold).IsTrue();
+            Check.That(new Kitchen().HasColdMealAvailableAt(new DateTime(2018, 1, day, hour, minute, 0))).IsTrue();
         }
 
         [TestCase(26, 1, 0)]
