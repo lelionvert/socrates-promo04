@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace SocratesFrTest.ColdMealManagement
 {
     public class ColdMealCalculator
     {
-        public int Calculate()
+        public int Calculate(IList<DateTime> checkIns )
         {
             return 0;
         }

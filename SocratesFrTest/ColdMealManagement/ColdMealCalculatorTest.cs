@@ -9,10 +9,10 @@ namespace SocratesFrTest.ColdMealManagement
     public class ColdMealCalculatorTest
     {
         [Test]
-        public void calculate_()
+        public void Calculate_With_Empty_List()
         {
             ColdMealCalculator coldMealCalculator = new ColdMealCalculator();
-            Check.That(coldMealCalculator.Calculate()).IsEqualTo(0);
+            Check.That(coldMealCalculator.Calculate(new List<DateTime>())).IsEqualTo(0);
         }
     }
 }
