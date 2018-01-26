@@ -12,7 +12,7 @@ namespace SocratesFrTest.PriceCalculation
         {
             PriceManager priceManager = new PriceManager();
 
-            var price = priceManager.GetProductPrice(Product.SINGLE);
+            var price = priceManager.GetAccommodationPrice(Accommodation.SINGLE);
 
             Check.That(price).IsEqualTo(370);
         }
@@ -22,7 +22,7 @@ namespace SocratesFrTest.PriceCalculation
         {
             PriceManager priceManager = new PriceManager();
 
-            var price = priceManager.GetProductPrice(Product.DOUBLE);
+            var price = priceManager.GetAccommodationPrice(Accommodation.DOUBLE);
 
             Check.That(price).IsEqualTo(270);
         }
@@ -32,7 +32,7 @@ namespace SocratesFrTest.PriceCalculation
         {
             PriceManager priceManager = new PriceManager();
 
-            Check.ThatCode(() => priceManager.GetProductPrice((Product)int.MaxValue)).Throws<KeyNotFoundException>();
+            Check.ThatCode(() => priceManager.GetAccommodationPrice((Accommodation)int.MaxValue)).Throws<KeyNotFoundException>();
         }
     }
 }

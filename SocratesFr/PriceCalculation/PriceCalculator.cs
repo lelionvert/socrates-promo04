@@ -14,11 +14,11 @@ namespace SocratesFr.PriceCalculation{
             this.mealCalculator = new NumberOfMealCalculator(new MealPlanningManager());
         }
       
-        public double CalculatePrice(Product accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
+        public double CalculatePrice(Accommodation accommodation, DateTimeOffset checkin, DateTimeOffset checkout)
         {
             int nbMealsTaken = mealCalculator.NumberOfMealTaken(checkin, checkout);
-            double accommodationPrice = priceManager.GetProductPrice(accommodation);
-            double mealPrice = priceManager.GetProductPrice(Product.MEAL);
+            double accommodationPrice = priceManager.GetAccommodationPrice(accommodation);
+            double mealPrice = priceManager.MealPrice;
 
             var totalPrice = accommodationPrice + (nbMealsTaken * mealPrice); ;
 
