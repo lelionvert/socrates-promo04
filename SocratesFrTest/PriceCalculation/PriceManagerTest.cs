@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using NFluent;
 using NUnit.Framework;
-using SocratesFr.SocratesBDD;
+using SocratesFr.PriceCalculation;
 
-namespace SocratesFrTest.SocratesBDD
+namespace SocratesFrTest.PriceCalculation
 {
     public class PriceManagerTest
     {

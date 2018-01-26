@@ -3,7 +3,6 @@ using NFluent;
 using NUnit.Framework;
 using SocratesFr.CandidateManagement;
 using SocratesFr.PriceCalculation;
-using SocratesFr.SocratesBDD;
 
 namespace SocratesFrTest.PriceCalculation
 {

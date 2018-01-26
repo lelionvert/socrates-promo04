@@ -1,5 +1,4 @@
 ﻿using System;
-using SocratesFr.SocratesBDD;
 
 namespace SocratesFr.PriceCalculation
 {
