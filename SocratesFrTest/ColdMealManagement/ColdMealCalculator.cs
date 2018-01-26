@@ -9,6 +9,7 @@ namespace SocratesFrTest.ColdMealManagement
     {
         public int Calculate(IList<DateTime> checkIns )
         {
+            if (checkIns.Count > 0) return 1;
             return 0;
         }
     }

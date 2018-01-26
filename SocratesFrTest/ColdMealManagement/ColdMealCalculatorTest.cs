@@ -14,5 +14,13 @@ namespace SocratesFrTest.ColdMealManagement
             ColdMealCalculator coldMealCalculator = new ColdMealCalculator();
             Check.That(coldMealCalculator.Calculate(new List<DateTime>())).IsEqualTo(0);
         }
+
+        [Test]
+        public void Calculate_With_One_Check_In_In_Range()
+        {
+            ColdMealCalculator coldMealCalculator = new ColdMealCalculator();
+            Check.That(coldMealCalculator.Calculate(new List<DateTime>(){ new DateTime(2018, 1, 25, 22, 0, 0) })).IsEqualTo(1);
+        }
+
     }
 }
