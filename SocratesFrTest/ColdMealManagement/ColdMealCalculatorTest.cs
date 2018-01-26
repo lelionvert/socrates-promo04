@@ -28,5 +28,11 @@ namespace SocratesFrTest.ColdMealManagement
             Check.That(coldMealCalculator.Calculate(CheckInsGenerator(new DateTime(2018, 1, 25, 22, 0, 0)))).IsEqualTo(1);
         }
 
+        [Test]
+        public void Calculate_With_Null_Check_Ins()
+        {
+            ColdMealCalculator coldMealCalculator = new ColdMealCalculator();
+            Check.That(coldMealCalculator.Calculate(null)).IsEqualTo(0);
+        }
     }
 }
