@@ -1,7 +1,5 @@
 package fr.lacombe.socratesfr;
 
-import fr.lacombe.socratesfr.CheckTime;
-import fr.lacombe.socratesfr.MealsCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,34 +19,34 @@ public class MealsCalculatorShould {
     }
 
     @Test
-    public void giveMaxMealNumber() {
+    public void giveMinMealNotTakenNumber() {
         CheckTime checkin = CheckTime.parse("2018-01-25T14:00:00");
         CheckTime checkout = CheckTime.parse("2018-01-28T14:00:00");
-        int mealsNumber = mealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(6);
+        int mealsNumber = mealsCalculator.numberMealsNotTaken(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(0);
     }
 
     @Test
-    public void giveMealsNumberWithoutThursdayDinner(){
+    public void giveMealsNotTakenNumberWithoutThursdayDinner(){
         CheckTime checkin = CheckTime.parse("2018-01-25T14:00:00");
         CheckTime checkout = CheckTime.parse("2018-01-28T10:00:00");
-        int mealsNumber = mealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(5);
+        int mealsNumber = mealsCalculator.numberMealsNotTaken(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(1);
     }
 
     @Test
-    public void giveMealsNumberWithtoutThursdayDinnerAndSundayLunch(){
+    public void giveMealsNotTakenNumberWithtoutThursdayDinnerAndSundayLunch(){
         CheckTime checkin = CheckTime.parse("2018-01-26T10:00:00");
         CheckTime checkout = CheckTime.parse("2018-01-28T10:00:00");
-        int mealsNumber = mealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(4);
+        int mealsNumber = mealsCalculator.numberMealsNotTaken(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(2);
     }
 
     @Test
-    public void giveMealsNumberWhenCheckinAfterThursdayDinner(){
+    public void giveMealsNotTakenNumberWhenCheckinAfterThursdayDinner(){
         CheckTime checkin = CheckTime.parse("2018-01-25T22:00:00");
         CheckTime checkout = CheckTime.parse("2018-01-28T14:00:00");
-        int mealsNumber = mealsCalculator.calculate(checkin,checkout);
-        assertThat(mealsNumber).isEqualTo(5);
+        int mealsNumber = mealsCalculator.numberMealsNotTaken(checkin,checkout);
+        assertThat(mealsNumber).isEqualTo(1);
     }
 }

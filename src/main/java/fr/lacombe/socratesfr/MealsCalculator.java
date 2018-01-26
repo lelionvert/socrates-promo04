@@ -13,10 +13,17 @@ public class MealsCalculator {
         this.mandatoryMeals = mandatoryMeals;
     }
 
-    public int calculate(CheckTime checkin, CheckTime checkout){
+    public int numberMealTotal(CheckTime checkin, CheckTime checkout){
         int mealsNumber = mandatoryMeals;
         if(checkin.isBefore(firstMeal)) mealsNumber++;
         if(!checkout.isBefore(lastMeal)) mealsNumber++;
         return mealsNumber;
+    }
+
+    public int numberMealsNotTaken(CheckTime checkin, CheckTime checkout){
+        int mealsNotTaken = 0;
+        if(!checkin.isBefore(firstMeal)) mealsNotTaken++;
+        if(checkout.isBefore(lastMeal)) mealsNotTaken++;
+        return mealsNotTaken;
     }
 }
