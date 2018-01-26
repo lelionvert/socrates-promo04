@@ -1,0 +1,58 @@
+package fr.lacombe.socratesfr;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+
+/**
+ * Created by lenovo_3 on 22/01/2018.
+ */
+public class PriceCalculatorShould {
+
+    private PriceCalculator priceCalculator;
+
+    @BeforeEach
+    void setUp() {
+        priceCalculator = new PriceCalculator(40);
+    }
+
+    @Test
+    public void giveSingleRoomPriceWithSixMeals() throws Exception {
+        int price = priceCalculator.calculate(Accommodation.SINGLE, 0);
+        assertThat(price).isEqualTo(610);
+    }
+
+    @Test
+    public void giveDoubleRoomPriceWithSixMeals() throws Exception {
+        int price = priceCalculator.calculate(Accommodation.DOUBLE, 0);
+
+        assertThat(price).isEqualTo(510);
+    }
+
+    @Test
+    public void giveTripleRoomPriceWithSixMeals() throws Exception {
+        int price = priceCalculator.calculate(Accommodation.TRIPLE, 0);
+
+        assertThat(price).isEqualTo(410);
+    }
+
+    @Test
+    public void giveSixMealsPrice() throws Exception {
+        int price = priceCalculator.calculate(Accommodation.NONE, 0);
+        assertThat(price).isEqualTo(240);
+    }
+
+    @Test
+    public void giveSingleRoomWithFiveMeals() throws Exception {
+        int price = priceCalculator.calculate(Accommodation.SINGLE, 1);
+        assertThat(price).isEqualTo(570);
+    }
+
+    @Test
+    public void giveDoubleRoomWithFourMeals() throws Exception {
+        int price = priceCalculator.calculate(Accommodation.DOUBLE, 2);
+        assertThat(price).isEqualTo(430);
+    }
+}
