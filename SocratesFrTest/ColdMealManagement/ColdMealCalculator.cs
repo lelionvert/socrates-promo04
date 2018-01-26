@@ -11,7 +11,7 @@ namespace SocratesFrTest.ColdMealManagement
         {
             if (checkIns == null || checkIns.Count == 0)
                 return 0;
-            return 1;
+            return checkIns.Count;
         }
     }
 }
