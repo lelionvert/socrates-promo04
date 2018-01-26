@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using NFluent;
 using NUnit.Framework;
+using SocratesFr.ColdMealManagement;
 
 namespace SocratesFrTest.ColdMealManagement
 {
