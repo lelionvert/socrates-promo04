@@ -12,7 +12,7 @@ public class StayCalculator {
     }
 
     public int calculate(Stay stay) {
-        int mealsNumber = mealsCalculator.numberMealTotal(stay.getCheckin(), stay.getCheckout());
+        int mealsNumber = mealsCalculator.numberMealsNotTaken(stay.getCheckin(), stay.getCheckout());
             return priceCalculator.calculate(stay.getRoom(),mealsNumber);
     }
 

@@ -15,7 +15,7 @@ public class MealsCalculatorShould {
     void setUp() {
         LocalDateTime firstMeal = LocalDateTime.parse("2018-01-25T21:00:00");
         LocalDateTime lastMeal = LocalDateTime.parse("2018-01-28T12:00:00");
-        mealsCalculator = new MealsCalculator(firstMeal, lastMeal, 4);
+        mealsCalculator = new MealsCalculator(firstMeal, lastMeal);
     }
 
     @Test

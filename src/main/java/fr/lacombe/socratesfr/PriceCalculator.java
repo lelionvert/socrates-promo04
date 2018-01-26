@@ -11,7 +11,7 @@ public class PriceCalculator {
         this.mealsPrice = mealsPrice;
     }
 
-    public int calculate(Accommodation accommodation, int mealsNumber) {
-        return accommodation.price() + mealsNumber * mealsPrice;
+    public int calculate(Accommodation accommodation, int mealsNotTakenNumber) {
+        return accommodation.price() - mealsNotTakenNumber * mealsPrice;
     }
 }

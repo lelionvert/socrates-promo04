@@ -17,8 +17,8 @@ public class StayCalculatorShould {
     public void givePrice(String formattedCheckin, String formattedCheckout, Accommodation room, int expectedPrice){
         PriceCalculator priceCalculator = new PriceCalculator(40);
         StayCalculator stayCalculator = new StayCalculator(new MealsCalculator(LocalDateTime.parse("2018-01-25T21:00:00"),
-                                                 LocalDateTime.parse("2018-01-28T12:00:00"),
-                                                 4), priceCalculator);
+                                                 LocalDateTime.parse("2018-01-28T12:00:00")
+        ), priceCalculator);
         CheckTime checkin = CheckTime.parse(formattedCheckin);
         CheckTime checkout = CheckTime.parse(formattedCheckout);
         int price = stayCalculator.calculate(new Stay(checkin, checkout, room));

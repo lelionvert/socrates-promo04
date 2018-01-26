@@ -20,39 +20,39 @@ public class PriceCalculatorShould {
 
     @Test
     public void giveSingleRoomPriceWithSixMeals() throws Exception {
-        int price = priceCalculator.calculate(Accommodation.SINGLE, 6);
+        int price = priceCalculator.calculate(Accommodation.SINGLE, 0);
         assertThat(price).isEqualTo(610);
     }
 
     @Test
     public void giveDoubleRoomPriceWithSixMeals() throws Exception {
-        int price = priceCalculator.calculate(Accommodation.DOUBLE, 6);
+        int price = priceCalculator.calculate(Accommodation.DOUBLE, 0);
 
         assertThat(price).isEqualTo(510);
     }
 
     @Test
     public void giveTripleRoomPriceWithSixMeals() throws Exception {
-        int price = priceCalculator.calculate(Accommodation.TRIPLE, 6);
+        int price = priceCalculator.calculate(Accommodation.TRIPLE, 0);
 
         assertThat(price).isEqualTo(410);
     }
 
     @Test
     public void giveSixMealsPrice() throws Exception {
-        int price = priceCalculator.calculate(Accommodation.NONE, 6);
+        int price = priceCalculator.calculate(Accommodation.NONE, 0);
         assertThat(price).isEqualTo(240);
     }
 
     @Test
     public void giveSingleRoomWithFiveMeals() throws Exception {
-        int price = priceCalculator.calculate(Accommodation.SINGLE, 5);
+        int price = priceCalculator.calculate(Accommodation.SINGLE, 1);
         assertThat(price).isEqualTo(570);
     }
 
     @Test
     public void giveDoubleRoomWithFourMeals() throws Exception {
-        int price = priceCalculator.calculate(Accommodation.DOUBLE, 4);
+        int price = priceCalculator.calculate(Accommodation.DOUBLE, 2);
         assertThat(price).isEqualTo(430);
     }
 }
