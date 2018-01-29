@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using NFluent;
 using NUnit.Framework;
 using SocratesFr.ColdMealManagement;
@@ -9,7 +8,7 @@ namespace SocratesFrTest.ColdMealManagement
 {
     public class ColdMealCalculatorTest
     {
-        private Kitchen kitchen = new Kitchen(new DateTime(2018, 1, 25, 21, 0, 0), new DateTime(2018, 1, 26, 0, 0, 0));
+        private readonly Kitchen kitchen = new Kitchen(new DateTime(2018, 1, 25, 21, 0, 0), new DateTime(2018, 1, 26, 0, 0, 0));
 
         private List<DateTime> CheckInsGenerator(params DateTime[] checkins)
         {

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
-using SocratesFr.ColdMealManagement;
 
-namespace SocratesFrTest.ColdMealManagement
+namespace SocratesFr.ColdMealManagement
 {
     public class ColdMealCalculator
     {
@@ -18,9 +15,7 @@ namespace SocratesFrTest.ColdMealManagement
         
         public int Calculate(IList<DateTime> checkIns )
         {
-            if (checkIns == null)
-                return 0;
-            return checkIns.Count(checkIn => kitchen.HasColdMealAvailableAt(checkIn));
+            return checkIns?.Count(kitchen.HasColdMealAvailableAt) ?? 0;
         }
     }
 }

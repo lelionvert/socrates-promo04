@@ -4,18 +4,18 @@ namespace SocratesFr.ColdMealManagement
 {
     public class Kitchen
     {
-        private readonly DateTime _coldMealBegin;
-        private readonly DateTime _coldMealEnd;
+        private readonly DateTime coldMealBegin;
+        private readonly DateTime coldMealEnd;
 
         public Kitchen(DateTime coldMealBegin, DateTime coldMealEnd)
         {
-            _coldMealBegin = coldMealBegin;
-            _coldMealEnd = coldMealEnd;
+            this.coldMealBegin = coldMealBegin;
+            this.coldMealEnd = coldMealEnd;
         }
 
         public bool HasColdMealAvailableAt(DateTime dateTime)
         {
-            return dateTime > _coldMealBegin && dateTime <= _coldMealEnd;
+            return dateTime > coldMealBegin && dateTime <= coldMealEnd;
         }
     }
 }
