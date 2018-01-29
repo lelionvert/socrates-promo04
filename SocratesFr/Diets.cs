@@ -28,6 +28,8 @@ namespace SocratesFr
     public enum Diet
     {
         VEGETARIAN,
-        VEGAN
+        VEGAN,
+        PESCATARIAN,
+        DEFAULT
     }
 }
