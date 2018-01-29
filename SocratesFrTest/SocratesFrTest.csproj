@@ -15,4 +15,8 @@
     <ProjectReference Include="..\SocratesFr\SocratesFr.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SocratesBDD\" />
+  </ItemGroup>
+
 </Project>

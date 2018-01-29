@@ -6,34 +6,39 @@ namespace SocratesFr.CandidateManagement
     public class Candidate
     {
         
-        public Candidate(string name, string mail)
+        public Candidate(string name, Email email)
         {
             this.Name = name;
-            this.Mail = mail;
+            this.Email = email;
         }
-
+        
         public string Name { get; }
-        public string Mail { get; }
+        public Email Email { get; }
+
+        protected bool Equals(Candidate other)
+        {
+            return string.Equals(Name, other.Name) && Equals(Email, other.Email);
+        }
 
         public override bool Equals(object obj)
         {
-            var candidate = obj as Candidate;
-            return candidate != null &&
-                   Name == candidate.Name &&
-                   Mail == candidate.Mail;
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Candidate) obj);
         }
 
         public override int GetHashCode()
         {
-            var hashCode = 1938941508;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Mail);
-            return hashCode;
+            unchecked
+            {
+                return ((Name != null ? Name.GetHashCode() : 0) * 397) ^ (Email != null ? Email.GetHashCode() : 0);
+            }
         }
 
-        public bool HasSameMail(Candidate candidate)
+        public bool HasSameEmail(Candidate candidate)
         {
-            return Mail.Equals(candidate.Mail);
+            return Email.Equals(candidate.Email);
         }
     }
 }
