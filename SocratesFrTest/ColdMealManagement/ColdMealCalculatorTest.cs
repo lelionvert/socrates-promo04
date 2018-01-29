@@ -14,32 +14,7 @@ namespace SocratesFrTest.ColdMealManagement
         }
 
         [Test]
-        public void Calculate_With_No_Check_In()
-        {
-            IKitchen stubAvailableColdMeal = new StubAvailableColdMeal();
-            ColdMealCalculator coldMealCalculator = new ColdMealCalculator(stubAvailableColdMeal);
-            Check.That(coldMealCalculator.Calculate(CheckInsGenerator())).IsEqualTo(0);
-        }
-
-        [Test]
-        public void Calculate_With_One_Check_In_In_Range()
-        {
-            IKitchen stubAvailableColdMeal = new StubAvailableColdMeal();
-            ColdMealCalculator coldMealCalculator = new ColdMealCalculator(stubAvailableColdMeal);
-            Check.That(coldMealCalculator.Calculate(CheckInsGenerator(new DateTime(2018, 1, 25, 22, 0, 0))))
-                .IsEqualTo(1);
-        }
-
-        [Test]
-        public void Calculate_With_Two_Check_Ins_In_Range()
-        {
-            IKitchen stubAvailableColdMeal = new StubAvailableColdMeal();
-            ColdMealCalculator coldMealCalculator = new ColdMealCalculator(stubAvailableColdMeal);
-            Check.That(coldMealCalculator.Calculate(CheckInsGenerator(new DateTime(2018, 1, 25, 22, 0, 0), new DateTime(2018, 1, 26, 0, 0, 0)))).IsEqualTo(2);
-        }
-
-        [Test]
-        public void Calculate_With_Two_Check_Ins_In_Range_And_One_Out_Of_Range()
+        public void Calculate_With_Available_And_Not_Available_Check_Ins()
         {
             IKitchen kitchenServesNoColdMealAt9Pm = new KitchenServesNoColdMealAt9pm();
             ColdMealCalculator coldMealCalculator = new ColdMealCalculator(kitchenServesNoColdMealAt9Pm);
@@ -54,14 +29,5 @@ namespace SocratesFrTest.ColdMealManagement
             return new DateTime(2018, 1, 25, 21, 0, 0) != dateTime;
         }
     }
-
-    public class StubAvailableColdMeal : IKitchen
-    {
-        public bool HasColdMealAvailableAt(DateTime dateTime)
-        {
-            return true;
-        }
-    }
-
 
 }
