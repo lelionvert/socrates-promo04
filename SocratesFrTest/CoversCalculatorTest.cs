@@ -4,7 +4,7 @@ using SocratesFr;
 
 namespace SocratesFrTest
 {
-    public class DietCalculatorTest
+    public class CoversCalculatorTest
     {
         [Test]
         public void No_Vegetarian_Diet_To_Prepare()
@@ -24,12 +24,21 @@ namespace SocratesFrTest
         }
 
         [Test]
-        public void One__Diet()
+        public void One_Vegan_Diet()
         {
             Diets diets = new Diets();
             diets.Add(Diet.VEGAN);
-            var countVegetarian = diets.countVegan();
+            var countVegetarian = diets.CountVegan();
             Check.That(countVegetarian).IsEqualTo(1);
+        }
+
+        [Test]
+        public void Two_Vegan_Diet()
+        {
+            Diets diets = new Diets();
+            diets.Add(Diet.VEGAN);
+            diets.Add(Diet.VEGAN);
+            Check.That(diets.CountVegan()).IsEqualTo(2);
         }
 
         

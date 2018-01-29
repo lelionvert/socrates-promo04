@@ -24,9 +24,9 @@ namespace SocratesFr
             diets.Add(diet);
         }
 
-        public int countVegan()
+        public int CountVegan()
         {
-            return 1;
+            return diets.Count;
         }
     }
 
