@@ -26,7 +26,7 @@ namespace SocratesFr
 
         public int CountVegan()
         {
-            return diets.Count;
+            return diets.Count(c => Diet.VEGAN.Equals(c));
         }
     }
 
