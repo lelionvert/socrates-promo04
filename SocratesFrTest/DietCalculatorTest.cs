@@ -20,7 +20,16 @@ namespace SocratesFrTest
             Diets diets = new Diets();
             diets.Add(Diet.VEGETARIAN);
             var countVegetarian = diets.CountVegetarian();
-            Check.That(countVegetarian).IsNotEqualTo(1);
+            Check.That(countVegetarian).IsEqualTo(1);
+        }
+
+        [Test]
+        public void One__Diet()
+        {
+            Diets diets = new Diets();
+            diets.Add(Diet.VEGAN);
+            var countVegetarian = diets.countVegan();
+            Check.That(countVegetarian).IsEqualTo(1);
         }
 
         

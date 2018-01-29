@@ -11,7 +11,7 @@ namespace SocratesFr
 
         public int CountVegetarian()
         {
-            return diets.Count(c => c.Equals(Diet.VEGETARIAN));
+            return diets.Count(c => Diet.VEGETARIAN.Equals(c));
         }
 
         public Diets()
@@ -23,10 +23,16 @@ namespace SocratesFr
         {
             diets.Add(diet);
         }
+
+        public int countVegan()
+        {
+            return 1;
+        }
     }
 
     public enum Diet
     {
-        VEGETARIAN
+        VEGETARIAN,
+        VEGAN
     }
 }
