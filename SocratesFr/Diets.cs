@@ -9,9 +9,9 @@ namespace SocratesFr
     {
         private readonly List<Diet> diets;
 
-        public int CountVegetarian()
+        public int CountBy(Diet diet)
         {
-            return diets.Count(c => Diet.VEGETARIAN.Equals(c));
+            return diets.Count(c => diet.Equals(c));
         }
 
         public Diets()
@@ -22,11 +22,6 @@ namespace SocratesFr
         public void Add(Diet diet)
         {
             diets.Add(diet);
-        }
-
-        public int CountVegan()
-        {
-            return diets.Count(c => Diet.VEGAN.Equals(c));
         }
     }
 
