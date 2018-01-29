@@ -15,7 +15,7 @@ namespace SocratesFr.ColdMealManagement
         
         public int Calculate(IList<DateTime> checkIns )
         {
-            return checkIns?.Count(kitchen.HasColdMealAvailableAt) ?? 0;
+            return checkIns.Count(kitchen.HasColdMealAvailableAt);
         }
     }
 }
