@@ -18,6 +18,11 @@ namespace SocratesFr
         {
             this.diets = new List<Diet>();
         }
+
+        public void Add(Diet diet)
+        {
+            diets.Add(diet);
+        }
     }
 
     public enum Diet

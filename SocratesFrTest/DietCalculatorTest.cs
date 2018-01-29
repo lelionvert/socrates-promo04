@@ -1,23 +1,29 @@
 ﻿using NFluent;
 using NUnit.Framework;
 using SocratesFr;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SocratesFr;
 
 namespace SocratesFrTest
 {
     public class DietCalculatorTest
     {
         [Test]
-        public void When_No_Vegetarian_Participant_Return_0()
+        public void No_Vegetarian_Diet_To_Prepare()
         {
             Diets diets = new Diets();
-            Check.That(diets.CountVegetarian()).IsEqualTo(0);
+            var countVegetarian = diets.CountVegetarian();
+            Check.That(countVegetarian).IsEqualTo(0);
         }
+
+        [Test]
+        public void One_Vegetarian_Diet()
+        {
+            Diets diets = new Diets();
+            diets.Add(Diet.VEGETARIAN);
+            var countVegetarian = diets.CountVegetarian();
+            Check.That(countVegetarian).IsNotEqualTo(1);
+        }
+
+        
     }
 
     
