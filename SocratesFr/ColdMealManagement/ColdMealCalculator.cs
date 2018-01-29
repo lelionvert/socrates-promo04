@@ -6,9 +6,9 @@ namespace SocratesFr.ColdMealManagement
 {
     public class ColdMealCalculator
     {
-        private readonly Kitchen kitchen;
+        private readonly IKitchen kitchen;
 
-        public ColdMealCalculator(Kitchen kitchen)
+        public ColdMealCalculator(IKitchen kitchen)
         {
             this.kitchen = kitchen;
         }

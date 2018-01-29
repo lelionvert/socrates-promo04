@@ -2,7 +2,7 @@
 
 namespace SocratesFr.ColdMealManagement
 {
-    public class Kitchen
+    public class Kitchen : IKitchen
     {
         private readonly DateTime coldMealBegin;
         private readonly DateTime coldMealEnd;
