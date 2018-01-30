@@ -19,9 +19,7 @@ namespace SocratesFr.CountCoversByDiet
 
         public int CountCovers(MealTime mealTime, Diet diet)
         {
-            if (mealTime == MealTime.SundayLunch && diet == Diet.Vegan && allMeal != null)
-                return 0;
-            return 1;
+            return 0;
         }
     }
 
