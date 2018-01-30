@@ -12,5 +12,10 @@ namespace SocratesFr.CountCoversByDiet
         {
             return 1;
         }
+
+        public int GetVeganMeal()
+        {
+            return 1;
+        }
     }
 }
