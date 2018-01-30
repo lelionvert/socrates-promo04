@@ -20,7 +20,7 @@ namespace SocratesFr.CountCoversByDiet
         public int CountCovers(MealTime mealTime, Diet diet)
         {
             var expected = new Meal(mealTime, diet);
-            return allMeal?.Count(meal => meal.Equals(expected)) ?? 0;
+            return allMeal?.Count(expected.Equals) ?? 0;
         }
     }
 

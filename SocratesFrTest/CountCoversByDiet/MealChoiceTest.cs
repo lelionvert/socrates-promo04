@@ -8,35 +8,13 @@ namespace SocratesFrTest.CountCoversByDiet
     public class MealChoiceTest
     {
         [Test]
-        public void Should_Count_All_Covers_For_A_Meal_Time_And_Diet()
+        public void Should_Have_0_Cover_With_No_Meal()
         {
             Check.That(new MealChoice().CountCovers(MealTime.SundayLunch, Diet.Vegan)).Equals(0);
         }
 
         [Test]
-        public void Should_Have_No_Vegan_Covers_For_Vegetarian_Diet()
-        {
-            var mealList = new List<Meal>
-            {
-                new Meal(MealTime.SundayLunch, Diet.Vegetarian),
-            };
-            var mealChoice = new MealChoice(mealList);
-            Check.That(mealChoice.CountCovers(MealTime.SundayLunch, Diet.Vegan)).Equals(0);
-        }
-
-        [Test]
-        public void Should_Have_One_Vegetarian_Covers_For_Vegetarian_Diet()
-        {
-            var mealList = new List<Meal>
-            {
-                new Meal(MealTime.SundayLunch, Diet.Vegetarian),
-            };
-            var mealChoice = new MealChoice(mealList);
-            Check.That(mealChoice.CountCovers(MealTime.SundayLunch, Diet.Vegetarian)).Equals(1);
-        }
-
-        [Test]
-        public void Should_Have_Two_Vegetarian_Covers_For_Vegetarian_Diet()
+        public void Should_Have_2_Covers_When_2_Meals()
         {
             var mealList = new List<Meal>
             {
@@ -48,7 +26,19 @@ namespace SocratesFrTest.CountCoversByDiet
         }
 
         [Test]
-        public void Should_Have_One_Vegetarian_Cover_For_Vegetarian_Diet_With_Severals_Diets()
+        public void Should_Have_One_Cover_When_The_Meal_Time_Differ()
+        {
+            var mealList = new List<Meal>
+            {
+                new Meal(MealTime.SundayLunch, Diet.Vegetarian),
+                new Meal(MealTime.FridayLunch, Diet.Vegetarian),
+            };
+            var mealChoice = new MealChoice(mealList);
+            Check.That(mealChoice.CountCovers(MealTime.SundayLunch, Diet.Vegetarian)).Equals(1);
+        }
+
+        [Test]
+        public void Should_Have_One_Cover_When_The_Diet_Differ()
         {
             var mealList = new List<Meal>
             {
