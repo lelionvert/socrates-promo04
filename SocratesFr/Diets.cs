@@ -29,10 +29,10 @@ namespace SocratesFr
             meals.Add(meal);
         }
 
-       /* public int CountDietFor(DateTime mealTime)
+        public int CountDietFor(DateTime mealTime, Diet diet)
         {
-            throw new NotImplementedException();
-        }*/
+            return meals.Count(meal => meal.DateEquals(mealTime) && meal.DietEquals(diet));
+        }
     }
 
     public enum Diet
