@@ -19,9 +19,8 @@ namespace SocratesFr.CountCoversByDiet
 
         public int CountCovers(MealTime mealTime, Diet diet)
         {
-            if (diet == Diet.Vegetarian)
-                return allMeal.Count;
-            return 0;
+            var expected = new Meal(mealTime, diet);
+            return allMeal?.Count(meal => meal.Equals(expected)) ?? 0;
         }
     }
 
