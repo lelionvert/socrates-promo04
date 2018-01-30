@@ -14,7 +14,7 @@ namespace SocratesFrTest.CountCoversByDiet
         }
 
         [Test]
-        public void Should_Have_No_Vegan_Covers_For_A_Vegetarian_Diet()
+        public void Should_Have_No_Vegan_Covers_For_Vegetarian_Diet()
         {
             var mealList = new List<Meal>
             {
@@ -25,7 +25,7 @@ namespace SocratesFrTest.CountCoversByDiet
         }
 
         [Test]
-        public void Should_Have_One_Vegetarian_Covers_For_A_Vegetarian_Diet()
+        public void Should_Have_One_Vegetarian_Covers_For_Vegetarian_Diet()
         {
             var mealList = new List<Meal>
             {
