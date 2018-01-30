@@ -1,5 +1,5 @@
 package fr.lacombe.socratesfr;
 
 public enum Meal {
-    THURSDAY_DINNER
+    FRIDAY_LUNCH, THURSDAY_DINNER
 }
