@@ -47,6 +47,14 @@ public class MealChoicesShould {
         assertEquals(0, numberOfVegetarianMeals);
     }
 
+    @Test
+    public void qsfklqsfhfgh() {
+        MealChoices mealChoices = new MealChoices();
+        mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        int numberOfVegetarianMeals= mealChoices.calculateNumberOfCovers(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        assertEquals(1, numberOfVegetarianMeals);
+    }
+
 
 
 }
