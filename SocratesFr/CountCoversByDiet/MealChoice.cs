@@ -26,7 +26,12 @@ namespace SocratesFr.CountCoversByDiet
 
     public enum MealTime
     {
+        ThursdayDinner,
+        ThursdayColdMeal,
         FridayLunch,
+        FridayDinner,
+        SaturdayLunch,
+        SaturdayDinner,
         SundayLunch,
     }
 
@@ -34,5 +39,7 @@ namespace SocratesFr.CountCoversByDiet
     {
         Vegan,
         Vegetarian,
+        Pescatarian,
+        Default,
     }
 }
