@@ -32,11 +32,21 @@ namespace SocratesFr.CountCoversByDiet
         {
             return 1;
         }
+
+        public int CountCovers(MealTime mealTime, Diet diet)
+        {
+            return GetVeganMeal();
+        }
     }
 
     public enum MealTime
     {
         FridayLunch,
         SundayLunch,
+    }
+
+    public enum Diet
+    {
+        Vegan,
     }
 }
