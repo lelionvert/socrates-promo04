@@ -30,9 +30,12 @@ namespace SocratesFrTest
         public void Various_Diet_Should_Gives_One_Cover_For_One_Date()
         {
             Diets diets = new Diets();
-            diets.Add(Diet.VEGAN);
+            Meal meal = new Meal(new DateTime(2018, 1, 25, 12, 0, 0), Diet.VEGAN);
+            diets.Add(meal);
             Check.That(diets.CountFor(new DateTime(2018, 1, 25, 12, 0, 0))).IsEqualTo(1);
         }
+
+
 
         
     }
