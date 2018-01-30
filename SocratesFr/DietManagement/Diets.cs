@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SocratesFr
+namespace SocratesFr.DietManagement
 {
     public class Diets
     {
@@ -10,7 +9,7 @@ namespace SocratesFr
 
         public int CountBy(Diet diet)
         {
-            return meals.Count(meal => meal.DietEquals(diet));
+            return Enumerable.Count(meals, meal => meal.DietEquals(diet));
         }
 
         public Diets()
@@ -20,7 +19,7 @@ namespace SocratesFr
 
         public int CountFor(MealTime mealTime)
         {
-            return meals.Count(meal => meal.TimeEquals(mealTime));
+            return Enumerable.Count(meals, meal => meal.TimeEquals(mealTime));
         }
 
         public void Add(Meal meal)
@@ -30,7 +29,7 @@ namespace SocratesFr
 
         public int CountDietFor(MealTime mealTime, Diet diet)
         {
-            return meals.Count(meal => meal.Equals(new Meal(mealTime, diet)));
+            return Enumerable.Count(meals, meal => meal.Equals(new Meal(mealTime, diet)));
         }
     }
 

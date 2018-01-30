@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NFluent;
+﻿using NFluent;
 using NUnit.Framework;
-using SocratesFr;
+using SocratesFr.DietManagement;
 
-namespace SocratesFrTest
+namespace SocratesFrTest.DietManagement
 {
     public class Feature
     {

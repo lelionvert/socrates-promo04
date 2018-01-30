@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SocratesFr
+﻿namespace SocratesFr.DietManagement
 {
     public class Meal
     {

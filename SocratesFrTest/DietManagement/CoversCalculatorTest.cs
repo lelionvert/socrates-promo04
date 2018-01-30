@@ -1,9 +1,8 @@
-﻿using System;
-using NFluent;
+﻿using NFluent;
 using NUnit.Framework;
-using SocratesFr;
+using SocratesFr.DietManagement;
 
-namespace SocratesFrTest
+namespace SocratesFrTest.DietManagement
 {
     public class CoversCalculatorTest
     {
