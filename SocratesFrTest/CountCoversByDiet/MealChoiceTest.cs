@@ -17,5 +17,11 @@ namespace SocratesFrTest.CountCoversByDiet
         {
             Check.That(new MealChoice().GetVeganMeal()).Equals(1);
         }
+
+        [Test]
+        public void Should_Count_All_Pescatarian_Meal()
+        {
+            Check.That(new MealChoice().GetPescatarianMeal()).Equals(1);
+        }
     }
 }

@@ -17,5 +17,10 @@ namespace SocratesFr.CountCoversByDiet
         {
             return 1;
         }
+
+        public int GetPescatarianMeal()
+        {
+            return 1;
+        }
     }
 }
