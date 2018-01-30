@@ -34,5 +34,17 @@ namespace SocratesFrTest.CountCoversByDiet
             var mealChoice = new MealChoice(mealList);
             Check.That(mealChoice.CountCovers(MealTime.SundayLunch, Diet.Vegetarian)).Equals(1);
         }
+
+        [Test]
+        public void Should_Have_Two_Vegetarian_Covers_For_Vegetarian_Diet()
+        {
+            var mealList = new List<Meal>
+            {
+                new Meal(MealTime.SundayLunch, Diet.Vegetarian),
+                new Meal(MealTime.SundayLunch, Diet.Vegetarian),
+            };
+            var mealChoice = new MealChoice(mealList);
+            Check.That(mealChoice.CountCovers(MealTime.SundayLunch, Diet.Vegetarian)).Equals(2);
+        }
     }
 }
