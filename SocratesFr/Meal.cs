@@ -17,5 +17,10 @@ namespace SocratesFr
         {
             return mealTime.Equals(dateTime);
         }
+
+        public bool DietEquals(Diet otherDiet)
+        {
+            return diet.Equals(otherDiet);
+        }
     }
 }

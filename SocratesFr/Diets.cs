@@ -7,23 +7,16 @@ namespace SocratesFr
 {
     public class Diets
     {
-        private readonly List<Diet> diets;
         private readonly List<Meal> meals;
 
         public int CountBy(Diet diet)
         {
-            return diets.Count(c => diet.Equals(c));
+            return meals.Count(meal => meal.DietEquals(diet));
         }
 
         public Diets()
         {
-            this.diets = new List<Diet>();
             this.meals = new List<Meal>();
-        }
-
-        public void Add(Diet diet)
-        {
-            diets.Add(diet);
         }
 
         public int CountFor(DateTime mealTime)
@@ -35,6 +28,11 @@ namespace SocratesFr
         {
             meals.Add(meal);
         }
+
+       /* public int CountDietFor(DateTime mealTime)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 
     public enum Diet
