@@ -23,6 +23,11 @@ namespace SocratesFr
         {
             diets.Add(diet);
         }
+
+        public int CountFor(DateTime mealTime)
+        {
+            return 0;
+        }
     }
 
     public enum Diet

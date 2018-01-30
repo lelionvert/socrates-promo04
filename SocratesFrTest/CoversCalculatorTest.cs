@@ -1,4 +1,5 @@
-﻿using NFluent;
+﻿using System;
+using NFluent;
 using NUnit.Framework;
 using SocratesFr;
 
@@ -16,6 +17,13 @@ namespace SocratesFrTest
             diets.Add(Diet.DEFAULT);
             diets.Add(Diet.PESCATARIAN);
             Check.That(diets.CountBy(Diet.VEGAN)).IsEqualTo(2);
+        }
+
+        [Test]
+        public void No_Diets_For_One_Date_Gives_No_Cover()
+        {
+            Diets diets = new Diets();
+            Check.That(diets.CountFor(new DateTime(2018, 1, 25, 12, 0, 0))).IsEqualTo(0);
         }
 
         
