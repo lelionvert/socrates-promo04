@@ -26,7 +26,7 @@ namespace SocratesFr
 
         public int CountFor(DateTime mealTime)
         {
-            return 0;
+            return diets.Count;
         }
     }
 
