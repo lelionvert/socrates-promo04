@@ -95,6 +95,16 @@ public class MealChoicesShould {
         assertEquals(2, numberOfVegetarianMeals);
     }
 
+    @Test
+    public void giveOneVegetarianCoverForThursdayDinnerWhenMultipleMealChoices() {
+        MealChoices mealChoices = new MealChoices();
+        mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        mealChoices.add(Diet.VEGETARIAN, Meal.THURSDAY_DINNER);
+        mealChoices.add(Diet.VEGAN, Meal.FRIDAY_LUNCH);
+        int numberOfVegetarianMeals = mealChoices.calculateNumberOfCovers(Diet.VEGETARIAN, Meal.THURSDAY_DINNER);
+        assertEquals(1, numberOfVegetarianMeals);
+    }
 
 
 
