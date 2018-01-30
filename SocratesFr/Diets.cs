@@ -20,7 +20,7 @@ namespace SocratesFr
 
         public int CountFor(MealTime mealTime)
         {
-            return meals.Count(meal => meal.DateEquals(mealTime));
+            return meals.Count(meal => meal.TimeEquals(mealTime));
         }
 
         public void Add(Meal meal)
@@ -30,7 +30,7 @@ namespace SocratesFr
 
         public int CountDietFor(MealTime mealTime, Diet diet)
         {
-            return meals.Count(meal => meal.DateEquals(mealTime) && meal.DietEquals(diet));
+            return meals.Count(meal => meal.Equals(new Meal(mealTime, diet)));
         }
     }
 

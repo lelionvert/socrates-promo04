@@ -4,8 +4,8 @@ namespace SocratesFr
 {
     public class Meal
     {
-        private Diet diet;
-        private MealTime mealTime;
+        private readonly Diet diet;
+        private readonly MealTime mealTime;
 
         public Meal(MealTime mealTime, Diet diet)
         {
@@ -13,7 +13,7 @@ namespace SocratesFr
             this.mealTime = mealTime;
         }
 
-        public bool DateEquals(MealTime mealTime)
+        public bool TimeEquals(MealTime mealTime)
         {
             return this.mealTime.Equals(mealTime);
         }
@@ -21,6 +21,22 @@ namespace SocratesFr
         public bool DietEquals(Diet otherDiet)
         {
             return diet.Equals(otherDiet);
+        }
+
+        public override bool Equals(object obj)
+        {
+            var meal = obj as Meal;
+            return meal != null &&
+                   diet == meal.diet &&
+                   mealTime == meal.mealTime;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1394453298;
+            hashCode = hashCode * -1521134295 + diet.GetHashCode();
+            hashCode = hashCode * -1521134295 + mealTime.GetHashCode();
+            return hashCode;
         }
     }
 
