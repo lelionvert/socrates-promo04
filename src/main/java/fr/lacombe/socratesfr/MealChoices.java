@@ -17,7 +17,7 @@ public class MealChoices {
     }
 
     public void add(Diet diet, Meal meal) {
-        if (diet == Diet.VEGETARIAN)
+        if ((meal == Meal.FRIDAY_LUNCH)&& (diet == Diet.VEGETARIAN))
             vegetarianCovers++;
         else {
             veganCovers++;

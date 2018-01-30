@@ -56,6 +56,16 @@ public class MealChoicesShould {
     }
 
     @Test
+    public void giveOneVeganCoverWhenTwoVegetarianDietsAndOneVeganDietForFridayLunch() {
+        MealChoices mealChoices = new MealChoices();
+        mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        mealChoices.add(Diet.VEGAN, Meal.FRIDAY_LUNCH);
+        int numberOfVeganMeals = mealChoices.calculateNumberOfCovers(Diet.VEGAN, Meal.FRIDAY_LUNCH);
+        assertEquals(1, numberOfVeganMeals);
+    }
+
+    @Test
     public void giveOneCoverWhenOneVegetarianDietAndOneVeganDietForFridayLunch() {
         MealChoices mealChoices = new MealChoices();
         mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
@@ -75,14 +85,17 @@ public class MealChoicesShould {
     }
 
     @Test
-    public void giveOneVeganCoverWhenTwoVegetarianDietsAndOneVeganDietForFridayLunch() {
+    public void giveTwoVegetarianCoversForFridayLunchWhenAlsoOneVegetarianForThursdayDinner() {
         MealChoices mealChoices = new MealChoices();
         mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
         mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        mealChoices.add(Diet.VEGETARIAN, Meal.THURSDAY_DINNER);
         mealChoices.add(Diet.VEGAN, Meal.FRIDAY_LUNCH);
-        int numberOfVeganMeals = mealChoices.calculateNumberOfCovers(Diet.VEGAN, Meal.FRIDAY_LUNCH);
-        assertEquals(1, numberOfVeganMeals);
+        int numberOfVegetarianMeals = mealChoices.calculateNumberOfCovers(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        assertEquals(2, numberOfVegetarianMeals);
     }
+
+
 
 
 }
