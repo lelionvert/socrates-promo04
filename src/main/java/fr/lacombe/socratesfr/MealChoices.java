@@ -10,11 +10,11 @@ public class MealChoices {
         return (int) diets.stream().filter(Diet.VEGETARIAN::equals).count();
     }
 
-    public int calculateNumberOfCovers(Diet vegetarian, Meal fridayLunch) {
+    public int calculateNumberOfCovers(Diet diet, Meal meal) {
         return numberOfCovers;
     }
 
-    public void add(Diet vegetarian, Meal fridayLunch) {
-        numberOfCovers++;
+    public void add(Diet diet, Meal meal) {
+        numberOfCovers=1;
     }
 }

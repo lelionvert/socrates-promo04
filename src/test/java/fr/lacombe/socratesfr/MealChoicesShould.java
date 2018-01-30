@@ -41,16 +41,25 @@ public class MealChoicesShould {
     }
 
     @Test
-    public void giveZeroCoversWhenNoDietChoiceHasBeenMadeForFridayLunch() {
+    public void giveZeroCoversWhenNoDietChoiceForFridayLunch() {
         MealChoices mealChoices = new MealChoices();
         int numberOfVegetarianMeals= mealChoices.calculateNumberOfCovers(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
         assertEquals(0, numberOfVegetarianMeals);
     }
 
     @Test
-    public void qsfklqsfhfgh() {
+    public void giveOneCoverWhenOneVegetarianDietForFridayLunch() {
         MealChoices mealChoices = new MealChoices();
         mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        int numberOfVegetarianMeals= mealChoices.calculateNumberOfCovers(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        assertEquals(1, numberOfVegetarianMeals);
+    }
+
+    @Test
+    public void giveOneCoverWhenOneVegetarianDietAndOneVeganDietForFridayLunch() {
+        MealChoices mealChoices = new MealChoices();
+        mealChoices.add(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
+        mealChoices.add(Diet.VEGAN, Meal.FRIDAY_LUNCH);
         int numberOfVegetarianMeals= mealChoices.calculateNumberOfCovers(Diet.VEGETARIAN, Meal.FRIDAY_LUNCH);
         assertEquals(1, numberOfVegetarianMeals);
     }
