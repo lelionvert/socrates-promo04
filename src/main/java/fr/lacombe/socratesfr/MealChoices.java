@@ -1,30 +1,22 @@
 package fr.lacombe.socratesfr;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MealChoices {
 
-    private int vegetarianCovers = 0;
-    private int vegeThursdayCovers;
-    private int veganCovers;
-
-    public static int calculateNumberOfVegetarianMeals(List<Diet> diets, Meal tuesdayDinner) {
-        return (int) diets.stream().filter(Diet.VEGETARIAN::equals).count();
+    public MealChoices() {
+        this.choices = new ArrayList<>();
     }
 
-    public int calculateNumberOfCovers(Diet diet, Meal meal) {
-        if (diet == Diet.VEGAN) return veganCovers;
-        if(meal == Meal.THURSDAY_DINNER) return vegeThursdayCovers;
-        return vegetarianCovers;
-    }
+    private List<MealChoice> choices;
 
-    public void add(Diet diet, Meal meal) {
-        if ((meal == Meal.FRIDAY_LUNCH)&& (diet == Diet.VEGETARIAN))
-            vegetarianCovers++;
-        else if (meal == Meal.THURSDAY_DINNER){
-            vegeThursdayCovers++;
-        } else {
-                veganCovers++;
-        }
+    public void add(MealChoice mealChoice) {
+        choices.add(mealChoice);
+    } 
+
+    public int calculateNumberOfCovers(Meal meal, Diet diet) {
+        return (int)choices.stream().filter(p->p.getMeal().equals(meal))
+                                    .filter(p->p.getDiet().equals(diet)).count();
     }
 }
