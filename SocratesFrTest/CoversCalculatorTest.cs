@@ -7,8 +7,8 @@ namespace SocratesFrTest
 {
     public class CoversCalculatorTest
     {
-        private static DateTime THURSDAY_EVENING = new DateTime(2018, 1, 25, 19, 0, 0);
-        private static DateTime FRIDAY_LUNCH = new DateTime(2018, 1, 26, 12, 0, 0);
+        private static MealTime THURSDAY_EVENING = MealTime.THURSDAY_EVENING;
+        private static MealTime FRIDAY_LUNCH = MealTime.FRIDAY_LUNCH;
 
         [Test]
         public void Various_Diets_Should_Gives_Two_Vegan_Covers()
@@ -51,7 +51,7 @@ namespace SocratesFrTest
             Check.That(diets.CountDietFor(THURSDAY_EVENING,Diet.VEGAN)).IsEqualTo(1);
         }
 
-
+       
 
 
     }

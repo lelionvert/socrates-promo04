@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace SocratesFr
@@ -19,7 +18,7 @@ namespace SocratesFr
             this.meals = new List<Meal>();
         }
 
-        public int CountFor(DateTime mealTime)
+        public int CountFor(MealTime mealTime)
         {
             return meals.Count(meal => meal.DateEquals(mealTime));
         }
@@ -29,17 +28,11 @@ namespace SocratesFr
             meals.Add(meal);
         }
 
-        public int CountDietFor(DateTime mealTime, Diet diet)
+        public int CountDietFor(MealTime mealTime, Diet diet)
         {
             return meals.Count(meal => meal.DateEquals(mealTime) && meal.DietEquals(diet));
         }
     }
 
-    public enum Diet
-    {
-        VEGETARIAN,
-        VEGAN,
-        PESCATARIAN,
-        DEFAULT
-    }
+    
 }
