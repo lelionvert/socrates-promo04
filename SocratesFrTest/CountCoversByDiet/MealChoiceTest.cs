@@ -14,7 +14,7 @@ namespace SocratesFrTest.CountCoversByDiet
         }
 
         [Test]
-        public void Should_Have_2_Covers_When_2_Meals()
+        public void Should_Have_2_Covers_When_2_Same_Meals()
         {
             var mealList = new List<Meal>
             {
@@ -26,7 +26,7 @@ namespace SocratesFrTest.CountCoversByDiet
         }
 
         [Test]
-        public void Should_Have_One_Cover_When_The_Meal_Time_Differ()
+        public void Should_Have_1_Cover_When_The_Meal_Time_Differ()
         {
             var mealList = new List<Meal>
             {
@@ -38,7 +38,7 @@ namespace SocratesFrTest.CountCoversByDiet
         }
 
         [Test]
-        public void Should_Have_One_Cover_When_The_Diet_Differ()
+        public void Should_Have_1_Cover_When_The_Diet_Differ()
         {
             var mealList = new List<Meal>
             {
