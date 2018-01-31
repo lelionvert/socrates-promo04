@@ -1,6 +1,5 @@
 package fr.lacombe.socratesfr;
 
 public enum Diet {
-    VEGAN, VEGETARIAN
-
+    VEGAN, DEFAULT, PESCATARIAN, VEGETARIAN
 }
