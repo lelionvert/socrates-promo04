@@ -11,12 +11,12 @@
             this.mealTime = mealTime;
         }
 
-        public bool TimeEquals(MealTime mealTime)
+        public bool Equals(MealTime mealTime)
         {
             return this.mealTime.Equals(mealTime);
         }
 
-        public bool DietEquals(Diet otherDiet)
+        public bool Equals(Diet otherDiet)
         {
             return diet.Equals(otherDiet);
         }
