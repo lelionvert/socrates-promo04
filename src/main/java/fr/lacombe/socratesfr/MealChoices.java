@@ -13,10 +13,10 @@ public class MealChoices {
 
     public void add(MealChoice mealChoice) {
         choices.add(mealChoice);
-    } 
+    }
 
     public int calculateNumberOfCovers(Meal meal, Diet diet) {
-        return (int)choices.stream().filter(p->p.getMeal().equals(meal))
-                                    .filter(p->p.getDiet().equals(diet)).count();
+        return (int)choices.stream().filter(p-> p.getMeal() == meal)
+                                    .filter(p-> p.getDiet() == diet).count();
     }
 }
