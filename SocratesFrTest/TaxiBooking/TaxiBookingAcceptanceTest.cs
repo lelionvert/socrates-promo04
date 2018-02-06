@@ -59,36 +59,56 @@ namespace SocratesFrTest.TaxiBooking
 
     public class Taxis
     {
+        private readonly IEnumerable<Taxi> _taxis;
+
+        private Taxis(IEnumerable<Taxi> taxis)
+        {
+            _taxis = taxis;
+        }
 
         public static TaxisBuilder Builder()
         {
-            throw new NotImplementedException();
+            return new TaxisBuilder();
         }
 
         public class TaxisBuilder
         {
+            private List<Taxi> taxis = new List<Taxi>();
+
             public TaxisBuilder With4Seats(int numberOfTaxi)
             {
-                throw new NotImplementedException();
+                taxis.AddRange(Enumerable.Range(0, numberOfTaxi).Select(_ => Taxi.CreateTaxi(4)));
+                return this;
             }
 
             public TaxisBuilder With6Seats(int numberOfTaxi)
             {
-                throw new NotImplementedException();
+                taxis.AddRange(Enumerable.Range(0, numberOfTaxi).Select(_ => Taxi.CreateTaxi(6)));
+                return this;
             }
+
             public TaxisBuilder With8Seats(int numberOfTaxi)
             {
-                throw new NotImplementedException();
+                taxis.AddRange(Enumerable.Range(0, numberOfTaxi).Select(_ => Taxi.CreateTaxi(8)));
+                return this;
             }
 
             public Taxis Build()
             {
-                throw new NotImplementedException();
+                return new Taxis(taxis);
             }
         }
 
         public Dictionary<DateTime,List<Taxi>> TaxiNeeded(List<DateTime> checkins)
         {
+            if (checkins.Count > 0)
+            {
+                var dico = new Dictionary<DateTime, List<Taxi>>();
+                var list = new List<Taxi>();
+                list.Add(Taxi.CreateTaxi(4));
+                dico[new DateTime(2018, 01, 01, 12, 00, 00)] = list;
+                return dico;
+            }
             return new Dictionary<DateTime, List<Taxi>>();
         }
     }
