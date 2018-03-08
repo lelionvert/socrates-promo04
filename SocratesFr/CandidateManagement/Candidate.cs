@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocratesFr.PriceCalculation;
+using System;
 using System.Collections.Generic;
 
 namespace SocratesFr.CandidateManagement
@@ -10,10 +11,12 @@ namespace SocratesFr.CandidateManagement
         {
             this.Name = name;
             this.Email = email;
+            this.accommodation = Accommodation.NO_ACCOMMODATION;
         }
         
         public string Name { get; }
         public Email Email { get; }
+        public Accommodation accommodation { get; set; }
 
         protected bool Equals(Candidate other)
         {
@@ -39,6 +42,11 @@ namespace SocratesFr.CandidateManagement
         public bool HasSameEmail(Candidate candidate)
         {
             return Email.Equals(candidate.Email);
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Email.ToString()} - {accommodation.ToString()}";
         }
     }
 }

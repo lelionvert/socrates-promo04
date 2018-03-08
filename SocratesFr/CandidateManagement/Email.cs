@@ -36,5 +36,10 @@ namespace SocratesFr.CandidateManagement
         {
             return (Address != null ? Address.GetHashCode() : 0);
         }
+
+        public override string ToString()
+        {
+            return Address;
+        }
     }
 }

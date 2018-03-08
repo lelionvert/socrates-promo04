@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace SocratesFrCandidateManagement
+﻿namespace SocratesFr
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SocratesFrConsoleRunner socrates = new SocratesFrConsoleRunner();
+            socrates.Run();
         }
     }
 }
